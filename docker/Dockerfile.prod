@@ -5,7 +5,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
-ENV HUSKY=0 # to prevent husky from being executed in production
+# To prevent husky from being executed in production
+ENV HUSKY=0
 
 RUN npm ci
 
@@ -22,7 +23,8 @@ WORKDIR /app
 COPY --from=builder /app/.output ./.output
 COPY --from=builder /app/package*.json ./
 
-ENV HUSKY=0 # to prevent husky from being executed in production
+# To prevent husky from being executed in production
+ENV HUSKY=0
 
 RUN npm ci --only=production
 
