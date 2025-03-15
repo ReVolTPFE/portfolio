@@ -1,17 +1,62 @@
+<script setup lang="ts">
+const currentYear = new Date().getFullYear();
+
+const openMobileNav = ref(false);
+
+function toggleMobileNav() {
+	openMobileNav.value = !openMobileNav.value;
+}
+</script>
+
 <template>
-	<div>
-		<header>
-			<NuxtLink to="/#profile">Profil</NuxtLink>
-			<NuxtLink to="/#skills">Compétences</NuxtLink>
-			<NuxtLink to="/portfolio">Portfolio</NuxtLink>
-			<NuxtLink to="/#career">Parcours</NuxtLink>
-			<NuxtLink to="/#contact">Contact</NuxtLink>
+	<div class="w-full flex flex-col min-h-screen">
+		<header class="fixed top-0 h-16 shadow-md z-50 w-full bg-white">
+			<div class="flex justify-between items-center container h-full mx-auto px-6 lg:px-8">
+				<NuxtLink to="/" class="font-logo text-4xl text-primary pt-2">AS</NuxtLink>
+
+				<nav class="hidden md:flex space-x-6 text-gray-text font-medium">
+					<NuxtLink to="/#profile" class="hover-primary">Profil</NuxtLink>
+					<NuxtLink to="/#skills" class="hover-primary">Compétences</NuxtLink>
+					<NuxtLink to="/portfolio" class="hover-primary">Portfolio</NuxtLink>
+					<NuxtLink to="/#career" class="hover-primary">Parcours</NuxtLink>
+					<NuxtLink to="/#contact" class="hover-primary">Contact</NuxtLink>
+				</nav>
+
+				<div class="hidden md:block hover-primary"><!-- Language system to integrate --></div>
+
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-8 w-8 md:hidden text-gray-text hover-primary"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					@click="toggleMobileNav"
+				><path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M4 6h16M4 12h16M4 18h16"
+				/></svg>
+			</div>
+
+			<nav
+				class="md:hidden bg-white border-t flex flex-col space-y-2 p-2 text-gray-text font-medium"
+				:class="openMobileNav ? '' : 'hidden'"
+			>
+				<NuxtLink to="/#profile" class="hover-primary">Profil</NuxtLink>
+				<NuxtLink to="/#skills" class="hover-primary">Compétences</NuxtLink>
+				<NuxtLink to="/portfolio" class="hover-primary">Portfolio</NuxtLink>
+				<NuxtLink to="/#career" class="hover-primary">Parcours</NuxtLink>
+				<NuxtLink to="/#contact" class="hover-primary">Contact</NuxtLink>
+			</nav>
 		</header>
 
-		<main>
+		<main class="z-0 flex flex-col flex-1">
 			<slot/>
 		</main>
 
-		<footer/>
+		<footer class="bg-gray-blue text-white text-center py-6">
+			<p>Arnaud Steiner - Tous droits réservés - {{ currentYear }}</p>
+		</footer>
 	</div>
 </template>

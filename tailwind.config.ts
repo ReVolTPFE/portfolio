@@ -8,6 +8,15 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+				primary: '#0063c7',
+				// primary: "#0599ff",
+				secondary: '#e84e24',
+				gray: {
+					text: '#545d6b',
+					light: '#adb1b9',
+					dark: '#18212f',
+					blue: '#111827',
+				},
 
 			},
 			borderColor: {
