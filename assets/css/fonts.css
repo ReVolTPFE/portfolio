@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins/Poppins-Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    font-family: "Poppins", "ui-sans-serif";
+}
+
+@font-face {
+    font-family: "sakana";
+    src: url("../fonts/sakana/Sakana.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+.font-logo {
+    font-family: "sakana", "ui-sans-serif";
+}
