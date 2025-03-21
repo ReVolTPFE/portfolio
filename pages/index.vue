@@ -1,6 +1,6 @@
 <script setup lang="ts">
-
-import HeroSection from '~/components/HeroSection.vue';
+import HeroSection from '~/components/sections/HeroSection.vue';
+import ProfileSection from '~/components/sections/ProfileSection.vue';
 </script>
 
 <template>
@@ -9,15 +9,11 @@ import HeroSection from '~/components/HeroSection.vue';
 
 		<HeroSection />
 
+		<ProfileSection />
+
 		<div id="profile"/>
 		<div id="skills"/>
 		<div id="career"/>
 		<div id="contact"/>
-		<NuxtLink
-			to="/"
-			class="font-logo block text-center text-8xl mt-8 mx-24
-		 text-primary p-16 border-2 border-black"
-		>AS</NuxtLink>
-
 	</div>
 </template>
