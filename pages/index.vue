@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HeroSection from '~/components/sections/HeroSection.vue';
 import ProfileSection from '~/components/sections/ProfileSection.vue';
+import SkillsSection from '~/components/sections/SkillsSection.vue';
 </script>
 
 <template>
@@ -11,9 +12,9 @@ import ProfileSection from '~/components/sections/ProfileSection.vue';
 
 		<ProfileSection />
 
-		<div id="profile"/>
-		<div id="skills"/>
-		<div id="career"/>
+		<SkillsSection />
+
+		<div id="career" class="h-64" />
 		<div id="contact"/>
 	</div>
 </template>
