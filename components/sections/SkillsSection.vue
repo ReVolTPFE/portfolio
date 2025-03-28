@@ -5,57 +5,66 @@ import SkillsCategory from '~/components/SkillsCategory.vue';
 const frontendSkills = [
 	{
 		name: 'HTML/Twig',
-		image: '',
+		image: [
+			'/img/logos/HTML.webp',
+			'/img/logos/Twig.webp'
+		],
 	},
 	{
-		name: 'SCSS/Tailwind',
-		image: '',
+		name: 'SASS/Tailwind',
+		image: [
+			'/img/logos/Sass.webp',
+			'/img/logos/TailwindCSS.webp'
+		],
 	},
 	{
 		name: 'JavaScript',
-		image: '',
+		image: '/img/logos/JavaScript.webp',
 	},
 	{
 		name: 'VueJS/NuxtJS',
-		image: '',
+		image: [
+			'/img/logos/VueJS.webp',
+			'/img/logos/NuxtJS.webp'
+		],
 	},
 ];
 
 const backendSkills = [
 	{
 		name: 'PHP',
-		image: '',
+		image: '/img/logos/PHP.webp',
 	},
 	{
 		name: 'Symfony',
-		image: '',
+		image: '/img/logos/Symfony.webp',
 	},
 	{
-		name: 'SQL',
-		image: '',
+		name: 'MySQL',
+		image: '/img/logos/MySQL.webp',
 	},
 	{
 		name: 'TypeScript',
-		image: '',
+		image: '/img/logos/TypeScript.webp',
 	},
 ];
 
 const otherSkills = [
 	{
 		name: 'Git',
-		image: '',
+		image: '/img/logos/Git.webp',
 	},
 	{
 		name: 'Docker',
-		image: '',
+		image: '/img/logos/Docker.webp',
 	},
 	{
 		name: 'CI/CD',
-		image: '',
+		image: '/img/logos/CICD.webp',
 	},
 	{
 		name: 'Linux',
-		image: '',
+		image: '/img/logos/Linux.webp',
 	},
 ];
 </script>
@@ -67,5 +76,9 @@ const otherSkills = [
 		<SkillsCategory title="Frontend" :skills="frontendSkills" />
 		<SkillsCategory title="Backend" :skills="backendSkills" :inverted="true" />
 		<SkillsCategory title="Autres" :skills="otherSkills" />
+
+		<div class="flex justify-center">
+			<NuxtLink to="portfolio" class="text-center py-3 px-6 bg-primary rounded-xl inline-block text-white">Voir mon travail <Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" /></NuxtLink>
+		</div>
 	</section>
 </template>

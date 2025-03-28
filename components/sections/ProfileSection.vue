@@ -30,7 +30,7 @@ const currentAge = currentYear - 2002;
 				<p>
 					Ayant déjà passé 4 années d'alternance dans différentes entreprises et agences web, je sais travailler
 					en équipe et communiquer avec les clients comme les collaborateurs internes. C'est à l'aide de ces expériences,
-					que je continue d'apprendre et de me perfectionner jour après jour.
+					que je continue d'apprendre et de me perfectionner chaque jour.
 				</p>
 
 				<div class="flex justify-center">
