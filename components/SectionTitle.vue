@@ -1,7 +1,13 @@
 <script setup lang="ts">
 const props = defineProps({
-	title: String,
-	subtitle: String
+	title: {
+		type: String,
+		required: true
+	},
+	subtitle: {
+		type: String,
+		required: true
+	}
 });
 </script>
 

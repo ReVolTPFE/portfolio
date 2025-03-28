@@ -6,8 +6,8 @@ const currentAge = currentYear - 2002;
 </script>
 
 <template>
-	<section id="profile-section" class="section-spacing">
-		<SectionTitle title="Qui suis-je ?" subtitle="Who am I ?" />
+	<section id="profile" class="section-spacing">
+		<SectionTitle title="Qui suis-je ?" subtitle="Mon profil" />
 
 		<div class="grid grid-cols-4 gap-4">
 			<div class="col-span-4 sm:col-start-2 sm:col-end-4 lg:col-span-1 bg-primary text-white rounded-xl p-4 space-y-4">
@@ -19,17 +19,23 @@ const currentAge = currentYear - 2002;
 			</div>
 			<div class="col-span-4 lg:col-span-3 p-4 space-y-4 my-auto">
 				<p>Je suis passionné de programmation web depuis mes 16 ans, où j'ai commencé à apprendre en autodidacte.</p>
+
 				<p>
 					A travers les années, j'ai pu effectuer de nombreux
 					<NuxtLink to="portfolio" class="text-primary font-bold">projets personnels et pour des associations</NuxtLink>,
 					toujours en privilégiant la qualité et la satisfaction des utilisateurs. Je me sers de mes projets
 					comme d'un bac à sable pour me former constamment aux nouvelles évolutions technologiques.
 				</p>
+
 				<p>
 					Ayant déjà passé 4 années d'alternance dans différentes entreprises et agences web, je sais travailler
 					en équipe et communiquer avec les clients comme les collaborateurs internes. C'est à l'aide de ces expériences,
-					que je continue d'apprendre et de me perfectionner jour après jour.
+					que je continue d'apprendre et de me perfectionner chaque jour.
 				</p>
+
+				<div class="flex justify-center">
+					<NuxtLink to="/#contact" class="px-4 py-3 rounded-xl bg-secondary text-white">Me contacter</NuxtLink>
+				</div>
 			</div>
 		</div>
 	</section>
