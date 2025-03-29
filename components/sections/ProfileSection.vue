@@ -34,7 +34,7 @@ const currentAge = currentYear - 2002;
 				</p>
 
 				<div class="mt-4">
-					<NuxtLink to="/#contact" class="inline-block px-4 py-3 rounded-xl bg-secondary text-white">Me contacter</NuxtLink>
+					<NuxtLink to="/#contact" class="inline-block px-6 py-3 rounded-md bg-secondary text-white">Me contacter <Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" /></NuxtLink>
 				</div>
 			</div>
 		</div>

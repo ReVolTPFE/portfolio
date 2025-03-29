@@ -5,17 +5,19 @@ import SkillsCategory from '~/components/SkillsCategory.vue';
 const frontendSkills = [
 	{
 		name: 'HTML/Twig',
-		image: [
-			'/img/logos/HTML.webp',
-			'/img/logos/Twig.webp'
-		],
+		// image: [
+		// 	'/img/logos/HTML.webp',
+		// 	'/img/logos/Twig.webp'
+		// ],
+		image: '/img/logos/HTML.webp',
 	},
 	{
 		name: 'SASS/Tailwind',
-		image: [
-			'/img/logos/Sass.webp',
-			'/img/logos/TailwindCSS.webp'
-		],
+		// image: [
+		// 	'/img/logos/Sass.webp',
+		// 	'/img/logos/TailwindCSS.webp'
+		// ],
+		image: '/img/logos/TailwindCSS.webp',
 	},
 	{
 		name: 'JavaScript',
@@ -23,10 +25,11 @@ const frontendSkills = [
 	},
 	{
 		name: 'VueJS/NuxtJS',
-		image: [
-			'/img/logos/VueJS.webp',
-			'/img/logos/NuxtJS.webp'
-		],
+		// image: [
+		// 	'/img/logos/VueJS.webp',
+		// 	'/img/logos/NuxtJS.webp'
+		// ],
+		image: '/img/logos/NuxtJS.webp',
 	},
 ];
 
@@ -78,7 +81,7 @@ const otherSkills = [
 		<SkillsCategory title="Autres" :skills="otherSkills" />
 
 		<div class="flex justify-center">
-			<NuxtLink to="portfolio" class="text-center py-3 px-6 bg-primary rounded-xl inline-block text-white">Voir mon travail <Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" /></NuxtLink>
+			<NuxtLink to="portfolio" class="text-center py-3 px-6 bg-primary rounded-md inline-block text-white">Voir mon travail <Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" /></NuxtLink>
 		</div>
 	</section>
 </template>
