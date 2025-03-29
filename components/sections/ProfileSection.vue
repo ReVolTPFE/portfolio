@@ -17,7 +17,7 @@ const currentAge = currentYear - 2002;
 				<p class="flex items-center"><Icon name="solar:diploma-bold" class="text-white mr-4 block w-4 min-w-4" /> Diplôme en ingénierie logicielle en cours</p>
 				<p class="flex items-center"><Icon name="solar:point-on-map-bold" class="text-white mr-4 block w-4 min-w-4" /> Strasbourg</p>
 			</div>
-			<div class="col-span-4 lg:col-span-3 p-4 space-y-4 my-auto">
+			<div class="col-span-4 lg:col-span-3 p-4 pb-0 space-y-4 my-auto">
 				<p>Je suis passionné de programmation web depuis mes 16 ans, où j'ai commencé à apprendre en autodidacte.</p>
 
 				<p>
@@ -33,8 +33,8 @@ const currentAge = currentYear - 2002;
 					que je continue d'apprendre et de me perfectionner chaque jour.
 				</p>
 
-				<div class="flex justify-center">
-					<NuxtLink to="/#contact" class="px-4 py-3 rounded-xl bg-secondary text-white">Me contacter</NuxtLink>
+				<div class="mt-4">
+					<NuxtLink to="/#contact" class="inline-block px-4 py-3 rounded-xl bg-secondary text-white">Me contacter</NuxtLink>
 				</div>
 			</div>
 		</div>
