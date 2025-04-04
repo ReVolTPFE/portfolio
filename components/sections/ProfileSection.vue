@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SectionTitle from '~/components/SectionTitle.vue';
+import LinkButton from '~/components/LinkButton.vue';
 
 const currentYear = new Date().getFullYear();
 const currentAge = currentYear - 2002;
@@ -34,7 +35,7 @@ const currentAge = currentYear - 2002;
 				</p>
 
 				<div class="mt-4">
-					<NuxtLink to="/#contact" class="inline-block px-6 py-3 rounded-md bg-secondary text-white">Me contacter <Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" /></NuxtLink>
+					<LinkButton link="/#contact" bg-color="bg-secondary" text="Me contacter" />
 				</div>
 			</div>
 		</div>

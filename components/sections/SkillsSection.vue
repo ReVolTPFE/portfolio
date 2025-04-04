@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SectionTitle from '~/components/SectionTitle.vue';
 import SkillsCategory from '~/components/SkillsCategory.vue';
+import LinkButton from '~/components/LinkButton.vue';
 
 const frontendSkills = [
 	{
@@ -81,7 +82,7 @@ const otherSkills = [
 		<SkillsCategory title="Autres" :skills="otherSkills" />
 
 		<div class="flex justify-center">
-			<NuxtLink to="portfolio" class="text-center py-3 px-6 bg-primary rounded-md inline-block text-white">Voir mon travail <Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" /></NuxtLink>
+			<LinkButton link="/portfolio" bg-color="bg-primary" text="Voir mon travail" />
 		</div>
 	</section>
 </template>
