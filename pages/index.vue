@@ -8,7 +8,7 @@ import CareerSection from '~/components/sections/CareerSection.vue';
 </script>
 
 <template>
-	<div class="mt-16">
+	<div>
 		<ComingSoon />
 
 		<HeroSection />
