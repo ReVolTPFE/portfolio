@@ -51,7 +51,7 @@ const projects: Project[] = [
 		</div>
 
 		<div class="flex justify-center">
-			<LinkButton link="/portfolio" bg-color="bg-primary" text="Voir tous mes projets" />
+			<LinkButton link="/projects" bg-color="bg-primary" text="Voir tous mes projets" />
 		</div>
 	</section>
 </template>

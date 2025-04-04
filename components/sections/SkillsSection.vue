@@ -82,7 +82,7 @@ const otherSkills = [
 		<SkillsCategory title="Autres" :skills="otherSkills" />
 
 		<div class="flex justify-center">
-			<LinkButton link="/portfolio" bg-color="bg-primary" text="Voir mon travail" />
+			<LinkButton link="/projects" bg-color="bg-primary" text="Voir mon travail" />
 		</div>
 	</section>
 </template>

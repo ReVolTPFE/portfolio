@@ -23,7 +23,7 @@ const currentAge = currentYear - 2002;
 
 				<p>
 					A travers les années, j'ai pu effectuer de nombreux
-					<NuxtLink to="portfolio" class="text-primary font-bold">projets personnels et pour des associations</NuxtLink>,
+					<NuxtLink to="/projects" class="text-primary font-bold">projets personnels et pour des associations</NuxtLink>,
 					toujours en privilégiant la qualité et la satisfaction des utilisateurs. Je me sers de mes projets
 					comme d'un bac à sable pour me former constamment aux nouvelles évolutions technologiques.
 				</p>

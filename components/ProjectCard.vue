@@ -28,7 +28,7 @@ const { project } = defineProps<{ project: Project }>();
 
 			<p class="text-gray-text py-4 text-sm">{{ project.description }}</p>
 
-			<NuxtLink class="text-primary text-sm" :to="`/portfolio/${project.id}`">
+			<NuxtLink class="text-primary text-sm" :to="`/projects/${project.id}`">
 				Voir les détails
 				<Icon name="material-symbols:arrow-right-alt-rounded" class="text-xl align-middle" />
 			</NuxtLink>
