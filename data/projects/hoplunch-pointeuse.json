@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "slug": "hoplunch-pointeuse",
+  "title": "Système de pointeuse - HopLunch",
+  "image": "/img/hoplunch-pointeuse.jpg",
+  "technologies": [
+    "TypeScript",
+    "NuxtJS",
+    "Tailwind",
+    "API PHP / Symfony (API Platform)"
+  ],
+  "tags": [
+    "Développement",
+    "Gestion de projet"
+  ],
+  "date": "2025",
+  "description": "Application de pointage pour les livreurs de HopLunch, permettant de suivre les heures d’arrivée/départ et de centraliser les données de présence.",
+  "feat": "Parler des tests, CICD, deploy shell etc, dire que cest company related donc privé et pas de demo ou code link, parler CDC, réus clients etc, parler projet en sprints etc"
+}

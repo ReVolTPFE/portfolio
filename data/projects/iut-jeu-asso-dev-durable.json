@@ -1,0 +1,12 @@
+{
+  "id": 6,
+  "slug": "iut-jeu-asso-dev-durable",
+  "title": "Jeu Asso Développement Durable",
+  "image": "/img/jeu-dev-durable.jpg",
+  "technologies": "Nuxt 3, TailwindCSS, Canvas",
+  "demoLink": "#",
+  "codeLink": "https://github.com/user/iut-jeu-asso-dev-durable",
+  "category": "Jeu",
+  "date": "2023-11-18",
+  "description": "Jeu éducatif sur les enjeux du développement durable à destination des étudiants."
+}

@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "slug": "dgs-beez-pro",
+  "title": "Beez Pro - DGS Création",
+  "image": "/img/dgs-beez-pro.jpg",
+  "technologies": [
+    "PHP",
+    "Symfony",
+    "Twig",
+    "JavaScript",
+    "SCSS",
+    "API externe"
+  ],
+  "demoLink": "https://beez-pro.com/",
+  "tags": [
+    "Développement",
+    "Gestion de projet"
+  ],
+  "date": "2023 - 2024",
+  "description": "Site web pour une agence d’intérim : gestion des offres via API externe, matching des candidats, et création complète des contrats en ligne pour les entreprises."
+}

@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import SectionTitle from '~/components/SectionTitle.vue';
 import ProjectCard from '~/components/ProjectCard.vue';
-import type {Project} from '~/types/types';
 import LinkButton from '~/components/LinkButton.vue';
+import {trendingProjects} from '~/data/projects';
 
-// on cherche les 3 projets les plus récents uniquement
-const { data: projects } = await useAsyncData<Project[]>('projects', () =>
-	queryCollection('projects')
-		.order('id', 'DESC')
-		.limit(3)
-		.all()
-);
+// on cherche les 3 trending projets uniquement
+const projects = trendingProjects;
 </script>
 
 <template>

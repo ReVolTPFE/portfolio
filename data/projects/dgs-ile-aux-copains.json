@@ -1,0 +1,18 @@
+{
+  "id": 2,
+  "slug": "dgs-ile-aux-copains",
+  "title": "Ile aux Copains - DGS Création",
+  "image": "/img/dgs-ile-aux-copains.jpg",
+  "technologies": [
+    "PHP",
+    "Symfony",
+    "Twig",
+    "JavaScript",
+    "SCSS"
+  ],
+  "tags": [
+    "Développement"
+  ],
+  "date": "2024",
+  "description": "Lancement du développement d'une plateforme de gestion périscolaire."
+}

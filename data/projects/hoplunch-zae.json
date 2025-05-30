@@ -1,0 +1,21 @@
+{
+  "id": 5,
+  "slug": "hoplunch-zae",
+  "title": "Système de gestion des ZAE - HopLunch",
+  "image": "/img/hoplunch-zae.jpg",
+  "technologies": [
+    "PHP",
+    "Symfony",
+    "Twig",
+    "JavaScript",
+    "SCSS",
+    "API externe"
+  ],
+  "tags": [
+    "Développement",
+    "Gestion de projet"
+  ],
+  "date": "2024 - 2025",
+  "description": "Refonte complète du système de gestion des Zones d’Activités Économiques (ZAE) pour HopLunch, incluant la création, l’organisation, le suivi des zones desservies, ainsi que l’ajout de nombreuses fonctionnalités et l’amélioration de l’architecture technique.",
+  "feat": "parler gestion excel, coords gps, tout tout tout détailler"
+}
