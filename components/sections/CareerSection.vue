@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SectionTitle from '~/components/SectionTitle.vue';
-import CareerStep from "~/components/CareerStep.vue";
+import CareerStep from '~/components/CareerStep.vue';
 </script>
 
 <template>
