@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
 	css: ['~/assets/css/main.css'],
-	modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/content'],
+	modules: ['@nuxt/eslint', '@nuxtjs/tailwindcss', '@nuxt/icon'],
 	vite: {
 		server: {
 			host: true,
@@ -24,7 +24,4 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	content: {
-
-	}
 });
