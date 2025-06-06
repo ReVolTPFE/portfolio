@@ -13,6 +13,7 @@ export default {
 				secondary: '#e84e24',
 				gray: {
 					text: '#545d6b',
+					lighter: '#f5f5f5',
 					light: '#adb1b9',
 					dark: '#18212f',
 					darker: '#1f2937',
