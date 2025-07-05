@@ -3,6 +3,7 @@
   "slug": "hoplunch-pointeuse",
   "title": "Système de pointeuse - HopLunch",
   "image": "/img/hoplunch-pointeuse.jpg",
+  "color": "#333",
   "technologies": [
     "TypeScript",
     "NuxtJS",

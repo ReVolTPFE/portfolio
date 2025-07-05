@@ -3,6 +3,7 @@
   "slug": "hoplunch-zae",
   "title": "Système de gestion des ZAE - HopLunch",
   "image": "/img/hoplunch-zae.jpg",
+  "color": "#333",
   "technologies": [
     "PHP",
     "Symfony",

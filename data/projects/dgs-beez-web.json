@@ -1,0 +1,55 @@
+{
+  "id": 1,
+  "slug": "dgs-beez-web",
+  "title": "Beez Web - DGS Création",
+  "image": "/img/dgs-beez-web.jpg",
+  "color": "#333",
+  "technologies": [
+    "PHP",
+    "Symfony",
+    "Twig",
+    "JavaScript",
+    "SCSS",
+    "API externe"
+  ],
+  "demoLink": "https://beez-pro.com/",
+  "tags": [
+    "Développement",
+    "Gestion de projet"
+  ],
+  "date": "2024",
+  "description": "Phase 2 du projet Bee'z Pro : Interface dédiée aux entreprises clientes pour piloter contrats, facturation et suivi des prestations.",
+  "context": {
+    "description": "Les entreprises clientes de Bee'z Pro avaient besoin d’un accès personnalisé pour gérer contrats et avenants, suivre la facturation et les paiements, consulter l’historique des prestations en temps réel",
+    "goals": [
+      "Automatiser la génération et le suivi des documents contractuels.",
+      "Améliorer la transparence avec des tableaux de bord clairs.",
+      "Renforcer la gestion des droits par rôle utilisateur.",
+      "Respect obligatoire de nombreuses normes RGPD liées aux contrats et à la confidentialité des intérimaires et entreprises."
+    ]
+  },
+  "keyFeatures": [
+    "Gestion des contrats : création/délégation/renouvellement, génération automatique de PDF.",
+    "Facturation et paiements : édition de factures et avoirs, suivi des règlements, export Excel.",
+    "Dashboard administrateur : paramètres globaux personnalisés, graphiques de facturation et volume de missions.",
+    "Gestion des utilisateurs : rôles Admin/Manager/User avec droits granulaires.",
+    "Notifications et mailing : rappels de paiement et alertes administratives."
+  ],
+  "technicalSolutions": [
+    "Symfony 6 MVC structuré en bundles fonctionnels (Candidat, Offre, Contrat).",
+    "Twig + SASS/Bootstrap pour UI modulaire et responsive.",
+    "API Sirene de l'Insee pour validation et import en temps réel des données d'entreprises.",
+    "Services métier dédiés (cryptage des documents, génération PDF/Excel).",
+    "Versioning sur GitHub via Git et utilisation de SemVer (Semantic Versioning)."
+  ],
+  "challenges": [
+    "Sécurité : isolation des données et cryptage des documents contractuels.",
+    "Tableau de bord statistique : requêtes optimisées pour résultats en temps réel.",
+    "Conformité légale : suivi des consentements, horodatage des actions et journaux d’accès."
+  ],
+  "results": [
+    "Réduction drastique de tâches manuelles nécessaires à la création de contrats.",
+    "Entreprises satisfaites de pouvoir créer facilement un contrat avec l'agence d'interim en moins de 48h",
+    "Cliente satisfaite du produit final et a vite commencer à signer de nouveaux contrats."
+  ]
+}

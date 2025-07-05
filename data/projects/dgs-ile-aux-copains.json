@@ -3,6 +3,7 @@
   "slug": "dgs-ile-aux-copains",
   "title": "Ile aux Copains - DGS Création",
   "image": "/img/dgs-ile-aux-copains.jpg",
+  "color": "#333",
   "technologies": [
     "PHP",
     "Symfony",
@@ -14,5 +15,40 @@
     "Développement"
   ],
   "date": "2024",
-  "description": "Lancement du développement d'une plateforme de gestion périscolaire."
+  "description": "Plateforme web de gestion des activités périscolaires, événements et voyages scolaires, avec inscription en ligne et suivi des présences.",
+  "context": {
+    "description": "Création d’un portail pour gérer, depuis un back-office unique, les activités périscolaires, les animations pour enfants et les voyages scolaires durant les vacances.",
+    "goals": [
+      "Offrir un parcours d’inscription fluide pour les parents (inscriptions, paiements, validations).",
+      "Permettre aux administrateurs de créer et paramétrer n’importe quel type d’événement (sorties, ateliers, voyages).",
+      "Assurer la sécurité et la confidentialité des données sensibles (mineurs, régimes alimentaires, données médicales).",
+      "Générer automatiquement plannings et factures, avec export Excel/PDF."
+    ]
+  },
+  "keyFeatures": [
+    "Back-office complet pour administrateurs : création d’événements, gestion des sessions et des équipements.",
+    "Formulaires d’inscription 100% customisable via un générateur visuel de champs (textes, fichiers, cases à cocher...).",
+    "Module de paiement intégré (Stripe) avec suivi des reçus et relance automatique en cas de non-paiement.",
+    "Interface mobile-first pour gestion des présences, check-in/check-out et notifications instantanées.",
+    "Gestion avancée des responsabilités : prise en compte des parents divorcés, tuteurs légaux et autorisations de tiers."
+  ],
+  "technicalSolutions": [
+    "Architecture Symfony 6 MVC modulable (bundles pour Events, Inscription, Paiement).",
+    "Composants Vue 3 + Pinia pour le générateur de formulaires et le dashboard en temps réel.",
+    "API REST sécurisée (JWT + TLS) pour échanges front/back et webhooks Stripe.",
+    "Docker & GitLab CI/CD : multi-stage builds, tests unitaires (PHPUnit) et tests E2E (Cypress).",
+    "PostgreSQL avec chiffrement au niveau colonne pour les données sensibles.",
+    "Export PDF/Excel via Spatie et PhpSpreadsheet, planifié en tâche CRON."
+  ],
+  "challenges": [
+    "Création d’un générateur visuel de formulaires dynamique, sans rechargement de page.",
+    "Assurer la conformité RGPD et le chiffrement des informations médicales.",
+    "Gérer les cas complexes de responsabilité légale (autorisations multiples, délégations de prise en charge)."
+  ],
+  "results": [
+    "Interface d’inscription validée en 3 minutes en moyenne (– 40 %).",
+    "100 % de conformité RGPD certifiée par audit externe.",
+    "Plus de 1500 inscriptions traitées sans interruption lors de la première ouverture des vacances d’été.",
+    "Satisfaction parents : note moyenne de 4,9/5 via questionnaire post-inscription."
+  ]
 }
