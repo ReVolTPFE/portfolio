@@ -1,8 +1,10 @@
 {
   "id": 5,
   "slug": "hoplunch-zae",
-  "title": "Système de gestion des ZAE - HopLunch",
-  "image": "/img/hoplunch-zae.jpg",
+  "title": "Création d'un système complexe de gestion de ZAE et leurs entreprises",
+  "companyProject": "Refonte gestion ZAE et entreprises",
+  "company": "HopLunch",
+  "image": "/img/projects/hoplunch-zae/1.png",
   "color": "#333",
   "technologies": [
     "PHP",

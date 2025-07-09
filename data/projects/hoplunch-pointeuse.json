@@ -1,8 +1,10 @@
 {
   "id": 4,
   "slug": "hoplunch-pointeuse",
-  "title": "Système de pointeuse - HopLunch",
-  "image": "/img/hoplunch-pointeuse.jpg",
+  "title": "Création de A à Z d'un système de pointeuse + gestion de projet",
+  "companyProject": "Pointeuse des livreurs de HopLunch",
+  "company": "HopLunch",
+  "image": "/img/projects/hoplunch-pointeuse/2.png",
   "color": "#333",
   "technologies": [
     "TypeScript",

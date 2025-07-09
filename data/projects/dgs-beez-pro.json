@@ -1,8 +1,10 @@
 {
   "id": 1,
   "slug": "dgs-beez-pro",
-  "title": "Beez Pro - DGS Création",
-  "image": "/img/dgs-beez-pro.jpg",
+  "title": "Création d'un SaaS pour une agence d'intérim",
+  "companyProject": "Beez Pro",
+  "company": "DGS Création",
+  "image": "/img/projects/dgs-beez-pro/candidat.png",
   "color": "#333",
   "technologies": [
     "PHP",
@@ -19,6 +21,11 @@
   ],
   "date": "2023 - 2024",
   "description": "Site web pour une agence d’intérim : partie site vitrine, gestion des offres via API externe, matching des candidats.",
+  "actors": {
+    "client": "Bee'z Pro",
+    "developer": "Moi-même",
+    "projectManager": "Chef de projet de l'entreprise"
+  },
   "context": {
     "description": "Bee'z Pro, agence d’intérim spécialisée BTP/logistique, gérait ses recrutements via une plateforme en ligne restrictive : perte de données, imprécision dans les saisies et limitation des fonctionnalités.",
     "goals": [

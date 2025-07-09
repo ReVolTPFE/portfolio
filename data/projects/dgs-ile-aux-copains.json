@@ -1,8 +1,10 @@
 {
   "id": 2,
   "slug": "dgs-ile-aux-copains",
-  "title": "Ile aux Copains - DGS Création",
-  "image": "/img/dgs-ile-aux-copains.jpg",
+  "title": "Travail sur un SaaS de gestion profonde de périscolaires",
+  "companyProject": "Ile aux Copains",
+  "company": "DGS Création",
+  "image": "/img/projects/dgs-ile-aux-copains/1.png",
   "color": "#333",
   "technologies": [
     "PHP",
@@ -16,6 +18,11 @@
   ],
   "date": "2024",
   "description": "Plateforme web de gestion des activités périscolaires, événements et voyages scolaires, avec inscription en ligne et suivi des présences.",
+  "actors": {
+    "client": "Bee'z Pro",
+    "developer": "Moi-même",
+    "projectManager": "Chef de projet de l'entreprise"
+  },
   "context": {
     "description": "Création d’un portail pour gérer, depuis un back-office unique, les activités périscolaires, les animations pour enfants et les voyages scolaires durant les vacances.",
     "goals": [

@@ -1,8 +1,10 @@
 {
   "id": 1,
   "slug": "dgs-beez-web",
-  "title": "Beez Web - DGS Création",
-  "image": "/img/dgs-beez-web.jpg",
+  "title": "Création d'un SaaS de gestion et signature de contrats en ligne",
+  "companyProject": "Beez Web",
+  "company": "DGS Création",
+  "image": "/img/projects/dgs-beez-web/details-entreprise.png",
   "color": "#333",
   "technologies": [
     "PHP",
@@ -19,6 +21,11 @@
   ],
   "date": "2024",
   "description": "Phase 2 du projet Bee'z Pro : Interface dédiée aux entreprises clientes pour piloter contrats, facturation et suivi des prestations.",
+  "actors": {
+    "client": "Bee'z Pro",
+    "developer": "Moi-même",
+    "projectManager": "Chef de projet de l'entreprise"
+  },
   "context": {
     "description": "Les entreprises clientes de Bee'z Pro avaient besoin d’un accès personnalisé pour gérer contrats et avenants, suivre la facturation et les paiements, consulter l’historique des prestations en temps réel",
     "goals": [
