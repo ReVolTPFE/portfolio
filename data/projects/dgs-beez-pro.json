@@ -2,19 +2,36 @@
   "id": 1,
   "slug": "dgs-beez-pro",
   "title": "Création d'un SaaS pour une agence d'intérim",
-  "companyProject": "Beez Pro",
+  "companyProject": "Bee'z Pro",
   "company": "DGS Création",
   "image": "/img/projects/dgs-beez-pro/candidat.png",
   "color": "#333",
   "technologies": [
-    "PHP",
-    "Symfony",
-    "Twig",
-    "JavaScript",
-    "SCSS",
-    "API externe"
+    {
+      "icon": "mdi:language-php",
+      "text": "PHP"
+    },
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony"
+    },
+    {
+      "icon": "file-icons:twig",
+      "text": "Twig"
+    },
+    {
+      "icon": "mdi:language-javascript",
+      "text": "JavaScript"
+    },
+    {
+      "icon": "ion:logo-sass",
+      "text": "SCSS"
+    },
+    {
+      "icon": "mdi:api",
+      "text": "API externe"
+    }
   ],
-  "demoLink": "https://beez-pro.com/",
   "tags": [
     "Développement",
     "Gestion de projet"
@@ -36,28 +53,82 @@
     ]
   },
   "keyFeatures": [
-    "Site vitrine public arborant la charte graphique de l'entreprise : Actualités, témoignages, présentation de l'entreprise...",
-    "Gestion des candidats : inscription, CV en ligne, critères de recherche, suivi des candidatures.",
-    "Matching intelligent : algorithme de scoring paramétrable + notifications automatiques.",
-    "Back‑office complet : création/édition d’offres synchronisées à une API externe, gestion des candidatures, configuration globale.",
-    "Notifications & alertes : email/SMS sur échéances et nouveaux profils."
+    {
+      "icon": "mdi:earth",
+      "text": "Site vitrine public arborant la charte graphique de l'entreprise : Actualités, témoignages, présentation de l'entreprise..."
+    },
+    {
+      "icon": "mdi:account-supervisor",
+      "text": "Gestion des candidats : inscription, CV en ligne, critères de recherche, suivi des candidatures."
+    },
+    {
+      "icon": "mdi:briefcase-search",
+      "text": "Matching intelligent : algorithme de scoring paramétrable + notifications automatiques."
+    },
+    {
+      "icon": "mdi:cogs",
+      "text": "Back‑office complet : création/édition d’offres synchronisées à une API externe, gestion des candidatures, configuration globale."
+    },
+    {
+      "icon": "mdi:bell-badge",
+      "text": "Notifications & alertes : email/SMS sur échéances et nouveaux profils."
+    }
   ],
   "technicalSolutions": [
-    "Symfony 6 MVC structuré en bundles fonctionnels (Candidat, Offre, Contrat)",
-    "Twig + SASS/Bootstrap pour UI modulaire et responsive.",
-    "Editeur de template intégré pour les pages du front-office (site vitrine).",
-    "API Recruitee pour import en temps réel des offres externes et envoi des candidatures.",
-    "Services métier dédiés (matching, génération PDF/Excel)",
-    "Versioning sur GitHub via Git et utilisation de SemVer (Semantic Versioning)."
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony 6 MVC structuré en bundles fonctionnels (Candidat, Offre, Contrat)"
+    },
+    {
+      "icon": "mdi:brush",
+      "text": "Twig + SASS/Bootstrap pour UI modulaire et responsive."
+    },
+    {
+      "icon": "mdi:application-edit",
+      "text": "Editeur de template intégré pour les pages du front-office (site vitrine)."
+    },
+    {
+      "icon": "mdi:api",
+      "text": "API Recruitee pour import en temps réel des offres externes et envoi des candidatures."
+    },
+    {
+      "icon": "mdi:tools",
+      "text": "Services métier dédiés (matching, génération PDF/Excel)"
+    },
+    {
+      "icon": "mdi:github",
+      "text": "Versioning sur GitHub via Git et utilisation de SemVer (Semantic Versioning)."
+    }
   ],
   "challenges": [
-    "Matching performant : scoring multi-critères (expérience, disponibilité) avec filtres dynamiques.",
-    "Structure des données : gestion fine des types de données et de l'architecture de la base de données.",
-    "Sécurité RGPD : chiffrement des données sensibles, historique des actions systèmes et gestion du consentement."
+    {
+      "icon": "mdi:chart-line",
+      "title": "Matching performant",
+      "text": "Scoring multi-critères (expérience, disponibilité) avec filtres dynamiques."
+    },
+    {
+      "icon": "mdi:database",
+      "title": "Structure des données",
+      "text": "Gestion fine des types de données et de l'architecture de la base de données."
+    },
+    {
+      "icon": "mdi:shield-lock",
+      "title": "Sécurité RGPD",
+      "text": "Chiffrement des données sensibles, historique des actions systèmes et gestion du consentement."
+    }
   ],
   "results": [
-    "Temps de traitement des candidatures fortement amélioré.",
-    "Intérimaires satisfaits de la nouvelle interface et de ses fonctionnalités.",
-    "Cliente satisfaite des livrables fournis et du suivi du projet. Elle nous a accordé sa confiance pour un deuxième projet encore plus ambitieux."
+    {
+      "icon": "material-symbols:alarm",
+      "text": "Temps de traitement des candidatures fortement amélioré."
+    },
+    {
+      "icon": "bi:emoji-smile-fill",
+      "text": "Intérimaires satisfaits de la nouvelle interface et de ses fonctionnalités."
+    },
+    {
+      "icon": "fa6-solid:handshake",
+      "text": "Cliente satisfaite des livrables fournis et du suivi du projet. Elle nous a accordé sa confiance pour un deuxième projet encore plus ambitieux."
+    }
   ]
 }

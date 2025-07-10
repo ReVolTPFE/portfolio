@@ -1,20 +1,37 @@
 {
-  "id": 1,
+  "id": 2,
   "slug": "dgs-beez-web",
   "title": "Création d'un SaaS de gestion et signature de contrats en ligne",
-  "companyProject": "Beez Web",
+  "companyProject": "Bee'z Web",
   "company": "DGS Création",
   "image": "/img/projects/dgs-beez-web/details-entreprise.png",
   "color": "#333",
   "technologies": [
-    "PHP",
-    "Symfony",
-    "Twig",
-    "JavaScript",
-    "SCSS",
-    "API externe"
+    {
+      "icon": "mdi:language-php",
+      "text": "PHP"
+    },
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony"
+    },
+    {
+      "icon": "file-icons:twig",
+      "text": "Twig"
+    },
+    {
+      "icon": "mdi:language-javascript",
+      "text": "JavaScript"
+    },
+    {
+      "icon": "ion:logo-sass",
+      "text": "SCSS"
+    },
+    {
+      "icon": "mdi:api",
+      "text": "API externe"
+    }
   ],
-  "demoLink": "https://beez-pro.com/",
   "tags": [
     "Développement",
     "Gestion de projet"
@@ -36,27 +53,78 @@
     ]
   },
   "keyFeatures": [
-    "Gestion des contrats : création/délégation/renouvellement, génération automatique de PDF.",
-    "Facturation et paiements : édition de factures et avoirs, suivi des règlements, export Excel.",
-    "Dashboard administrateur : paramètres globaux personnalisés, graphiques de facturation et volume de missions.",
-    "Gestion des utilisateurs : rôles Admin/Manager/User avec droits granulaires.",
-    "Notifications et mailing : rappels de paiement et alertes administratives."
+    {
+      "icon": "clarity:contract-solid",
+      "text": "Gestion des contrats : création/délégation/renouvellement, génération automatique de PDF."
+    },
+    {
+      "icon": "mingcute:currency-euro-2-fill",
+      "text": "Facturation et paiements : édition de factures et avoirs, suivi des règlements, export Excel."
+    },
+    {
+      "icon": "mdi:cogs",
+      "text": "Dashboard administrateur : paramètres globaux personnalisés, graphiques de facturation et volume de missions."
+    },
+    {
+      "icon": "mdi:account-lock",
+      "text": "Gestion des utilisateurs : rôles Admin/Manager/User avec droits granulaires."
+    },
+    {
+      "icon": "material-symbols:mark-email-unread",
+      "text": "Notifications et mailing : rappels de paiement et alertes administratives."
+    }
   ],
   "technicalSolutions": [
-    "Symfony 6 MVC structuré en bundles fonctionnels (Candidat, Offre, Contrat).",
-    "Twig + SASS/Bootstrap pour UI modulaire et responsive.",
-    "API Sirene de l'Insee pour validation et import en temps réel des données d'entreprises.",
-    "Services métier dédiés (cryptage des documents, génération PDF/Excel).",
-    "Versioning sur GitHub via Git et utilisation de SemVer (Semantic Versioning)."
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony 6 MVC structuré en bundles fonctionnels (Candidat, Offre, Contrat)."
+    },
+    {
+      "icon": "mdi:brush",
+      "text": "Twig + SASS/Bootstrap pour UI modulaire et responsive."
+    },
+    {
+      "icon": "mdi:api",
+      "text": "API Sirene de l'Insee pour validation et import en temps réel des données d'entreprises."
+    },
+    {
+      "icon": "mdi:tools",
+      "text": "Services métier dédiés (cryptage des documents, génération PDF/Excel)."
+    },
+    {
+      "icon": "mdi:github",
+      "text": "Versioning sur GitHub via Git et utilisation de SemVer (Semantic Versioning)."
+    }
   ],
   "challenges": [
-    "Sécurité : isolation des données et cryptage des documents contractuels.",
-    "Tableau de bord statistique : requêtes optimisées pour résultats en temps réel.",
-    "Conformité légale : suivi des consentements, horodatage des actions et journaux d’accès."
+    {
+      "icon": "mdi:lock-check",
+      "title": "Sécurité",
+      "text": "Isolation des données et cryptage des documents contractuels."
+    },
+    {
+      "icon": "mdi:chart-bar",
+      "title": "Tableau de bord statistique",
+      "text": "Requêtes optimisées pour résultats en temps réel."
+    },
+    {
+      "icon": "mdi:scale-balance",
+      "title": "Conformité légale",
+      "text": "Suivi des consentements, horodatage des actions et journaux d’accès."
+    }
   ],
   "results": [
-    "Réduction drastique de tâches manuelles nécessaires à la création de contrats.",
-    "Entreprises satisfaites de pouvoir créer facilement un contrat avec l'agence d'interim en moins de 48h",
-    "Cliente satisfaite du produit final et a vite commencer à signer de nouveaux contrats."
+    {
+      "icon": "mdi:timer-sand-complete",
+      "text": "Réduction drastique de tâches manuelles nécessaires à la création de contrats."
+    },
+    {
+      "icon": "mdi:thumb-up",
+      "text": "Entreprises satisfaites de pouvoir créer facilement un contrat avec l'agence d'interim en moins de 48h"
+    },
+    {
+      "icon": "fa6-solid:handshake",
+      "text": "Cliente satisfaite du produit final, a rapidement commencé à signer de nouveaux contrats."
+    }
   ]
 }
