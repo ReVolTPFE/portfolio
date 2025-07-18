@@ -7,16 +7,140 @@
   "image": "/img/projects/hoplunch-pointeuse/2.png",
   "color": "#333",
   "technologies": [
-    "TypeScript",
-    "NuxtJS",
-    "Tailwind",
-    "API PHP / Symfony (API Platform)"
+    {
+      "icon": "mdi:language-php",
+      "text": "PHP"
+    },
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony"
+    },
+    {
+      "icon": "mdi:language-typescript",
+      "text": "TypeScript"
+    },
+    {
+      "icon": "mdi:vuejs",
+      "text": "NuxtJS"
+    },
+    {
+      "icon": "mdi:tailwind",
+      "text": "TailwindCSS"
+    },
+    {
+      "icon": "mdi:lock",
+      "text": "JWT Security"
+    }
   ],
   "tags": [
-    "Développement",
-    "Gestion de projet"
+    "Gestion de projet",
+    "Développement Web"
   ],
   "date": "2025",
-  "description": "Application de pointage pour les livreurs de HopLunch, permettant de suivre les heures d’arrivée/départ et de centraliser les données de présence.",
-  "feat": "Parler des tests, CICD, deploy shell etc, dire que cest company related donc privé et pas de demo ou code link, parler CDC, réus clients etc, parler projet en sprints etc"
+  "description": "Application interne de pointage pour les livreurs de HopLunch, permettant d’enregistrer les heures d’arrivée et de départ, tout en centralisant et sécurisant les données pour le service RH. Ce projet a nécessité une gestion complète en mode Agile, de la rédaction du cahier des charges à la mise en production, incluant des phases de tests, CI/CD et déploiement automatisé via scripts shell. Projet strictement privé (aucun accès public, pas de code ou démo disponible).",
+  "actors": {
+    "client": "HopLunch",
+    "developer": "Moi-même",
+    "projectManager": "Moi-même (Chef de projet & Développeur)"
+  },
+  "context": {
+    "description": "Le système de pointeuse existant était obsolète et source d’erreurs. L’objectif était de concevoir une nouvelle application responsive, intuitive et sécurisée pour les tablettes des dépôts HopLunch, tout en respectant les contraintes métiers et RGPD. Une attention particulière a été portée à la fiabilité des données et à la performance de l’interface.",
+    "goals": [
+      "Supprimer le Legacy et isoler la pointeuse dans un module dédié.",
+      "Créer une application responsive, intuitive et rapide.",
+      "Mettre en place une architecture sécurisée (JWT, HTTPS).",
+      "Automatiser le déploiement et l’intégration continue.",
+      "Garantir la conformité RGPD et la fiabilité des données.",
+      "Améliorer la performance et l’ergonomie pour éviter les erreurs des livreurs."
+    ]
+  },
+  "keyFeatures": [
+    {
+      "icon": "mdi:tab",
+      "text": "Interface avec deux onglets (Pointage/Dépointage) pour éviter les erreurs."
+    },
+    {
+      "icon": "mdi:account-group",
+      "text": "Affichage dynamique et synchronisation des livreurs en temps réel."
+    },
+    {
+      "icon": "mdi:key-variant",
+      "text": "Authentification sécurisée avec mot de passe et tokens JWT."
+    },
+    {
+      "icon": "mdi:check-decagram",
+      "text": "Confirmation visuelle et gestion claire des erreurs."
+    },
+    {
+      "icon": "mdi:alert-circle",
+      "text": "Contrôles métiers robustes pour éviter les doubles pointages."
+    }
+  ],
+  "technicalSolutions": [
+    {
+      "icon": "mdi:vuejs",
+      "text": "Frontend développé avec NuxtJS + TailwindCSS."
+    },
+    {
+      "icon": "mdi:symfony",
+      "text": "Backend Symfony 6 avec API REST sécurisée."
+    },
+    {
+      "icon": "mdi:web",
+      "text": "Interface responsive optimisée pour tablettes et desktop."
+    },
+    {
+      "icon": "mdi:check-decagram",
+      "text": "Mise en place de tests unitaires et fonctionnels (PHPUnit, Playwright)."
+    },
+    {
+      "icon": "mdi:source-branch",
+      "text": "Pipeline CI/CD GitHub Actions avec déploiement automatisé (scripts shell)."
+    }
+  ],
+  "projectManagement": [
+    {
+      "icon": "mdi:check-decagram",
+      "text": "Gestion Agile en sprints hebdomadaires avec validations intermédiaires."
+    },
+    {
+      "icon": "mdi:clipboard-text",
+      "text": "Cahier des charges validé et ajusté en continu."
+    },
+    {
+      "icon": "mdi:clipboard-list",
+      "text": "Suivi via Asana et réunions hebdomadaires avec le client."
+    }
+  ],
+  "challenges": [
+    {
+      "icon": "mdi:update",
+      "title": "Migration",
+      "text": "Sortie d’un système Legacy sans interruption de service."
+    },
+    {
+      "icon": "mdi:lock-check",
+      "title": "Sécurité",
+      "text": "Respect RGPD et sécurisation HTTPS/JWT."
+    },
+    {
+      "icon": "mdi:chart-timeline-variant",
+      "title": "Fiabilité",
+      "text": "Synchronisation en temps réel avec l’API HopLunch."
+    }
+  ],
+  "results": [
+    {
+      "icon": "mdi:rocket-launch",
+      "text": "Application déployée avec succès et totalement intégrée au SI HopLunch."
+    },
+    {
+      "icon": "mdi:timer-sand-complete",
+      "text": "Réduction des erreurs et fiabilisation des données de pointage."
+    },
+    {
+      "icon": "mdi:lock",
+      "text": "Sécurisation complète et conformité légale (RGPD)."
+    }
+  ]
 }

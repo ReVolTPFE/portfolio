@@ -20,7 +20,6 @@ export default {
 					darker: '#1f2937',
 					blue: '#111827',
 				},
-
 			},
 			borderColor: {
 

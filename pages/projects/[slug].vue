@@ -149,6 +149,26 @@ console.log(typeof route.params.slug, route.params.slug);
 			</div>
 		</section>
 
+		<!-- Technical Solutions Section -->
+		<section v-if="project.projectManagement" class="py-16 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Gestion du projet</h2>
+					<p class="text-gray-600">Méthode de gestion du projet et son fonctionnement</p>
+				</div>
+				<div class="grid md:grid-cols-2 gap-8">
+					<div v-for="(managementItem, index) in project.projectManagement" :key="index" class="bg-gray-50 p-6 rounded-xl">
+						<div class="flex items-center">
+							<div class="mr-4 flex items-center">
+								<Icon :name="managementItem.icon" class="text-primary w-7 h-7" />
+							</div>
+							<p class="text-gray-700 leading-relaxed">{{ managementItem.text }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Key Features Section -->
 		<section class="py-16 bg-gray-50">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
