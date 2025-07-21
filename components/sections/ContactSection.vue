@@ -8,6 +8,16 @@ onMounted(() => {
 		form.value.reset();
 	}
 });
+
+if (typeof window !== 'undefined') {
+	window.addEventListener('pageshow', (event) => {
+		if (event.persisted) {
+			if (form.value) {
+				form.value.reset();
+			}
+		}
+	});
+}
 </script>
 
 <template>
