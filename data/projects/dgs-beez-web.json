@@ -5,6 +5,40 @@
   "companyProject": "Bee'z Web",
   "company": "DGS Création",
   "image": "/img/projects/dgs-beez-web/details-entreprise.png",
+  "images": [
+    {
+      "src": "/img/projects/dgs-beez-web/inscription-entreprise.png",
+      "alt": "Page d'inscription entreprise"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/details-entreprise.png",
+      "alt": "Page de détails d'une entreprise"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/ajout-commande.png",
+      "alt": "Page d'ajout d'une commande de contrat intérimaire"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/recap-commande.png",
+      "alt": "Page de récapitulatif de commande de contrat intérimaire"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/paiement.png",
+      "alt": "Page de paiement de commande de contrat intérimaire"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/facture.png",
+      "alt": "Facture de commande de contrat intérimaire"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/details-contrat.png",
+      "alt": "Page de détails d'un contrat intérimaire"
+    },
+    {
+      "src": "/img/projects/dgs-beez-web/liste-interimaires.png",
+      "alt": "Page listant les intérimaires d'une entreprise"
+    }
+  ],
   "color": "#333",
   "technologies": [
     {

@@ -2,53 +2,33 @@
 import {useRoute} from 'vue-router';
 import {findProjectBySlug} from '~/data/projects';
 
+// Swiper imports
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import SwiperCore from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+SwiperCore.use([Navigation, Pagination]);
+
 const route = useRoute();
 const project = findProjectBySlug(route.params.slug as string);
-console.log(typeof route.params.slug, route.params.slug);
+
+
+// Modal logic
+const selectedImage = ref<string | null>(null);
+const openImage = (src: string) => {
+	selectedImage.value = src;
+};
+const closeImage = () => {
+	selectedImage.value = null;
+};
 </script>
-
-<!--<template>-->
-<!--	<div v-if="project" class="max-w-3xl mx-auto p-6">-->
-<!--		<h1 class="text-4xl font-bold mb-4 text-primary">{{ project.title }}</h1>-->
-<!--		<p class="mb-4">{{ project.description }}</p>-->
-<!--&lt;!&ndash;		<img :src="project.image" :alt="project.title" class="rounded-lg mb-6" >&ndash;&gt;-->
-
-<!--		<ul class="mb-6 text-sm text-white bg-tertiary">-->
-<!--			<li><strong>Technos :</strong>-->
-<!--				<ul>-->
-<!--					<li v-for="(tech, index) in project.technologies" :key="index">{{ tech }}</li>-->
-<!--				</ul>-->
-<!--			</li>-->
-<!--			<li><strong>Date :</strong> {{ project.date }}</li>-->
-<!--			<li><strong>Tags :</strong>-->
-<!--				<ul>-->
-<!--					<li v-for="(tag, index) in project.tags" :key="index">{{ tag }}</li>-->
-<!--				</ul>-->
-<!--			</li>-->
-<!--		</ul>-->
-
-<!--		<div class="flex gap-4">-->
-<!--			<a-->
-<!--				v-if="project.demoLink"-->
-<!--				:href="project.demoLink"-->
-<!--				target="_blank"-->
-<!--				class="btn"-->
-<!--			>Voir le site</a>-->
-<!--			<a-->
-<!--				v-if="project.codeLink"-->
-<!--				:href="project.codeLink"-->
-<!--				target="_blank"-->
-<!--				class="btn"-->
-<!--			>Code source</a>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--	<div v-else class="text-center py-20 text-gray-400">Projet introuvable.</div>-->
-<!--</template>-->
 
 <template>
 	<!-- Hero Section -->
 	<div v-if="project">
-		<section class="bg-white py-16">
+		<section class="bg-white pt-16">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="text-center">
 					<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{{ project.title }}</h1>
@@ -82,6 +62,48 @@ console.log(typeof route.params.slug, route.params.slug);
 				</div>
 			</div>
 		</section>
+
+		<!-- Image Carousel Section -->
+		<section v-if="project.images && project.images.length" class="bg-white py-16 bg-gray-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Galerie du projet</h2>
+					<p class="text-gray-600">Parcourez les visuels du projet</p>
+				</div>
+				<Swiper
+					:slides-per-view="1"
+					:space-between="20"
+					:breakpoints="{
+						640: { slidesPerView: 2 },
+						1024: { slidesPerView: 3 }
+					}"
+					navigation
+					pagination
+					:zoom="true"
+					class="rounded-lg"
+				>
+					<SwiperSlide v-for="(image, index) in project.images" :key="index" class="cursor-pointer">
+						<img
+							:src="image.src"
+							:alt="image.alt"
+							class="w-full h-96 object-cover rounded-xl shadow hover:scale-105 transition-transform"
+							@click="openImage(image.src)"
+						>
+					</SwiperSlide>
+				</Swiper>
+			</div>
+		</section>
+		<!-- Modal Lightbox -->
+		<div
+			v-if="selectedImage"
+			class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+			@click="closeImage"
+		>
+			<img
+				:src="selectedImage"
+				class="w-auto max-h-[95vh] rounded-lg shadow-lg"
+			>
+		</div>
 
 		<!-- Technologies Section -->
 		<section class="py-16 bg-gray-50">

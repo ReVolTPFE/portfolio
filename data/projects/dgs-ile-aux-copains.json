@@ -5,6 +5,12 @@
   "companyProject": "Ile aux Copains",
   "company": "DGS Création",
   "image": "/img/projects/dgs-ile-aux-copains/1.png",
+  "images": [
+    {
+      "src": "/img/projects/dgs-ile-aux-copains/1.png",
+      "alt": "Page d'accueil du site client"
+    }
+  ],
   "color": "#333",
   "technologies": [
     {

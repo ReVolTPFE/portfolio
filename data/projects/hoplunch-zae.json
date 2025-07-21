@@ -5,6 +5,20 @@
   "companyProject": "Refonte gestion ZAE et entreprises",
   "company": "HopLunch",
   "image": "/img/projects/hoplunch-zae/1.png",
+  "images": [
+    {
+      "src": "/img/projects/hoplunch-zae/1.png",
+      "alt": "Carte des ZAE d'une ville"
+    },
+    {
+      "src": "/img/projects/hoplunch-zae/2.png",
+      "alt": "Liste des entreprises à importer"
+    },
+    {
+      "src": "/img/projects/hoplunch-zae/3.png",
+      "alt": "Page des villes à associer"
+    }
+  ],
   "color": "#333",
   "technologies": [
     {

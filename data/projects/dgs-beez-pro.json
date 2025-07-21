@@ -5,6 +5,20 @@
   "companyProject": "Bee'z Pro",
   "company": "DGS Création",
   "image": "/img/projects/dgs-beez-pro/candidat.png",
+  "images": [
+    {
+      "src": "/img/projects/dgs-beez-pro/homepage.png",
+      "alt": "Page d'accueil du site client"
+    },
+    {
+      "src": "/img/projects/dgs-beez-pro/offres.png",
+      "alt": "Liste des offres d'emplois du site client"
+    },
+    {
+      "src": "/img/projects/dgs-beez-pro/candidat.png",
+      "alt": "Tableau de bord candidat du site client"
+    }
+  ],
   "color": "#333",
   "technologies": [
     {

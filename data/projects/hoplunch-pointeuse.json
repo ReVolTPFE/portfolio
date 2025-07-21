@@ -5,6 +5,20 @@
   "companyProject": "Pointeuse des livreurs de HopLunch",
   "company": "HopLunch",
   "image": "/img/projects/hoplunch-pointeuse/2.png",
+  "images": [
+    {
+      "src": "/img/projects/hoplunch-pointeuse/1.png",
+      "alt": "Page d'accueil de la pointeuse"
+    },
+    {
+      "src": "/img/projects/hoplunch-pointeuse/2.png",
+      "alt": "Liste des livreurs d'une ville"
+    },
+    {
+      "src": "/img/projects/hoplunch-pointeuse/3.png",
+      "alt": "Page de pointage d'un livreur"
+    }
+  ],
   "color": "#333",
   "technologies": [
     {
