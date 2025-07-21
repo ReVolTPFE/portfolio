@@ -4,6 +4,6 @@ const currentYear = new Date().getFullYear();
 
 <template>
 	<footer class="bg-gray-blue text-white text-center py-6">
-		<p>Arnaud Steiner - Tous droits réservés - {{ currentYear }}</p>
+		<p>Arnaud Steiner - Tous droits réservés - 2021-{{ currentYear }}</p>
 	</footer>
 </template>

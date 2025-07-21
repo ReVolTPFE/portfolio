@@ -9,7 +9,7 @@ import CareerSection from '~/components/sections/CareerSection.vue';
 
 <template>
 	<div>
-		<ComingSoon />
+		<!--		<ComingSoon />-->
 
 		<HeroSection />
 
