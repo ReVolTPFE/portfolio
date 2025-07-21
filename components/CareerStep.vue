@@ -21,11 +21,11 @@ const props = defineProps<{
 			<div class="mx-2">
 				<p class="text-sm sm:text-md text-gray-600">{{ props.schoolDescription }}</p>
 				<div v-if="company2 && companyDescription2" class="mt-4">
-					<p class="text-md sm:text-lg text-primary font-bold">{{ props.company2 }}</p>
+					<p class="text-md sm:text-lg text-tertiary font-bold">{{ props.company2 }}</p>
 					<p class="text-sm sm:text-md text-gray-600">{{ props.companyDescription2 }}</p>
 				</div>
 				<div v-if="company && companyDescription" class="mt-4">
-					<p class="text-md sm:text-lg text-primary font-bold">{{ props.company }}</p>
+					<p class="text-md sm:text-lg text-tertiary font-bold">{{ props.company }}</p>
 					<p class="text-sm sm:text-md text-gray-600">{{ props.companyDescription }}</p>
 				</div>
 			</div>

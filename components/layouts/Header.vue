@@ -7,7 +7,7 @@ function toggleMobileNav() {
 </script>
 
 <template>
-	<header class="fixed top-0 h-16 shadow-md z-50 w-full bg-white">
+	<header class="fixed top-0 h-16 shadow-md z-40 w-full bg-white">
 		<div class="flex justify-between items-center container h-full mx-auto px-6 lg:px-8">
 			<NuxtLink to="/" class="font-logo text-4xl text-primary pt-2">AS</NuxtLink>
 

@@ -9,8 +9,9 @@ export default {
 		extend: {
 			colors: {
 				primary: '#0063c7',
-				// primary: "#0599ff",
 				secondary: '#e84e24',
+				tertiary: '#0599ff',
+				success: '#29b609',
 				gray: {
 					text: '#545d6b',
 					lighter: '#f5f5f5',
@@ -19,7 +20,6 @@ export default {
 					darker: '#1f2937',
 					blue: '#111827',
 				},
-
 			},
 			borderColor: {
 

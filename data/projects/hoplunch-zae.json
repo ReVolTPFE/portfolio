@@ -1,0 +1,149 @@
+{
+  "id": 6,
+  "slug": "hoplunch-zae",
+  "title": "Création d'un système complexe de gestion de ZAE et leurs entreprises",
+  "companyProject": "Refonte gestion ZAE et entreprises",
+  "company": "HopLunch",
+  "image": "/img/projects/hoplunch-zae/1.png",
+  "images": [
+    {
+      "src": "/img/projects/hoplunch-zae/1.png",
+      "alt": "Carte des ZAE d'une ville"
+    },
+    {
+      "src": "/img/projects/hoplunch-zae/2.png",
+      "alt": "Liste des entreprises à importer"
+    },
+    {
+      "src": "/img/projects/hoplunch-zae/3.png",
+      "alt": "Page des villes à associer"
+    }
+  ],
+  "color": "#333",
+  "technologies": [
+    {
+      "icon": "mdi:language-php",
+      "text": "PHP"
+    },
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony"
+    },
+    {
+      "icon": "file-icons:twig",
+      "text": "Twig"
+    },
+    {
+      "icon": "mdi:language-javascript",
+      "text": "JavaScript"
+    },
+    {
+      "icon": "ion:logo-sass",
+      "text": "SCSS"
+    },
+    {
+      "icon": "mdi:api",
+      "text": "API Sirene (Insee)"
+    },
+    {
+      "icon": "mdi:docker",
+      "text": "Docker"
+    }
+  ],
+  "tags": [
+    "Développement",
+    "Gestion de projet"
+  ],
+  "date": "2024 - 2025",
+  "description": "Refonte complète du système de gestion des Zones d’Activités Économiques (ZAE) pour HopLunch, incluant la création, l’organisation, le suivi des zones desservies, ainsi que l’ajout de nombreuses fonctionnalités et l’amélioration de l’architecture technique.",
+  "actors": {
+    "client": "HopLunch",
+    "developer": "Moi-même",
+    "projectManager": "Lead Technique interne"
+  },
+  "context": {
+    "description": "HopLunch propose un service de restauration en entreprise, nécessitant une gestion fine des zones de livraison (ZAE) et des entreprises éligibles. Le processus existant d'ajout de ZAE et d'entreprises reposait sur des fichiers Excel et des échanges multiples entre managers de ville et développeurs, entraînant lenteur et risques d'erreurs. L'objectif était d'unifier et automatiser l'ensemble du flux : création de ZAE, association des villes, récupération des entreprises via l'API Sirene et validation dans le Back-Office.",
+    "goals": [
+      "Remplacer l'ancien système basé sur des fichiers Excel par un flux 100% automatisé.",
+      "Permettre la création de ZAE via polygone de coordonnées (WKT/GeoJSON) directement dans le Back-Office.",
+      "Intégrer l'API Sirene pour importer et filtrer automatiquement les entreprises.",
+      "Mettre en place un système asynchrone pour les imports massifs afin d'éviter le blocage du Back-Office.",
+      "Améliorer la gestion des villes associées et leur liaison avec les ZAE."
+    ]
+  },
+  "keyFeatures": [
+    {
+      "icon": "mdi:map-marker-path",
+      "text": "Création et édition de ZAE via polygones WKT/GeoJSON."
+    },
+    {
+      "icon": "mdi:earth",
+      "text": "Association automatique de villes aux ZAE via filtres géographiques et recherche."
+    },
+    {
+      "icon": "mdi:account-multiple-check",
+      "text": "Import intelligent des entreprises via API Sirene, avec filtres (APE, position GPS, validité adresse...)."
+    },
+    {
+      "icon": "mdi:database-sync",
+      "text": "Conversion asynchrone des entreprises de l'API Sirene en entreprise en base de données."
+    },
+    {
+      "icon": "mdi:clock-outline",
+      "text": "Commandes Symfony pour la synchronisation quotidienne et la purge régulière des données invalides."
+    }
+  ],
+  "technicalSolutions": [
+    {
+      "icon": "mdi:symfony",
+      "text": "Symfony 6 avec EasyAdmin pour une interface de gestion ergonomique."
+    },
+    {
+      "icon": "mdi:map",
+      "text": "Gestion avancée des polygones WKT/GeoJSON et conversion des coordonnées Lambert93 ⇄ WGS84."
+    },
+    {
+      "icon": "mdi:api",
+      "text": "Intégration complète de l'API Sirene v3.11 pour la récupération des entreprises (Insee)."
+    },
+    {
+      "icon": "mdi:message-processing",
+      "text": "Symfony Messenger pour les tâches asynchrones (import, conversion, synchronisation)."
+    },
+    {
+      "icon": "mdi:docker",
+      "text": "Environnement de développement sous Docker avec snapshots de base de données et automatisation des migrations."
+    }
+  ],
+  "challenges": [
+    {
+      "icon": "mdi:chart-line",
+      "title": "Performance",
+      "text": "Optimisation des requêtes API et des traitements asynchrones pour des imports rapides et fiables."
+    },
+    {
+      "icon": "mdi:lock-check",
+      "title": "Fiabilité des données",
+      "text": "Validation stricte des adresses via Google Maps et élimination des entreprises incompatibles."
+    },
+    {
+      "icon": "mdi:sync-alert",
+      "title": "Automatisation",
+      "text": "Mise en place de tâches planifiées (cron) pour la synchronisation continue des données."
+    }
+  ],
+  "results": [
+    {
+      "icon": "mdi:timer-sand-complete",
+      "text": "Réduction drastique du temps d'intégration des ZAE et entreprises (de plusieurs jours à quelques minutes)."
+    },
+    {
+      "icon": "mdi:thumb-up",
+      "text": "Autonomie totale des managers de ville pour la gestion de leurs ZAE et entreprises."
+    },
+    {
+      "icon": "mdi:database-arrow-down",
+      "text": "Base d'entreprises enrichie et constamment actualisée grâce à l'API Sirene."
+    }
+  ]
+}

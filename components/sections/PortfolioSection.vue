@@ -1,41 +1,11 @@
 <script setup lang="ts">
 import SectionTitle from '~/components/SectionTitle.vue';
 import ProjectCard from '~/components/ProjectCard.vue';
-import type {Project} from '~/types/types';
 import LinkButton from '~/components/LinkButton.vue';
+import {trendingProjects} from '~/data/projects';
 
-const projects: Project[] = [
-	{
-		id: 1,
-		title: 'Lorem ipsum dolor sit amet',
-		image: '/img/banner.jpg',
-		technologies: 'Vue.js, Nuxt, TailwindCSS',
-		demoLink: '',
-		codeLink: '',
-		category: 'web',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor eiusmod'
-	},
-	{
-		id: 2,
-		title: 'Lorem ipsum dolor',
-		image: '/img/banner.jpg',
-		technologies: 'Flutter, Firebase',
-		demoLink: '',
-		codeLink: '',
-		category: 'app',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
-	},
-	{
-		id: 3,
-		title: 'Lorem ipsum',
-		image: '/img/banner.jpg',
-		technologies: 'Tech1, Tech2',
-		demoLink: '',
-		codeLink: '',
-		category: 'design',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
-	}
-];
+// on cherche les 3 trending projets uniquement
+const projects = trendingProjects;
 </script>
 
 <template>
