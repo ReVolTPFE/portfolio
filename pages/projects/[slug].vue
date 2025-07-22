@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import SwiperCore from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import LinkButton from '~/components/LinkButton.vue';
 SwiperCore.use([Navigation, Pagination]);
 
 const route = useRoute();
@@ -113,16 +114,18 @@ const closeImage = () => {
 					<p class="text-gray-600">Stack technique et outils employés pour ce projet</p>
 				</div>
 				<div class="flex flex-wrap justify-center gap-6">
-					<div
+					<NuxtLink
 						v-for="(tech, index) in project.technologies"
 						:key="index"
-						class="w-[150px] bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center"
+						:to="`/#skills`"
 					>
-						<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-							<Icon :name="tech.icon" class="text-primary w-7 h-7" />
+						<div class="w-[150px] bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center hover:scale-110">
+							<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+								<Icon :name="tech.icon" class="text-primary w-7 h-7" />
+							</div>
+							<h3 class="font-semibold text-gray-900">{{ tech.text }}</h3>
 						</div>
-						<h3 class="font-semibold text-gray-900">{{ tech.text }}</h3>
-					</div>
+					</NuxtLink>
 				</div>
 			</div>
 		</section>
@@ -273,6 +276,10 @@ const closeImage = () => {
 				</div>
 			</div>
 		</section>
+
+		<div class="flex justify-center bg-white pb-16">
+			<LinkButton link="/projects" bg-color="bg-primary" text="Voir mes autres projets" />
+		</div>
 	</div>
 
 	<div v-else class="text-center py-20 text-gray-400">Projet introuvable.</div>

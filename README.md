@@ -1,75 +1,26 @@
-# Nuxt Minimal Starter
+# Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Ce projet est mon portfolio codé en NuxtJS avec TailwindCSS.
 
-## Setup
+Ce projet fonctionne avec l'utilisation de Docker en production.<br>
+Mais il est utilisable via node et npm par exemple.
 
-Make sure to install dependencies:
+Prérequis :
+- Git
+- Node
+- NPM
+- Docker (facultatif)
+
+Pour lancer le projet il suffit d'installer les dépendances et de le démarrer à l'aide des commandes suivantes :
+
+
 
 ```bash
-# npm
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Aucune base de données ni aucune variable d'environnement ne sont nécessaires à ce projet.
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Vous pouvez voir la version en ligne sur le lien suivant : https://asteiner.fr

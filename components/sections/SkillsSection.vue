@@ -25,32 +25,33 @@ const frontendSkills = [
 			'Twig est un moteur de template utilisé dans plusieurs frameworks PHP, notamment Symfony. ' +
 			"Les 2 servent à créer l'architecture et le contenu de notre site web.",
 		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
+			'Intégration de maquettes HTML depuis 7 ans dans tous mes projets.',
+			'Optimisation SEO et contenu dynamique notamment avec Twig depuis 4 ans.'
 		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je suis plus orienté back-end."
+		evolution: "Expert avec plus de 7 ans d'expérience et une utilisation régulière."
 	},
 	{
 		name: 'SASS/Tailwind',
 		image: '/img/logos/TailwindCSS.webp',
 		definition: "SASS est un préprocesseur CSS qui permet d'appliquer du style graphique/visuel à un site internet. " +
-			"Tailwind est un framework CSS qui aide à créer rapidement la partie design d'un site internet.",
+			"TailwindCSS est un framework CSS qui aide à créer rapidement la partie design d'un site internet.",
 		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
+			'Structuration optimisée du design de maquettes HTML depuis 7 ans dans mes projets.',
+			"TailwindCSS m'a permis de coder la partie front-end de plusieurs projets plus efficacement et rapidement."
 		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je suis plus orienté back-end."
+		evolution: "Expert avec plus de 7 ans d'expérience et une utilisation régulière."
 	},
 	{
 		name: 'JavaScript',
 		image: '/img/logos/JavaScript.webp',
-		definition: 'JavaScript est le langage web par excellence, car il est utilisé pour toutes les interactions en direct avec le navigateur.' +
+		definition: 'JavaScript est le langage web le plus connu, car il est utilisé pour toutes les interactions en direct avec le navigateur.' +
 			"C'est le langage front-end utilisé par pleins de frameworks, notamment React/VueJS..." +
 			"Mais c'est aussi un langage utilisé pour le back-end ou l'Ajax par exemple.",
 		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web.",
 			"Utilisation de l'API Google Maps et ses fonctionnalités sur les cartes interactives.",
 			'Formulaire dynamique de création de compte pour les parents et enfants sur une application de périscolaire.'
 		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je suis plus orienté back-end."
+		evolution: "Confirmé grâce à une utilisation régulière depuis des années. Mais mon domaine principal reste le PHP, donc il y a énormément de choses que j'apprends au moment de coder."
 	},
 	{
 		name: 'VueJS/NuxtJS',
@@ -61,7 +62,7 @@ const frontendSkills = [
 			'Création de mon portfolio.',
 			"Création d'une application de pointeuse pour les livreurs d'une entreprise."
 		],
-		evolution: "J'apprends le framework via plusieurs projets, mais aujourd'hui je suis plus orienté back-end."
+		evolution: "J'apprends le framework NuxtJS via plusieurs projets, dont un gros projet à venir en entreprise."
 	},
 ];
 
@@ -69,31 +70,33 @@ const backendSkills = [
 	{
 		name: 'PHP',
 		image: '/img/logos/PHP.webp',
-		definition: "Le langage back-end web par excellence. PHP existe depuis 30 ans et est toujours aussi utilisé aujourd'hui car robuste et performant.",
+		definition: "Le langage back-end web ancré depuis 30. Sa robustesse et sa performance font que j'aime utiliser ce langage au quotidien.",
 		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
+			"J'utilise PHP dans mes projets personnels et professionnels depuis 7 ans.",
+			"J'ai pu créer plusieurs SaaS Symfony destinés à des entreprises clientes.",
+			"Je travaille aussi sur de la migration de code PHP 'vanilla' vers Symfony sur un projet."
 		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je me tiens toujours à jour sur les nouvelles sorties de version et leurs fonctionnalités. Je l'utilise au quotidien."
+		evolution: "Expert avec le langage depuis 7 ans, je me tiens à jour sur les nouvelles sorties de version et leurs fonctionnalités. Je l'utilise au quotidien."
 	},
 	{
 		name: 'Symfony',
 		image: '/img/logos/Symfony.webp',
 		definition: "C'est un framework PHP robuste et modulaire idéal pour les application PHP évolutives et professionnelles.",
 		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web.",
 			"SaaS de gestion d'une agence d'interim.",
 			'SaaS de création de contrats en ligne.'
 		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je me tiens toujours à jour sur les nouvelles sorties de version et leurs fonctionnalités. Je l'utilise au quotidien."
+		evolution: "Confirmé grâce à mes 3 ans d'expérience, je me tiens à jour sur les nouvelles version et leurs fonctionnalités. Je l'utilise au quotidien."
 	},
 	{
 		name: 'MySQL',
 		image: '/img/logos/MySQL.webp',
 		definition: "C'est un SGBD (Système de Gestion de Base de Données) relationnel permettant de stocker, d'appeler et de calculer des données.",
 		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
+			"Utilisation sur d'anciens projets PHP 'vanilla'.",
+			'Utilisation sur tous mes projets Symfony passés et en cours.'
 		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
+		evolution: "Expert dans l'utilisation du langage SQL depuis 7 ans, aujourd'hui je l'utilise au quotidien."
 	},
 	{
 		name: 'TypeScript',
@@ -103,49 +106,49 @@ const backendSkills = [
 			'Utilisé dans la création de mon portfolio.',
 			"Utilisé dans la création d'une application de pointeuse pour les livreurs d'une entreprise."
 		],
-		evolution: "J'apprends le langage via plusieurs projets, mais aujourd'hui je suis plus orienté back-end PHP."
+		evolution: "J'apprends le langage via plusieurs projets, en utilisant les documentations, exemple de code..."
 	},
 ];
 
-const otherSkills = [
-	{
-		name: 'Git',
-		image: '/img/logos/Git.webp',
-		definition: "C'est le système de contrôle de version et de collaboration entre développeurs le plus utilisé au monde.",
-		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
-		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
-	},
-	{
-		name: 'Docker',
-		image: '/img/logos/Docker.webp',
-		definition: "Permet de faire fonctionner un environnement/une application sur n'importe quelle machine via son système de conteneurs.",
-		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web avancée."
-		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
-	},
-	{
-		name: 'CI/CD',
-		image: '/img/logos/CICD.webp',
-		definition: "CI/CD (Continuous Integration / Continuous Development) automatise l'intégration et le déploiement d'une application.",
-		evidence: [
-			'Utilisé dans mes projets récents, notamment mon portfolio.',
-			'Utilisé dans mes projets en entreprise.'
-		],
-		evolution: "Je me considère à un niveau intermédiaire dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au lancement de nouveaux projets."
-	},
-	{
-		name: 'Linux',
-		image: '/img/logos/Linux.webp',
-		definition: "Système d'exploitation open-source, incontournable pour les développeurs et l'hébergement d'applications en tout genre.",
-		evidence: [
-			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
-		],
-		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
-	},
-];
+// const otherSkills = [
+// 	{
+// 		name: 'Git',
+// 		image: '/img/logos/Git.webp',
+// 		definition: "C'est le système de contrôle de version et de collaboration entre développeurs le plus utilisé au monde.",
+// 		evidence: [
+// 			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
+// 		],
+// 		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
+// 	},
+// 	{
+// 		name: 'Docker',
+// 		image: '/img/logos/Docker.webp',
+// 		definition: "Permet de faire fonctionner un environnement/une application sur n'importe quelle machine via son système de conteneurs.",
+// 		evidence: [
+// 			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web avancée."
+// 		],
+// 		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
+// 	},
+// 	{
+// 		name: 'CI/CD',
+// 		image: '/img/logos/CICD.webp',
+// 		definition: "CI/CD (Continuous Integration / Continuous Development) automatise l'intégration et le déploiement d'une application.",
+// 		evidence: [
+// 			'Utilisé dans mes projets récents, notamment mon portfolio.',
+// 			'Utilisé dans mes projets en entreprise.'
+// 		],
+// 		evolution: "Je me considère à un niveau intermédiaire dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au lancement de nouveaux projets."
+// 	},
+// 	{
+// 		name: 'Linux',
+// 		image: '/img/logos/Linux.webp',
+// 		definition: "Système d'exploitation open-source, incontournable pour les développeurs et l'hébergement d'applications en tout genre.",
+// 		evidence: [
+// 			"Utilisé dans tous mes projets depuis que j'ai appris la programmation web."
+// 		],
+// 		evolution: "Je me considère expert dans le domaine au vu de mon expérience, aujourd'hui je l'utilise au quotidien."
+// 	},
+// ];
 
 const softSkills = [
 	{
@@ -158,7 +161,7 @@ const softSkills = [
 			'Réunions de pilotage de projets.',
 			'Réunions avec des prospects transformés en clients.'
 		],
-		evolution: "Je me considère toujours en apprentissage, car il n'y a pas de bonne méthode, mais je suis autonome sur le sujet."
+		evolution: "J'ai pu m'exercer sur de nombreux cas d'usage, c'est un domaine qui nous apprend toujours de nouvelles choses."
 	},
 	{
 		name: 'Esprit d\'analyse',
@@ -166,9 +169,10 @@ const softSkills = [
 		isIcon: true,
 		definition: 'Capacité à décomposer un problème complexe pour trouver la meilleur solution.',
 		evidence: [
-			"Compétence apprise avec l'expérience."
+			"Compétence apprise avec l'expérience.",
+			"J'effectue ces analyses détaillées dans chacun de mes projets"
 		],
-		evolution: "Je me considère toujours en apprentissage, car il y a toujours des nouvelles façons d'apprendre, mais je suis autonome sur le sujet."
+		evolution: "Depuis quelques années j'ai acquis de l'expérience, mais il y a toujours de nouvelles méthodes, d'optimisations à comprendre..."
 	},
 	{
 		name: 'Rigueur et sens du détail',
@@ -189,7 +193,7 @@ const softSkills = [
 			"J'apprends des nouvelles technologies dans des projets personnels.",
 			'Mais aussi de nombreuses choses en entreprise.'
 		],
-		evolution: "Comme le titre l'indique, l'apprentissage continu suggère que j'apprends toujours de nouvelles choses."
+		evolution: "Compétence en évolution constante. Chaque projet me permet d'expérimenter et d'apprendre."
 	},
 ];
 </script>
@@ -200,7 +204,7 @@ const softSkills = [
 
 		<SkillsCategory title="Frontend" :skills="frontendSkills" @show-modal="openModal" />
 		<SkillsCategory title="Backend" :skills="backendSkills" @show-modal="openModal" />
-		<SkillsCategory title="Autres" :skills="otherSkills" @show-modal="openModal" />
+		<!--		<SkillsCategory title="Autres" :skills="otherSkills" @show-modal="openModal" />-->
 		<SkillsCategory
 			title="Soft Skills"
 			:skills="softSkills"
