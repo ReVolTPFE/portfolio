@@ -1,0 +1,12 @@
+{
+  "id": 7,
+  "slug": "iut-jeu-mario",
+  "title": "Jeu Mario Like",
+  "image": "/img/jeu-mario.jpg",
+  "technologies": "Nuxt 3, GSAP, Canvas",
+  "demoLink": "#",
+  "codeLink": "https://github.com/user/iut-jeu-mario",
+  "category": "Jeu",
+  "date": "2023-10-01",
+  "description": "Mini-jeu inspiré de Mario, développé en cours avec moteur de collision et animation personnalisée."
+}

@@ -1,0 +1,32 @@
+@import "./fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+#hero-section {
+    width: 100%;
+    @apply h-96 md:h-[550px];
+    background-image: url("public/img/banner.jpg");
+    background-position: center;
+    object-fit: contain;
+}
+
+.hover-primary {
+    @apply hover:text-primary transition-colors duration-200 cursor-pointer;
+}
+
+.section-spacing {
+    @apply py-16 mx-auto px-4 md:px-8 lg:px-32;
+}
+
+.input-style {
+    @apply w-full px-4 py-2 border text-[14px] rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors border-gray-300;
+}
