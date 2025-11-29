@@ -12,7 +12,8 @@ function toggleMobileNav() {
 			<NuxtLink to="/" class="font-logo text-4xl text-primary pt-2">AS</NuxtLink>
 
 			<nav class="hidden md:flex space-x-6 text-gray-text font-medium">
-				<NuxtLink to="/#profile" class="hover-primary">Profil</NuxtLink>
+				<NuxtLink to="/" class="hover-primary">Accueil</NuxtLink>
+				<NuxtLink to="/profile" class="hover-primary">Profil</NuxtLink>
 				<NuxtLink to="/#skills" class="hover-primary">Compétences</NuxtLink>
 				<NuxtLink to="/projects" class="hover-primary">Portfolio</NuxtLink>
 				<NuxtLink to="/#career" class="hover-primary">Parcours</NuxtLink>
@@ -40,11 +41,12 @@ function toggleMobileNav() {
 			class="md:hidden bg-white border-t flex flex-col space-y-2 p-2 text-gray-text font-medium"
 			:class="openMobileNav ? '' : 'hidden'"
 		>
-			<NuxtLink to="/#profile" class="hover-primary">Profil</NuxtLink>
-			<NuxtLink to="/#skills" class="hover-primary">Compétences</NuxtLink>
-			<NuxtLink to="/projects" class="hover-primary">Portfolio</NuxtLink>
-			<NuxtLink to="/#career" class="hover-primary">Parcours</NuxtLink>
-			<NuxtLink to="/#contact" class="hover-primary">Contact</NuxtLink>
+			<NuxtLink to="/" class="hover-primary" @click="toggleMobileNav">Accueil</NuxtLink>
+			<NuxtLink to="/profile" class="hover-primary" @click="toggleMobileNav">Profil</NuxtLink>
+			<NuxtLink to="/#skills" class="hover-primary" @click="toggleMobileNav">Compétences</NuxtLink>
+			<NuxtLink to="/projects" class="hover-primary" @click="toggleMobileNav">Portfolio</NuxtLink>
+			<NuxtLink to="/#career" class="hover-primary" @click="toggleMobileNav">Parcours</NuxtLink>
+			<NuxtLink to="/#contact" class="hover-primary" @click="toggleMobileNav">Contact</NuxtLink>
 		</nav>
 	</header>
 </template>
