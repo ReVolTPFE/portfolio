@@ -1,10 +1,17 @@
 <script setup lang="ts">
+const currentYear = new Date().getFullYear();
+const currentAge = currentYear - 2002;
 </script>
 
 <template>
 	<div class="py-10">
 		<div class="container mx-auto px-4 max-w-4xl">
 			<h1 class="text-5xl text-primary font-bold text-center mb-10">Mon profil</h1>
+
+			<p class="mb-4">Je suis Arnaud Steiner, {{ currentAge }} ans, développeur web en alternance depuis plus de 4 ans en parallèle de mes études en ingénierie logicielle.</p>
+			<p class="mb-4">Passionné depuis le lycée, j'ai conçu de nombreuses applications pour des associations comme pour mes besoins quotidiens.</p>
+			<p class="mb-4">Mes expériences dans trois entreprises m'ont permis d'explorer des domaines variés et de renforcer ma maîtrise du développement web.</p>
+			<p class="mb-8">Aujourd'hui, je mets cette expertise au service d'applications sécurisées, ergonomiques et adaptées aux besoins réels des utilisateurs.</p>
 
 			<h2 class="text-3xl text-secondary font-bold my-8">Mon parcours et mes valeurs</h2>
 			<p class="mb-4">Depuis mes premiers projets personnels, j'ai une envie principale : créer des outils qui comptent vraiment. Cette conviction s'est renforcée au fil des expériences, que ce soit en équipe ou lors du développement complet de solutions SaaS. Avec le temps, la rigueur, l'écoute et l'esprit d'analyse sont devenus les piliers de ma manière de travailler.</p>
