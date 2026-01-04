@@ -1,129 +1,319 @@
-export interface Skill {
-	slug: string;
-	category: 'frontend' | 'backend' | 'softSkills';
-	isIcon: boolean;
-	name: string;
-	image: string;
-	definition: string;
-	evidence: string[];
-	evolution: string;
+export interface SkillEvidence {
+    paragraph: string;
+    link: string;
+	externalLink?: string;
 }
 
-export const frontendSkills: Skill[] = [
+export interface Skill {
+    slug: string;
+    isIcon: boolean;
+    name: string;
+    image: string;
+    definition: string;
+    evidence: SkillEvidence[];
+    autocritique: string;
+    evolution: string;
+    relatedProjects: string[];
+}
+
+export const technicalSkills: Skill[] = [
 	{
 		slug: 'html-twig',
-		category: 'frontend',
 		isIcon: false,
 		name: 'HTML/Twig',
 		image: '/img/logos/HTML.webp',
-		definition: 'HTML est le langage de structuration de pages web par excellence. ' +
-			'Twig est un moteur de template utilisé dans plusieurs frameworks PHP, notamment Symfony. ' +
-			"Les 2 servent à créer l'architecture et le contenu de notre site web.",
+		definition: `
+			HTML est le langage standard de structuration de pages web, utilisé pour organiser le contenu (les titres, les paragraphes, les images, les liens, etc). 
+			Twig est un moteur de template PHP, principalement utilisé avec Symfony, qui permet de séparer le contenu de la logique et de générer des pages web dynamiques de manière sécurisée et maintenable. 
+			Ces deux technologies sont essentielles dans le développement front-end moderne, garantissant une structure propre, une maintenabilité du code et une intégration fluide avec des back-ends complexes. 
+			Dans un contexte professionnel, HTML/Twig permet de traduire des maquettes graphiques en interfaces fonctionnelles tout en facilitant la personnalisation et l'injection de données dynamiques, ce qui est particulièrement pertinent pour les applications web SaaS actuelles et les plateformes e-commerce.
+		`,
 		evidence: [
-			'Intégration de maquettes HTML depuis 7 ans dans tous mes projets.',
-			'Optimisation SEO et contenu dynamique notamment avec Twig depuis 4 ans.'
+			{
+				paragraph: 'Intégration complète de maquettes HTML/Twig pour des projets variés, allant de sites WordPress à des plateformes SaaS complexes sous Symfony. Chaque projet a nécessité la création de pages structurées et accessibles, en respectant les standards HTML et les conventions de Twig pour la réutilisation des templates.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Optimisation SEO et contenu dynamique via Twig sur des sites clients, permettant une personnalisation des pages selon les profils utilisateurs et une meilleure indexation par les moteurs de recherche. La valeur ajoutée a été mesurable par l\'augmentation du trafic organique et la réduction des temps de rendu des pages.',
+				link: 'dgs-beez-pro'
+			},
+			{
+				paragraph: 'Création de composants front-end réutilisables et modulaires dans le cadre de projets NuxtJS, en utilisant HTML pour structurer le contenu, garantissant cohérence et maintenabilité.',
+				link: 'hoplunch-pointeuse'
+			}
 		],
-		evolution: "Expert avec plus de 7 ans d'expérience et une utilisation régulière."
+		autocritique: `
+			Je maîtrise pleinement HTML et Twig, avec une utilisation quotidienne depuis plus de 7 ans. 
+			Cette compétence est centrale dans mon profil de développeur fullstack, car elle constitue la base de l'architecture des interfaces et permet de travailler efficacement sur des projets complexes. 
+			Ma vitesse d'acquisition a été rapide, notamment lors de la transition vers des projets SaaS dynamiques avec Symfony et NuxtJS. 
+			Conseil pour moi-même : continuer à suivre les bonnes pratiques HTML5 et Twig pour maintenir la qualité et la sécurité des templates.
+		`,
+		evolution: `
+			Mon objectif à moyen terme est de perfectionner ma maîtrise des bonnes pratiques front-end modernes, notamment en combinant Twig avec des frameworks JS front-end comme NuxtJS pour améliorer encore la réutilisabilité et la performance des interfaces. 
+			Je prévois de suivre une formation avancée sur HTML5 concernant les standards d'accessibilité pour les applications web complexes.
+		`,
+		relatedProjects: [
+			'dgs-beez-web',
+			'dgs-beez-pro',
+			'hoplunch-pointeuse',
+			'dgs-ile-aux-copains'
+		]
 	},
 	{
 		slug: 'sass-tailwind',
-		category: 'frontend',
 		isIcon: false,
 		name: 'SASS/Tailwind',
 		image: '/img/logos/TailwindCSS.webp',
-		definition: "SASS est un préprocesseur CSS qui permet d'appliquer du style graphique/visuel à un site internet. " +
-			"TailwindCSS est un framework CSS qui aide à créer rapidement la partie design d'un site internet.",
+		definition: `
+			Le CSS est la base du design en développement web, c'est le langage qui décrit les apparences des balises HTML d'une page web.
+			SASS est un préprocesseur CSS qui permet d'écrire des styles de manière plus organisée et maintenable grâce aux variables, mixins et fonctions. 
+			TailwindCSS est un framework CSS utilitaire qui facilite la création rapide d'interfaces visuelles cohérentes et responsive. 
+			Ces deux outils sont essentiels pour accélérer le développement front-end tout en maintenant une architecture CSS propre et réutilisable, surtout dans un contexte de projets web complexes et modulaires.
+		`,
 		evidence: [
-			'Structuration optimisée du design de maquettes HTML depuis 7 ans dans mes projets.',
-			"TailwindCSS m'a permis de coder la partie front-end de plusieurs projets plus efficacement et rapidement."
+			{
+				paragraph: 'Stylisation complexe du site vitrine dans son intégralité suivant une maquette. Utilisation de grilles, d\'animations avancées, responsive appliqué à l\'ensemble du site.',
+				link: 'dgs-beez-pro'
+			},
+			{
+				paragraph: 'Utilisation de TailwindCSS pour accélérer le développement front-end et assurer la cohérence graphique et responsive sur plusieurs projets SaaS, notamment les applications HopLunch et DGS Création.',
+				link: 'hoplunch-zae'
+			},
+			{
+				paragraph: 'Structuration et stylisation optimisée de maquettes HTML sur des projets variés, de sites WordPress à des applications SaaS complexes, en utilisant SASS pour gérer les variables, mixins et composants réutilisables.',
+				link: ''
+			},
 		],
-		evolution: "Expert avec plus de 7 ans d'expérience et une utilisation régulière."
+		autocritique: `
+			Je maîtrise très bien SASS et TailwindCSS, avec une utilisation régulière depuis 7 ans. 
+			Cette compétence est fondamentale pour produire des interfaces web rapides, modulables et maintenables. 
+			Je continue à explorer les fonctionnalités avancées de Tailwind pour améliorer la réutilisabilité et la performance des styles.
+		`,
+		evolution: `
+			Mon objectif est de perfectionner ma maîtrise de TailwindCSS et SASS, en intégrant des pratiques de design system et en optimisant la performance CSS. 
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-ile-aux-copains',
+			'hoplunch-zae',
+			'hoplunch-pointeuse'
+		]
 	},
 	{
 		slug: 'javascript',
-		category: 'frontend',
 		isIcon: false,
 		name: 'JavaScript',
 		image: '/img/logos/JavaScript.webp',
-		definition: 'JavaScript est le langage web le plus connu, car il est utilisé pour toutes les interactions en direct avec le navigateur.' +
-			"C'est le langage front-end utilisé par pleins de frameworks, notamment React/VueJS..." +
-			"Mais c'est aussi un langage utilisé pour le back-end ou l'Ajax par exemple.",
+		definition: `
+			JavaScript est le langage universel du web, utilisé pour rendre les pages interactives et dynamiques. 
+			Il est indispensable pour les interactions côté client, la manipulation du DOM, les appels API asynchrones et est également utilisé côté serveur via Node.js ou pour gérer les requêtes Ajax. 
+			Dans un contexte professionnel, JavaScript permet de créer des interfaces utilisateurs réactives et des applications web complètes.
+		`,
 		evidence: [
-			"Utilisation de l'API Google Maps et ses fonctionnalités sur les cartes interactives.",
-			'Formulaire dynamique de création de compte pour les parents et enfants sur une application de périscolaire.'
+			{
+				paragraph: 'Intégration de cartes interactives en utilisant l\'API Google Maps, permettant de visualiser et manipuler des données géographiques dans un projet SaaS.',
+				link: 'hoplunch-zae'
+			},
+			{
+				paragraph: 'Création de formulaires dynamiques pour la gestion de comptes parents et enfants sur une application périscolaire, avec validation en temps réel et interactions front-end avancées.',
+				link: 'dgs-ile-aux-copains'
+			},
+			{
+				paragraph: 'Utilisation du langage depuis plus de 7 ans sur tous mes projets web, de simples interactions, à formulaires avancés, requêtes Ajax etc.',
+				link: ''
+			}
 		],
-		evolution: "Confirmé grâce à une utilisation régulière depuis des années. Mais mon domaine principal reste le PHP, donc il y a énormément de choses que j'apprends au moment de coder."
+		autocritique: `
+			Je suis confirmé en JavaScript grâce à une utilisation régulière sur divers projets front-end depuis plusieurs années. 
+			Bien que PHP reste mon langage principal, j'acquiers rapidement de nouvelles compétences JavaScript en travaillant sur des applications complexes et interactives.
+		`,
+		evolution: `
+			Mon objectif est de maîtriser les concepts avancés de JavaScript (ES6+, modules, asynchronisme) et de renforcer mon expertise sur les frameworks front-end comme VueJS/NuxtJS pour construire des applications web performantes et maintenables.
+		`,
+		relatedProjects: [
+			'dgs-ile-aux-copains',
+			'hoplunch-zae',
+			'hoplunch-pointeuse'
+		]
 	},
 	{
 		slug: 'vue-nuxt',
-		category: 'frontend',
 		isIcon: false,
 		name: 'VueJS/NuxtJS',
 		image: '/img/logos/NuxtJS.webp',
-		definition: 'VueJS est un framework front-end JavaScript permettant de créer facilement des sites internet par composants.' +
-			"NuxtJS utilise VueJS en ajoutant une partie SSR (Server Side Rendering) et améliore le SEO en plus d'autres fonctionnalités.",
+		definition: `
+			VueJS est un framework JavaScript moderne qui facilite le développement d'interfaces web réactives basées sur des composants. 
+			NuxtJS complète VueJS en ajoutant le Server-Side Rendering (SSR), l'optimisation SEO et la génération de sites statiques. 
+			Ces technologies permettent de créer des applications web performantes et modulaires, particulièrement adaptées aux plateformes SaaS et aux projets complexes nécessitant du SEO.
+		`,
 		evidence: [
-			'Création de mon portfolio.',
-			"Création d'une application de pointeuse pour les livreurs d'une entreprise."
+			{
+				paragraph: 'Création de mon portfolio personnel en utilisant VueJS et NuxtJS, permettant de structurer les composants et gérer l\'état de manière modulable. J\'ai mis l\'accent sur l\'aspect réutilisation des composants et sur le SEO via NuxtJS. J\'ai aussi optimisé le contenu tel que les images pour que le site soit le plus performant possible.',
+				link: ''
+			},
+			{
+				paragraph: 'Développement d\'une application de pointeuse pour les livreurs d\'une entreprise avec NuxtJS, intégrant la communication avec un back-end Symfony et l\'actualisation en temps réel de leurs statuts.',
+				link: 'hoplunch-pointeuse'
+			},
+			{
+				paragraph: 'Développement sur la refonte du site de HopLunch. Ajout de pages de contenu, gestion du catalogue et des filtres associés, communication avec l\'API back-end, design et responsive.',
+				link: '',
+				externalLink: 'https://hoplunch.com'
+			}
 		],
-		evolution: "J'apprends le framework NuxtJS via plusieurs projets, dont un gros projet à venir en entreprise."
+		autocritique: `
+			J'acquiers actuellement une maîtrise solide de VueJS/NuxtJS à travers plusieurs projets professionnels et personnels. 
+			Cette compétence devient essentielle pour mes projets front-end complexes et pour créer des applications SaaS performantes et SEO-friendly.
+		`,
+		evolution: `
+			Mon objectif est de renforcer ma maîtrise du SSR et des fonctionnalités avancées de NuxtJS, d'optimiser la performance des applications et de créer des composants modulaires réutilisables dans mes projets futurs.
+			Je perfectionne actuellement mon utilisation des stores Pinia, des composables, des middlewares et de plugins externes.
+		`,
+		relatedProjects: [
+			'hoplunch-pointeuse',
+		]
 	},
-];
-
-export const backendSkills: Skill[] = [
 	{
 		slug: 'php',
-		category: 'backend',
 		isIcon: false,
 		name: 'PHP',
 		image: '/img/logos/PHP.webp',
-		definition: "Le langage back-end web ancré depuis 30. Sa robustesse et sa performance font que j'aime utiliser ce langage au quotidien.",
+		definition: `
+			PHP est un langage back-end web éprouvé, robuste et performant, utilisé pour créer des applications web dynamiques et évolutives. 
+			Il est particulièrement adapté aux projets professionnels et SaaS nécessitant une logique métier complexe, une intégration avec des bases de données et des frameworks modernes comme Symfony. 
+			PHP reste incontournable pour gérer le back-end et la logique applicative côté serveur dans de nombreux contextes professionnels.
+		`,
 		evidence: [
-			"J'utilise PHP dans mes projets personnels et professionnels depuis 7 ans.",
-			"J'ai pu créer plusieurs SaaS Symfony destinés à des entreprises clientes.",
-			"Je travaille aussi sur de la migration de code PHP 'vanilla' vers Symfony sur un projet."
+			{
+				paragraph: 'Utilisation quotidienne de PHP depuis plus de 7 ans dans mes projets personnels et professionnels, notamment pour développer des SaaS Symfony destinés à des entreprises clientes, garantissant la robustesse et la maintenabilité du code.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: "Migration de projets PHP 'vanilla' vers Symfony, améliorant la structure, la sécurité et la maintenabilité du code existant.",
+				link: ''
+			},
+			{
+				paragraph: 'Développement de fonctionnalités spécifiques sur des plateformes web complexes, incluant gestion des utilisateurs, automatisation des workflows et traitement de données métier.',
+				link: 'hoplunch-zae'
+			}
 		],
-		evolution: "Expert avec le langage depuis 7 ans, je me tiens à jour sur les nouvelles sorties de version et leurs fonctionnalités. Je l'utilise au quotidien."
+		autocritique: `
+			Je maîtrise PHP de manière experte et l'utilise quotidiennement. 
+			Cette compétence est au cœur de mon profil fullstack et constitue la base de toute application web que je développe. 
+			Je continue à me tenir à jour sur les nouveautés PHP pour exploiter pleinement les nouvelles fonctionnalités et améliorer la qualité du code.
+		`,
+		evolution: `
+			Mon objectif est de consolider mes bonnes pratiques PHP, approfondir la performance et la sécurité des applications web, et rester à jour avec les nouvelles versions et fonctionnalités du langage.
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-zae',
+		]
 	},
 	{
 		slug: 'symfony',
-		category: 'backend',
 		isIcon: false,
 		name: 'Symfony',
 		image: '/img/logos/Symfony.webp',
-		definition: "C'est un framework PHP robuste et modulaire idéal pour les application PHP évolutives et professionnelles.",
+		definition: `
+			Symfony est un framework PHP modulaire et robuste, conçu pour construire des applications web évolutives et maintenables. 
+			Il facilite l'architecture MVC, la création de services réutilisables et l'intégration avec les bases de données et les API. 
+			Dans un contexte professionnel, Symfony est idéal pour développer des SaaS, des plateformes web complexes et des projets nécessitant des standards industriels de qualité.
+		`,
 		evidence: [
-			"SaaS de gestion d'une agence d'interim.",
-			'SaaS de création de contrats en ligne.'
+			{
+				paragraph: 'Développement complet d\'un SaaS pour la gestion d\'une agence d\'intérim, de ses offres d\'emploi, suivi des candidatures, et matching des profils. Utilisation de Symfony pour structurer le back-end et gérer la logique métier et le dialogue avec des APIs externes.',
+				link: 'dgs-beez-pro'
+			},
+			{
+				paragraph: 'Développement complet d\'un SaaS de création et signature de contrats en ligne, en utilisant Symfony pour la gestion des commandes, contrats, factures et avoirs, fichiers PDF et Excel.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Refonte et optimisation de fonctionnalités sur des projets existants pour améliorer la maintenabilité et la sécurité du code Symfony.',
+				link: 'hoplunch-zae'
+			}
 		],
-		evolution: "Confirmé grâce à mes 3 ans d'expérience, je me tiens à jour sur les nouvelles version et leurs fonctionnalités. Je l'utilise au quotidien."
+		autocritique: `
+			Je maîtrise Symfony depuis 3 ans et l'utilise quotidiennement pour construire des applications web robustes et modulaires. 
+			Cette compétence est essentielle pour mon rôle de développeur fullstack, car elle permet d'assurer la qualité et la pérennité des projets.
+		`,
+		evolution: `
+			Mon objectif est de devenir un expert sur Symfony, en approfondissant les bonnes pratiques de conception, les composants avancés et l'intégration avec les API complexes et front-end modernes.
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-zae',
+		]
 	},
 	{
 		slug: 'mysql',
-		category: 'backend',
 		isIcon: false,
 		name: 'MySQL',
 		image: '/img/logos/MySQL.webp',
-		definition: "C'est un SGBD (Système de Gestion de Base de Données) relationnel permettant de stocker, d'appeler et de calculer des données.",
+		definition: `
+			MySQL est un SGBD (Système de Gestion de Base de Données) relationnel qui permet de stocker, organiser et interroger des données de manière performante et sécurisée.
+			Il est utilisé pour gérer la logique métier côté serveur et pour interagir avec des applications web, qu'il s'agisse de projets simples ou de plateformes SaaS complexes.
+		`,
 		evidence: [
-			"Utilisation sur d'anciens projets PHP 'vanilla'.",
-			'Utilisation sur tous mes projets Symfony passés et en cours.'
+			{
+				paragraph: 'Utilisation de MySQL sur tous mes projets Symfony, garantissant l\'intégrité des données et la performance des requêtes pour des applications SaaS et B2B2C.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Gestion de bases de données sur des projets PHP et JavaScript, incluant création de tables, relations, indexation et requêtes optimisées.',
+				link: 'hoplunch-zae'
+			}
 		],
-		evolution: "Expert dans l'utilisation du langage SQL depuis 7 ans, aujourd'hui je l'utilise au quotidien."
+		autocritique: `
+			Je maîtrise MySQL depuis plus de 7 ans et l'utilise quotidiennement.
+			Cette compétence est centrale pour tout développement back-end et permet de garantir performance et fiabilité des applications.
+		`,
+		evolution: `
+			Je continue à approfondir mes connaissances sur l'optimisation des requêtes, la sécurité des bases et les nouvelles fonctionnalités SQL pour des projets complexes et à forte volumétrie de données.
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-zae',
+			'hoplunch-pointeuse'
+		]
 	},
 	{
 		slug: 'typescript',
-		category: 'backend',
 		isIcon: false,
 		name: 'TypeScript',
 		image: '/img/logos/TypeScript.webp',
-		definition: "C'est une surcouche typée de JavaScript très prisée aujourd'hui pour sa robustesse.",
+		definition: `
+			TypeScript est une surcouche typée de JavaScript qui apporte robustesse et sécurité dans le développement fullstack.
+			Il permet de détecter les erreurs dès la compilation et de structurer le code de manière plus maintenable, ce qui est particulièrement utile dans les projets complexes et modulaires.
+		`,
 		evidence: [
-			'Utilisé dans la création de mon portfolio.',
-			"Utilisé dans la création d'une application de pointeuse pour les livreurs d'une entreprise."
+			{
+				paragraph: 'Création de mon portfolio en TypeScript, permettant d\'appliquer des types stricts et de sécuriser le code front-end.',
+				link: ''
+			},
+			{
+				paragraph: 'Développement d\'une application de pointeuse pour les livreurs avec TypeScript et NuxtJS, garantissant la robustesse des fonctionnalités critiques.',
+				link: 'hoplunch-pointeuse'
+			}
 		],
-		evolution: "J'apprends le langage via plusieurs projets, en utilisant les documentations, exemple de code..."
-	},
+		autocritique: `
+			Je progresse constamment en TypeScript via mes projets professionnels et personnels.
+			Cette compétence renforce la qualité du code et facilite la collaboration sur des applications complexes fullstack.
+		`,
+		evolution: `
+			Mon objectif est de devenir pleinement expert en TypeScript, en maîtrisant les fonctionnalités avancées, l'intégration avec NuxtJS et la gestion de projets front-end et fullstack complexes.
+		`,
+		relatedProjects: [
+			'hoplunch-pointeuse',
+		]
+	}
 ];
 
 // const otherSkills = [
@@ -169,56 +359,156 @@ export const backendSkills: Skill[] = [
 export const softSkills: Skill[] = [
 	{
 		slug: 'communication',
-		category: 'softSkills',
 		isIcon: true,
 		name: 'Communication claire',
 		image: 'maki:communications-tower',
-		definition: 'Capacité à transmettre des informations et des connaissances. Indispensable dans un environnement professionnel.',
+		definition: `
+			Capacité à transmettre des informations et des connaissances de manière claire et compréhensible. 
+			Dans un contexte professionnel, cela permet de coordonner efficacement les équipes, gérer les relations avec les clients et assurer le suivi des projets. 
+			Une communication claire est essentielle pour éviter les erreurs, faciliter la collaboration et garantir la réussite des projets complexes.
+		`,
 		evidence: [
-			'Gestion de réunions clients dans plusieurs entreprises avec plusieurs clients.',
-			'Réunions de pilotage de projets.',
-			'Réunions avec des prospects transformés en clients.'
+			{
+				paragraph: 'Organisation et animation de réunions clients, permettant de clarifier les besoins et prioriser les actions. Résultat : amélioration de la satisfaction client et des projets associés.',
+				link: 'hoplunch-pointeuse'
+			},
+			{
+				paragraph: 'Participation à des réunions de pilotage de projets, permettant de suivre l\'avancement et d\'anticiper les risques. Ma valeur ajoutée : synthétiser les informations techniques pour les rendre accessibles à tous les participants.',
+				link: 'hoplunch-zae'
+			},
+			{
+				paragraph: 'Réunions avec des prospects transformés en clients, en expliquant clairement les fonctionnalités et bénéfices des projets. Résultat : acquisition de nouveaux clients et confiance renforcée.',
+				link: 'dgs-beez-pro'
+			}
 		],
-		evolution: "J'ai pu m'exercer sur de nombreux cas d'usage, c'est un domaine qui nous apprend toujours de nouvelles choses."
+		autocritique: `
+			Je maîtrise bien cette compétence et elle est centrale dans mon profil fullstack. 
+			Elle me permet d'aligner technique et besoins métier et de fluidifier le travail en équipe. 
+			Je continue à m'améliorer dans la synthèse d'informations complexes et la communication non technique.
+		`,
+		evolution: `
+			Je souhaite perfectionner ma communication lors de présentations techniques et commerciales. 
+			Mon interaction journalière avec les autres services de l'entreprise permet de faire évoluer cette compétence tous les jours, et j'y veille continuellement.
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'hoplunch-zae',
+			'hoplunch-pointeuse',
+		]
 	},
 	{
 		slug: 'analysis',
-		category: 'softSkills',
 		isIcon: true,
-		name: 'Esprit d\'analyse',
+		name: "Esprit d'analyse",
 		image: 'bx:bxs-analyse',
-		definition: 'Capacité à décomposer un problème complexe pour trouver la meilleur solution.',
+		definition: `
+			Capacité à décomposer un problème complexe pour identifier les causes, définir des solutions adaptées et prendre des décisions éclairées. 
+			Dans un contexte professionnel, cette compétence permet d'optimiser les choix techniques et organisationnels et d'anticiper les problèmes avant qu'ils n'impactent le projet.
+		`,
 		evidence: [
-			"Compétence apprise avec l'expérience.",
-			"J'effectue ces analyses détaillées dans chacun de mes projets"
+			{
+				paragraph: 'Analyse détaillée des besoins pour chaque projet SaaS, en identifiant les contraintes techniques et fonctionnelles. Résultat : solutions cohérentes et évolutives, réduisant les risques de refonte.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Décomposition des problèmes rencontrés lors de migrations PHP vers Symfony, permettant de planifier et prioriser les actions. Résultat : migrations rapides et sécurisées.',
+				link: ''
+			},
+			{
+				paragraph: 'Analyse approfondie de l\'existant, préparation de la refonte logicielle intégrant de nouvelles fonctionnalités. Résultat : refonte logicielle durable dans le temps.',
+				link: 'hoplunch-zae'
+			}
 		],
-		evolution: "Depuis quelques années j'ai acquis de l'expérience, mais il y a toujours de nouvelles méthodes, d'optimisations à comprendre..."
+		autocritique: `
+			Je considère mon esprit d'analyse comme solide, notamment pour le développement fullstack et la gestion de projets complexes. 
+			Je continue à m'améliorer sur les méthodes d'optimisation et les analyses multi-axes pour gagner en efficacité.
+		`,
+		evolution: `
+			Je souhaite approfondir mes compétences en analyse systémique et en conception de solutions optimisées pour les architectures logicielles complexes. 
+			Je prévois de suivre des formations sur la modélisation UML et les patterns d'architecture logicielle.
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-zae'
+		]
 	},
 	{
 		slug: 'work-ethic',
-		category: 'softSkills',
 		isIcon: true,
 		name: 'Rigueur et sens du détail',
 		image: 'streamline:module-puzzle-3-solid',
-		definition: 'Travail précis et orienté qualité afin de fournir le meilleur résultat possible.',
+		definition: `
+			Travail précis et orienté qualité afin de fournir un résultat fiable et sans erreurs. 
+			Dans le développement web et les projets complexes, cette compétence est essentielle pour la robustesse du code, la sécurité des applications et la satisfaction client.
+		`,
 		evidence: [
-			"J'ai toujours eu ce sens du détail qui est très utile dans le monde professionnel."
+			{
+				paragraph: 'Vérification systématique de la cohérence des fonctionnalités et du code lors de projets SaaS complexes, garantissant l\'absence de bugs majeurs en production.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Respect des bonnes pratiques de codage et de structuration du code. Tests automatisés écrits pour chaque nouvelle fonctionnalité.',
+				link: 'hoplunch-zae'
+			},
+			{
+				paragraph: 'Rigueur appliquée dans mes projets que je documente toujours, surtout lorsqu\'il y a des fonctionnalités complexes.',
+				link: ''
+			}
 		],
-		evolution: "J'ai cette rigueur depuis toujours, je ne fais pas les choses à moitié."
+		autocritique: `
+			Je suis naturellement rigoureux et attentif aux détails, ce qui est un atout dans mes projets fullstack. 
+			Je continue à améliorer ma méthodologie de tests et de vérification pour maximiser la qualité et la fiabilité.
+		`,
+		evolution: `
+			Je souhaite formaliser davantage mes processus de tests et de contrôle qualité, et continuer à documenter mes projets pour faciliter le travail collaboratif.
+		`,
+		relatedProjects: [
+			'hoplunch-zae',
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-pointeuse'
+		]
 	},
 	{
 		slug: 'continuous-learning',
-		category: 'softSkills',
 		isIcon: true,
 		name: 'Apprentissage continu',
 		image: 'hugeicons:elearning-exchange',
-		definition: "Fait d'apprendre en continu de nouvelles connaissances dans un domaine.",
+		definition: `
+			Capacité à apprendre en continu de nouvelles connaissances et technologies afin de rester à jour et de s'adapter à un environnement professionnel en constante évolution. 
+			Dans le développement web, cela inclut les frameworks, langages et méthodes de travail.
+		`,
 		evidence: [
-			"J'apprends des nouvelles technologies dans des projets personnels.",
-			'Mais aussi de nombreuses choses en entreprise.'
+			{
+				paragraph: 'Acquisition de nouvelles compétences en NuxtJS et TypeScript via des projets professionnels et personnels, permettant de livrer des applications front-end performantes et maintenables.',
+				link: '',
+				externalLink: 'https://hoplunch.com'
+			},
+			{
+				paragraph: 'Exploration de nouvelles technologies et bonnes pratiques PHP/Symfony dans le cadre de projets SaaS et migrations de code legacy.',
+				link: 'dgs-ile-aux-copains'
+			}
 		],
-		evolution: "Compétence en évolution constante. Chaque projet me permet d'expérimenter et d'apprendre."
-	},
+		autocritique: `
+			Je considère l'apprentissage continu comme une compétence centrale de mon profil, qui me permet de m'adapter rapidement aux nouvelles technologies et aux exigences des projets. 
+			Je reste curieux et proactif dans mes recherches et tests.
+			Les documentations des langages et outils de programmation, sont ainsi les piliers de mon apprentissage continu.
+		`,
+		evolution: `
+			Je souhaite continuer à explorer les frameworks front-end et back-end avancés, approfondir mes connaissances en DevOps et suivre des formations sur les bonnes pratiques d'ingénierie logicielle pour rester à jour.
+		`,
+		relatedProjects: [
+			'hoplunch-zae',
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-pointeuse'
+		]
+	}
 ];
 
-export const allSkills = [...frontendSkills, ...backendSkills, ...softSkills];
+export const allSkills = [...technicalSkills, ...softSkills];

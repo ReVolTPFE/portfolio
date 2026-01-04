@@ -116,5 +116,44 @@
       "icon": "material-symbols:calendar-clock",
       "text": "Lors de mon départ de l'entreprise, le projet a été repris par un autre développeur et n'est à ce jour pas sorti, ou indisponible publiquement."
     }
+  ],
+  "whatsNext": {
+    "icon": "material-symbols:calendar-clock",
+    "text": "Comme énoncé dans les résultats, le projet n'était pas terminé avant mon départ de l'entreprise. Je n'ai pas trouvé d'accès public à ce site, il peut toujours être en développement, ou a été annulé."
+  },
+  "selfReview": {
+    "bad": [
+      "Une critique que je me transmets : \"Fais des tests automatisés !\" J'ai perdu des heures à tester les formulaires dynamiques et interactifs de création de comptes parents/enfants. Aujourd'hui, surtout sur des fonctionnalités complexes et longues, je teste toujours automatiquement le code."
+    ],
+    "good": [
+      "J'ai beaucoup appris sur la sécurité et le cryptage nécessaire de certaines données et de certains documents notamment liés à la santé et aux mineurs.",
+      "Mon expérience la plus mémorable, était la prise de conscience de la complexité de création d'un générateur de formulaire dynamique selon conditions (une sorte de réplique du plugin ACF pour WordPress, mais pour notre site)."
+    ]
+  },
+  "skillLinks": [
+    {
+      "link": "html-twig",
+      "text": "HTML/Twig"
+    },
+    {
+      "link": "sass-tailwind",
+      "text": "SASS/Tailwind"
+    },
+    {
+      "link": "javascript",
+      "text": "JavaScript"
+    },
+    {
+      "link": "php",
+      "text": "PHP"
+    },
+    {
+      "link": "symfony",
+      "text": "Symfony"
+    },
+    {
+      "link": "mysql",
+      "text": "MySQL"
+    }
   ]
 }

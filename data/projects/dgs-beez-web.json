@@ -160,5 +160,44 @@
       "icon": "fa6-solid:handshake",
       "text": "Cliente satisfaite du produit final, a rapidement commencé à signer de nouveaux contrats."
     }
+  ],
+  "whatsNext": {
+    "icon": "material-symbols:calendar-clock",
+    "text": "Comme le site web Bee'z Pro, le projet a été en ligne pendant plus d'un an après mon départ de l'entreprise. Je n'ai pas plus d'informations concernant l'utilisation réelle ou le retour sur investissement à moyen/long terme, car j'ai quitté mon entreprise après avoir fini ce projet."
+  },
+  "selfReview": {
+    "bad": [
+      "Comme pour la phase 1, nous avons accepté beaucoup de changements demandés par la cliente après validation du cahier des charges. Je veille dorénavant à expliquer ce qu'engendrent des changements importants en cours de projet."
+    ],
+    "good": [
+      "Le projet a été complexe mais très stimulant, c'était la 1e fois que je travaillais sur un projet nécessitant tant de vigilance côté juridique et RGPD.",
+      "J'ai beaucoup appris notamment avec les systèmes de factures et d'avoirs que je ne connaissais pas avant de les développer. J'ai approfondi ma rigueur avec ce projet, car aucun chiffre ne peut être invalide sur une facture, sinon de mauvais paiements sont effectués."
+    ]
+  },
+  "skillLinks": [
+    {
+      "link": "html-twig",
+      "text": "HTML/Twig"
+    },
+    {
+      "link": "sass-tailwind",
+      "text": "SASS/Tailwind"
+    },
+    {
+      "link": "javascript",
+      "text": "JavaScript"
+    },
+    {
+      "link": "php",
+      "text": "PHP"
+    },
+    {
+      "link": "symfony",
+      "text": "Symfony"
+    },
+    {
+      "link": "mysql",
+      "text": "MySQL"
+    }
   ]
 }

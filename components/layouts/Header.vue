@@ -15,7 +15,7 @@ function toggleMobileNav() {
 				<NuxtLink to="/" class="hover-primary">Accueil</NuxtLink>
 				<NuxtLink to="/profile" class="hover-primary">Profil</NuxtLink>
 				<NuxtLink to="/#skills" class="hover-primary">Compétences</NuxtLink>
-				<NuxtLink to="/projects" class="hover-primary">Portfolio</NuxtLink>
+				<NuxtLink to="/projects" class="hover-primary">Projets</NuxtLink>
 				<NuxtLink to="/#career" class="hover-primary">Parcours</NuxtLink>
 				<NuxtLink to="/#contact" class="hover-primary">Contact</NuxtLink>
 			</nav>
@@ -44,7 +44,7 @@ function toggleMobileNav() {
 			<NuxtLink to="/" class="hover-primary" @click="toggleMobileNav">Accueil</NuxtLink>
 			<NuxtLink to="/profile" class="hover-primary" @click="toggleMobileNav">Profil</NuxtLink>
 			<NuxtLink to="/#skills" class="hover-primary" @click="toggleMobileNav">Compétences</NuxtLink>
-			<NuxtLink to="/projects" class="hover-primary" @click="toggleMobileNav">Portfolio</NuxtLink>
+			<NuxtLink to="/projects" class="hover-primary" @click="toggleMobileNav">Projets</NuxtLink>
 			<NuxtLink to="/#career" class="hover-primary" @click="toggleMobileNav">Parcours</NuxtLink>
 			<NuxtLink to="/#contact" class="hover-primary" @click="toggleMobileNav">Contact</NuxtLink>
 		</nav>
