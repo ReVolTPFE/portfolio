@@ -10,7 +10,7 @@ const projects = trendingProjects;
 
 <template>
 	<section id="portfolio" class="section-spacing">
-		<SectionTitle title="Portfolio" subtitle="Mes expériences"/>
+		<SectionTitle title="Projets" subtitle="Mes expériences"/>
 
 		<div class="mx-auto max-w-80 md:max-w-screen-md lg:max-w-screen-lg grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
 			<ProjectCard
