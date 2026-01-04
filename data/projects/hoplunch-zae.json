@@ -145,5 +145,44 @@
       "icon": "mdi:database-arrow-down",
       "text": "Base d'entreprises enrichie et constamment actualisée grâce à l'API Sirene."
     }
+  ],
+  "whatsNext": {
+    "icon": "material-symbols:calendar-clock",
+    "text": "Ayant par le passé collaboré avec les responsables logistiques dans la gestion des ZAE et entreprises à livrer, j'ai vu les 6 derniers mois le temps gagné, car le système leur permet aujourd'hui d'être totalement autonome sur ces tâches."
+  },
+  "selfReview": {
+    "bad": [
+      "Avec mon chef de projet, nous avons perdu du temps sur une refonte partielle temporaire qui a servi 1 mois avant de tout refondre à nouveau. Le problème ayant été une mauvaise compréhension des changements nécessaires."
+    ],
+    "good": [
+      "Remplir un court formulaire et cliquer sur 2 boutons plutôt que de devoir exécuter nos anciennes tâches manuelles est très gratifiant et le système que j'ai développé fait efficacement gagner du temps à tout le monde aujourd'hui dans l'entreprise.",
+      "J'ai adoré automatiser les systèmes de scrapping et de création/gestion de ZAE et d'entreprises. Le tout en utilisant plusieurs API et du code concernant les coordonnées GPS et leurs conversions. Ce projet est certainement le plus complexe et le plus large sur lequel j'ai pu travailler."
+    ]
+  },
+  "skillLinks": [
+    {
+      "link": "html-twig",
+      "text": "HTML/Twig"
+    },
+    {
+      "link": "sass-tailwind",
+      "text": "SASS/Tailwind"
+    },
+    {
+      "link": "javascript",
+      "text": "JavaScript"
+    },
+    {
+      "link": "php",
+      "text": "PHP"
+    },
+    {
+      "link": "symfony",
+      "text": "Symfony"
+    },
+    {
+      "link": "mysql",
+      "text": "MySQL"
+    }
   ]
 }

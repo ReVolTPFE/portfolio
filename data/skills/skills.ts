@@ -25,7 +25,7 @@ export const technicalSkills: Skill[] = [
 		definition: `
 			HTML est le langage standard de structuration de pages web, utilisé pour organiser le contenu (les titres, les paragraphes, les images, les liens, etc). 
 			Twig est un moteur de template PHP, principalement utilisé avec Symfony, qui permet de séparer le contenu de la logique et de générer des pages web dynamiques de manière sécurisée et maintenable. 
-			Ces deux technologies sont essentielles dans le développement front-end moderne, garantissant une structure propre, une maintenabilité du code et une intégration fluide avec des backends complexes. 
+			Ces deux technologies sont essentielles dans le développement front-end moderne, garantissant une structure propre, une maintenabilité du code et une intégration fluide avec des back-ends complexes. 
 			Dans un contexte professionnel, HTML/Twig permet de traduire des maquettes graphiques en interfaces fonctionnelles tout en facilitant la personnalisation et l'injection de données dynamiques, ce qui est particulièrement pertinent pour les applications web SaaS actuelles et les plateformes e-commerce.
 		`,
 		evidence: [
@@ -156,7 +156,7 @@ export const technicalSkills: Skill[] = [
 				link: 'hoplunch-pointeuse'
 			},
 			{
-				paragraph: 'Développement sur la refonte du site de HopLunch. Ajout de pages de contenu, gestion du catalogue et des filtres associés, communication avec l\'API backend, design et responsive.',
+				paragraph: 'Développement sur la refonte du site de HopLunch. Ajout de pages de contenu, gestion du catalogue et des filtres associés, communication avec l\'API back-end, design et responsive.',
 				link: '',
 				externalLink: 'https://hoplunch.com'
 			}
@@ -250,152 +250,71 @@ export const technicalSkills: Skill[] = [
 			'hoplunch-zae',
 		]
 	},
+	{
+		slug: 'mysql',
+		isIcon: false,
+		name: 'MySQL',
+		image: '/img/logos/MySQL.webp',
+		definition: `
+			MySQL est un SGBD (Système de Gestion de Base de Données) relationnel qui permet de stocker, organiser et interroger des données de manière performante et sécurisée.
+			Il est utilisé pour gérer la logique métier côté serveur et pour interagir avec des applications web, qu'il s'agisse de projets simples ou de plateformes SaaS complexes.
+		`,
+		evidence: [
+			{
+				paragraph: 'Utilisation de MySQL sur tous mes projets Symfony, garantissant l\'intégrité des données et la performance des requêtes pour des applications SaaS et B2B2C.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Gestion de bases de données sur des projets PHP et JavaScript, incluant création de tables, relations, indexation et requêtes optimisées.',
+				link: 'hoplunch-zae'
+			}
+		],
+		autocritique: `
+			Je maîtrise MySQL depuis plus de 7 ans et l'utilise quotidiennement.
+			Cette compétence est centrale pour tout développement back-end et permet de garantir performance et fiabilité des applications.
+		`,
+		evolution: `
+			Je continue à approfondir mes connaissances sur l'optimisation des requêtes, la sécurité des bases et les nouvelles fonctionnalités SQL pour des projets complexes et à forte volumétrie de données.
+		`,
+		relatedProjects: [
+			'dgs-beez-pro',
+			'dgs-beez-web',
+			'dgs-ile-aux-copains',
+			'hoplunch-zae',
+			'hoplunch-pointeuse'
+		]
+	},
+	{
+		slug: 'typescript',
+		isIcon: false,
+		name: 'TypeScript',
+		image: '/img/logos/TypeScript.webp',
+		definition: `
+			TypeScript est une surcouche typée de JavaScript qui apporte robustesse et sécurité dans le développement fullstack.
+			Il permet de détecter les erreurs dès la compilation et de structurer le code de manière plus maintenable, ce qui est particulièrement utile dans les projets complexes et modulaires.
+		`,
+		evidence: [
+			{
+				paragraph: 'Création de mon portfolio en TypeScript, permettant d\'appliquer des types stricts et de sécuriser le code front-end.',
+				link: ''
+			},
+			{
+				paragraph: 'Développement d\'une application de pointeuse pour les livreurs avec TypeScript et NuxtJS, garantissant la robustesse des fonctionnalités critiques.',
+				link: 'hoplunch-pointeuse'
+			}
+		],
+		autocritique: `
+			Je progresse constamment en TypeScript via mes projets professionnels et personnels.
+			Cette compétence renforce la qualité du code et facilite la collaboration sur des applications complexes fullstack.
+		`,
+		evolution: `
+			Mon objectif est de devenir pleinement expert en TypeScript, en maîtrisant les fonctionnalités avancées, l'intégration avec NuxtJS et la gestion de projets front-end et fullstack complexes.
+		`,
+		relatedProjects: [
+			'hoplunch-pointeuse',
+		]
+	}
 ];
-
-// export const backendSkills: Skill[] = [
-// 	{
-// 		slug: 'php',
-// 		category: 'backend',
-// 		isIcon: false,
-// 		name: 'PHP',
-// 		image: '/img/logos/PHP.webp',
-// 		definition: `
-// 			PHP est un langage back-end web éprouvé, robuste et performant, utilisé pour créer des applications web dynamiques et évolutives.
-// 			Il est particulièrement adapté aux projets professionnels et SaaS nécessitant une logique métier complexe, une intégration avec des bases de données et des frameworks modernes comme Symfony.
-// 			PHP reste incontournable pour gérer le back-end et la logique applicative côté serveur dans de nombreux contextes professionnels.
-// 		`,
-// 		evidence: [
-// 			{
-// 				paragraph: 'Utilisation quotidienne de PHP depuis plus de 7 ans dans mes projets personnels et professionnels, notamment pour développer des SaaS Symfony destinés à des entreprises clientes, garantissant la robustesse et la maintenabilité du code.',
-// 				link: 'dgs-beez-web'
-// 			},
-// 			{
-// 				paragraph: "Migration de projets PHP 'vanilla' vers Symfony, améliorant la structure, la sécurité et la maintenabilité du code existant.",
-// 				link: 'iut-haguenau2'
-// 			},
-// 			{
-// 				paragraph: 'Développement de fonctionnalités spécifiques sur des plateformes web complexes, incluant gestion des utilisateurs, automatisation des workflows et traitement de données métier.',
-// 				link: 'hoplunch-zae'
-// 			}
-// 		],
-// 		autocritique: `
-// 			Je maîtrise PHP de manière experte et l'utilise quotidiennement.
-// 			Cette compétence est au cœur de mon profil fullstack et constitue la base de toute application web que je développe.
-// 			Je continue à me tenir à jour sur les nouveautés PHP pour exploiter pleinement les nouvelles fonctionnalités et améliorer la qualité du code.
-// 		`,
-// 		evolution: `
-// 			Mon objectif est de consolider mes bonnes pratiques PHP, approfondir la performance et la sécurité des applications web, et rester à jour avec les nouvelles versions et fonctionnalités du langage.
-// 		`,
-// 		relatedProjects: [
-// 			'dgs-beez-web',
-// 			'dgs-ile-aux-copains',
-// 			'hoplunch-zae',
-// 			'hoplunch-pointeuse'
-// 		]
-// 	},
-// 	{
-// 		slug: 'symfony',
-// 		category: 'backend',
-// 		isIcon: false,
-// 		name: 'Symfony',
-// 		image: '/img/logos/Symfony.webp',
-// 		definition: `
-// 			Symfony est un framework PHP modulaire et robuste, conçu pour construire des applications web évolutives et maintenables.
-// 			Il facilite l'architecture MVC, la création de services réutilisables et l'intégration avec les bases de données et les API.
-// 			Dans un contexte professionnel, Symfony est idéal pour développer des SaaS, des plateformes web complexes et des projets nécessitant des standards industriels de qualité.
-// 		`,
-// 		evidence: [
-// 			{
-// 				paragraph: 'Développement complet de SaaS pour la gestion d\'une agence d\'intérim et d\'un SaaS de création et signature de contrats en ligne, en utilisant Symfony pour structurer le back-end et gérer la logique métier.',
-// 				link: 'dgs-beez-web'
-// 			},
-// 			{
-// 				paragraph: 'Refonte et optimisation de fonctionnalités sur des projets existants pour améliorer la maintenabilité et la sécurité du code Symfony.',
-// 				link: 'hoplunch-pointeuse'
-// 			}
-// 		],
-// 		autocritique: `
-// 			Je maîtrise Symfony depuis 3 ans et l'utilise quotidiennement pour construire des applications web robustes et modulaires.
-// 			Cette compétence est essentielle pour mon rôle de développeur fullstack, car elle permet d'assurer la qualité et la pérennité des projets.
-// 		`,
-// 		evolution: `
-// 			Mon objectif est de devenir un expert reconnu sur Symfony, en approfondissant les bonnes pratiques de conception, les composants avancés et l'intégration avec les API complexes et front-end modernes.
-// 		`,
-// 		relatedProjects: [
-// 			'dgs-beez-web',
-// 			'dgs-beez-pro',
-// 			'hoplunch-zae',
-// 			'hoplunch-pointeuse'
-// 		]
-// 	},
-// 	{
-// 		slug: 'mysql',
-// 		category: 'backend',
-// 		isIcon: false,
-// 		name: 'MySQL',
-// 		image: '/img/logos/MySQL.webp',
-// 		definition: `
-// 			MySQL est un SGBD relationnel qui permet de stocker, organiser et interroger des données de manière performante et sécurisée.
-// 			Il est utilisé pour gérer la logique métier côté serveur et pour interagir avec des applications web, qu'il s'agisse de projets simples ou de plateformes SaaS complexes.
-// 		`,
-// 		evidence: [
-// 			{
-// 				paragraph: 'Utilisation de MySQL sur tous mes projets Symfony, garantissant l\'intégrité des données et la performance des requêtes pour des applications SaaS et B2B2C.',
-// 				link: 'hoplunch-zae'
-// 			},
-// 			{
-// 				paragraph: "Gestion de bases de données sur des projets PHP 'vanilla', incluant création de tables, relations, indexation et requêtes optimisées.",
-// 				link: 'iut-haguenau2'
-// 			}
-// 		],
-// 		autocritique: `
-// 			Je maîtrise MySQL depuis plus de 7 ans et l'utilise quotidiennement.
-// 			Cette compétence est centrale pour tout développement back-end et permet de garantir performance et fiabilité des applications.
-// 		`,
-// 		evolution: `
-// 			Je continue à approfondir mes connaissances sur l'optimisation des requêtes, la sécurité des bases et les nouvelles fonctionnalités SQL pour des projets complexes et à forte volumétrie de données.
-// 		`,
-// 		relatedProjects: [
-// 			'dgs-beez-web',
-// 			'dgs-ile-aux-copains',
-// 			'hoplunch-zae',
-// 			'hoplunch-pointeuse'
-// 		]
-// 	},
-// 	{
-// 		slug: 'typescript',
-// 		category: 'backend',
-// 		isIcon: false,
-// 		name: 'TypeScript',
-// 		image: '/img/logos/TypeScript.webp',
-// 		definition: `
-// 			TypeScript est une surcouche typée de JavaScript qui apporte robustesse et sécurité dans le développement front-end et fullstack.
-// 			Il permet de détecter les erreurs dès la compilation et de structurer le code de manière plus maintenable, ce qui est particulièrement utile dans les projets complexes et modulaires.
-// 		`,
-// 		evidence: [
-// 			{
-// 				paragraph: 'Création de mon portfolio en TypeScript, permettant d\'appliquer des types stricts et de sécuriser le code front-end.',
-// 				link: 'portfolio'
-// 			},
-// 			{
-// 				paragraph: 'Développement d\'une application de pointeuse pour les livreurs avec TypeScript et NuxtJS, garantissant la robustesse des fonctionnalités critiques.',
-// 				link: 'hoplunch-pointeuse'
-// 			}
-// 		],
-// 		autocritique: `
-// 			Je progresse constamment en TypeScript via mes projets professionnels et personnels.
-// 			Cette compétence renforce la qualité du code et facilite la collaboration sur des applications complexes fullstack.
-// 		`,
-// 		evolution: `
-// 			Mon objectif est de devenir pleinement expert en TypeScript, en maîtrisant les fonctionnalités avancées, l'intégration avec NuxtJS et la gestion de projets front-end et fullstack complexes.
-// 		`,
-// 		relatedProjects: [
-// 			'portfolio',
-// 			'hoplunch-pointeuse',
-// 			'dgs-beez-web'
-// 		]
-// 	}
-// ];
 
 // const otherSkills = [
 // 	{
@@ -528,11 +447,15 @@ export const softSkills: Skill[] = [
 		evidence: [
 			{
 				paragraph: 'Vérification systématique de la cohérence des fonctionnalités et du code lors de projets SaaS complexes, garantissant l\'absence de bugs majeurs en production.',
+				link: 'dgs-beez-web'
+			},
+			{
+				paragraph: 'Respect des bonnes pratiques de codage et de structuration du code. Tests automatisés écrits pour chaque nouvelle fonctionnalité.',
 				link: 'hoplunch-zae'
 			},
 			{
-				paragraph: 'Respect des bonnes pratiques de codage et de structuration des fichiers CSS/JS pour améliorer la maintenabilité et la lisibilité des projets front-end.',
-				link: 'dgs-beez-web'
+				paragraph: 'Rigueur appliquée dans mes projets que je documente toujours, surtout lorsqu\'il y a des fonctionnalités complexes.',
+				link: ''
 			}
 		],
 		autocritique: `
@@ -544,7 +467,9 @@ export const softSkills: Skill[] = [
 		`,
 		relatedProjects: [
 			'hoplunch-zae',
+			'dgs-beez-pro',
 			'dgs-beez-web',
+			'dgs-ile-aux-copains',
 			'hoplunch-pointeuse'
 		]
 	},
@@ -560,7 +485,8 @@ export const softSkills: Skill[] = [
 		evidence: [
 			{
 				paragraph: 'Acquisition de nouvelles compétences en NuxtJS et TypeScript via des projets professionnels et personnels, permettant de livrer des applications front-end performantes et maintenables.',
-				link: 'hoplunch-pointeuse'
+				link: '',
+				externalLink: 'https://hoplunch.com'
 			},
 			{
 				paragraph: 'Exploration de nouvelles technologies et bonnes pratiques PHP/Symfony dans le cadre de projets SaaS et migrations de code legacy.',
@@ -570,14 +496,17 @@ export const softSkills: Skill[] = [
 		autocritique: `
 			Je considère l'apprentissage continu comme une compétence centrale de mon profil, qui me permet de m'adapter rapidement aux nouvelles technologies et aux exigences des projets. 
 			Je reste curieux et proactif dans mes recherches et tests.
+			Les documentations des langages et outils de programmation, sont ainsi les piliers de mon apprentissage continu.
 		`,
 		evolution: `
 			Je souhaite continuer à explorer les frameworks front-end et back-end avancés, approfondir mes connaissances en DevOps et suivre des formations sur les bonnes pratiques d'ingénierie logicielle pour rester à jour.
 		`,
 		relatedProjects: [
-			'hoplunch-pointeuse',
+			'hoplunch-zae',
+			'dgs-beez-pro',
+			'dgs-beez-web',
 			'dgs-ile-aux-copains',
-			'dgs-beez-web'
+			'hoplunch-pointeuse'
 		]
 	}
 ];

@@ -277,6 +277,58 @@ const closeImage = () => {
 			</div>
 		</section>
 
+		<!-- What's next Section -->
+		<section class="py-16 bg-gray-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Lendemains du projet</h2>
+					<p class="text-gray-600">Ce qui s'est passé par la suite</p>
+				</div>
+				<div class="bg-purple-500/5 p-6 rounded-xl border border-purple-500/20">
+					<div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
+						<Icon :name="project.whatsNext.icon" class="text-purple-500 w-7 h-7" />
+					</div>
+					<p class="text-gray-700 leading-relaxed">{{ project.whatsNext.text }}</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Self review Section -->
+		<section class="py-16 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Autocritique</h2>
+					<p class="text-gray-600">Ce qui aurait pu être amélioré, ce qui a été bien fait</p>
+				</div>
+				<div class="grid md:grid-cols-3 gap-8">
+					<div v-for="(bad, index) in project.selfReview.bad" :key="index" class="bg-orange-100 p-6 rounded-xl border border-orange-300">
+						<p class="text-gray-700 leading-relaxed">{{ bad }}</p>
+					</div>
+					<div v-for="(good, index) in project.selfReview.good" :key="index" class="bg-success/5 p-6 rounded-xl border border-success/20">
+						<p class="text-gray-700 leading-relaxed">{{ good }}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-16 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Compétences utilisées</h2>
+				</div>
+				<div class="flex flex-wrap justify-center gap-2">
+					<NuxtLink
+						v-for="(skill, index) in project.skillLinks"
+						:key="index"
+						:to="`/skills/${skill.link}`"
+						class="px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
+					>
+						{{ skill.text }}
+					</NuxtLink>
+				</div>
+			</div>
+		</section>
+
 		<div class="flex justify-center bg-white pb-16">
 			<LinkButton link="/projects" bg-color="bg-primary" text="Voir mes autres projets" />
 		</div>

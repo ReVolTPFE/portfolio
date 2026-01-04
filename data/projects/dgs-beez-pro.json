@@ -144,5 +144,44 @@
       "icon": "fa6-solid:handshake",
       "text": "Cliente satisfaite des livrables fournis et du suivi du projet. Elle nous a accordé sa confiance pour un deuxième projet encore plus ambitieux."
     }
+  ],
+  "whatsNext": {
+    "icon": "material-symbols:calendar-clock",
+    "text": "Par la suite, le projet a été en ligne pendant plus d'un an après mon départ de l'entreprise. Aujourd'hui une nouvelle refonte semble avoir été faite avec une autre agence web. Je n'ai pas plus d'informations n'étant plus aujourd'hui dans cette entreprise ou en relation avec la cliente."
+  },
+  "selfReview": {
+    "bad": [
+      "Nous avons accepté beaucoup de changements demandés par la cliente après validation du cahier des charges. Cela a ralenti le projet. Dorénavant, je veille à bien cadrer les fonctionnalités et à expliquer aux clients ce qu'engendrent des changements importants en cours de projet."
+    ],
+    "good": [
+      "Le projet dans son ensemble a été très enrichissant, car c'était mon 1er SaaS développé de A à Z. J'ai bien veillé à utiliser les outils mis à disposition par Symfony quand il le fallait.",
+      "J'ai beaucoup aimé les échanges hebdomadaires chez la cliente, cela me permettait de débriefer sur le travail en cours et d'apprendre pleins de choses sur le monde de l'interim. J'ai compris que connaître le domaine d'un client aide aussi dans le développement d'une application à sa destination."
+    ]
+  },
+  "skillLinks": [
+    {
+      "link": "html-twig",
+      "text": "HTML/Twig"
+    },
+    {
+      "link": "sass-tailwind",
+      "text": "SASS/Tailwind"
+    },
+    {
+      "link": "javascript",
+      "text": "JavaScript"
+    },
+    {
+      "link": "php",
+      "text": "PHP"
+    },
+    {
+      "link": "symfony",
+      "text": "Symfony"
+    },
+    {
+      "link": "mysql",
+      "text": "MySQL"
+    }
   ]
 }
