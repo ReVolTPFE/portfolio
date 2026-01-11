@@ -156,5 +156,50 @@
       "icon": "mdi:lock",
       "text": "Sécurisation complète et conformité légale (RGPD)."
     }
+  ],
+  "whatsNext": {
+    "icon": "material-symbols:calendar-clock",
+    "text": "Aujourd'hui, après 8 mois en production, le projet de pointeuse est bien ancré dans le SI de HopLunch et est utilisé par une centaine de livreurs tous les jours."
+  },
+  "selfReview": {
+    "good": [
+      "Mon premier projet NuxtJS qui a été très enrichissant et où j'ai énormément appris en utilisant API, Stores Pinia, état des données, cache.",
+      "Le projet n'a connu aucun bug depuis sa mise en prod initiale, car j'ai testé convenablement 100% des actions possibles sur la pointeuse.",
+      "Ma plus grande fierté, est le respect des délais de mes estimations initiales. Ma gestion de ce projet était réussie et j'ai hâte de gérer d'autres projets en parallèle de leurs développements."
+    ]
+  },
+  "skillLinks": [
+    {
+      "link": "html-twig",
+      "text": "HTML/Twig"
+    },
+    {
+      "link": "sass-tailwind",
+      "text": "SASS/Tailwind"
+    },
+    {
+      "link": "javascript",
+      "text": "JavaScript"
+    },
+    {
+      "link": "vue-nuxt",
+      "text": "VueJS/NuxtJS"
+    },
+    {
+      "link": "php",
+      "text": "PHP"
+    },
+    {
+      "link": "symfony",
+      "text": "Symfony"
+    },
+    {
+      "link": "mysql",
+      "text": "MySQL"
+    },
+    {
+      "link": "typescript",
+      "text": "TypeScript"
+    }
   ]
 }

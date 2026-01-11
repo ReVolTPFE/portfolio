@@ -12,6 +12,10 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
+	leftArrow: {
+		type: Boolean,
+		default: false,
+	},
 });
 </script>
 
@@ -21,7 +25,16 @@ const props = defineProps({
 		class="text-center py-2.5 px-5 rounded-md inline-block text-white"
 		:class="props.bgColor"
 	>
+		<Icon
+			v-if="props.leftArrow"
+			name="material-symbols:arrow-left-alt-rounded"
+			class="text-white text-2xl align-middle mr-1"
+		/>
 		{{ props.text }}
-		<Icon name="material-symbols:arrow-right-alt-rounded" class="text-white text-2xl align-middle" />
+		<Icon
+			v-if="!props.leftArrow"
+			name="material-symbols:arrow-right-alt-rounded"
+			class="text-white text-2xl align-middle ml-1"
+		/>
 	</NuxtLink>
 </template>
