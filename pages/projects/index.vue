@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { projects } from '~/data/projects';
 import ProjectCard from '~/components/ProjectCard.vue';
 import SectionTitle from '~/components/SectionTitle.vue';
+
+const { data: projects } = await useAsyncData('projects', () =>
+	queryCollection('projects').order('date', 'DESC').all()
+);
 </script>
 
 <template>

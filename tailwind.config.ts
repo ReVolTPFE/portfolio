@@ -1,8 +1,11 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: [
 		'./components/**/*.{vue,js,ts}',
 		'./pages/**/*.vue',
+		'./content/**/*.md',
 		'./nuxt.config.{js,ts}',
 	],
 	theme: {
@@ -24,7 +27,17 @@ export default {
 			borderColor: {
 
 			},
+			typography: {
+				DEFAULT: {
+					css: {
+						'--tw-prose-headings': '#0063c7',
+						'--tw-prose-links': '#0599ff',
+						'--tw-prose-bold': '#18212f',
+						maxWidth: 'none',
+					},
+				},
+			},
 		},
 	},
-	plugins: [],
+	plugins: [typography],
 };

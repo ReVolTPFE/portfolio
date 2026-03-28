@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { allSkills } from '~/data/skills/skills';
-import { projects } from '~/data/projects/index';
 import LinkButton from '~/components/LinkButton.vue';
 
 const route = useRoute();
@@ -12,16 +11,22 @@ if (!skill) {
 	throw createError({ statusCode: 404, statusMessage: 'Compétence non trouvée' });
 }
 
+// Récupérer les projets liés via Nuxt Content
+const { data: allProjects } = await useAsyncData('all-projects-for-skills', () =>
+	queryCollection('projects').select('slug', 'title').all()
+);
+
 // Récupérer les projets liés
 const relatedProjects = computed(() => {
+	if (!allProjects.value) return [];
 	return skill.relatedProjects
-		.map(projectSlug => projects.find(p => p.slug === projectSlug))
+		.map(projectSlug => allProjects.value!.find(p => p.slug === projectSlug))
 		.filter(Boolean);
 });
 
 // Fonction pour obtenir le nom du projet à partir du slug
 const getProjectName = (projectSlug: string): string => {
-	const project = projects.find(p => p.slug === projectSlug);
+	const project = allProjects.value?.find(p => p.slug === projectSlug);
 	return project?.title ?? projectSlug;
 };
 </script>
