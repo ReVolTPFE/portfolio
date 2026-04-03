@@ -41,28 +41,20 @@ export const allCareerExperiences = [
 						text: 'SASS/Tailwind'
 					},
 					{
-						link: 'javascript',
-						text: 'JavaScript'
-					},
-					{
 						link: 'vue-nuxt',
 						text: 'VueJS/NuxtJS'
 					},
 					{
-						link: 'php',
-						text: 'PHP'
-					},
-					{
-						link: 'symfony',
-						text: 'Symfony'
+						link: 'php-symfony',
+						text: 'PHP/Symfony'
 					},
 					{
 						link: 'mysql',
 						text: 'MySQL'
 					},
 					{
-						link: 'typescript',
-						text: 'TypeScript'
+						link: 'git',
+						text: 'Git'
 					}
 				]
 			}
@@ -114,20 +106,16 @@ export const allCareerExperiences = [
 						text: 'SASS/Tailwind'
 					},
 					{
-						link: 'javascript',
-						text: 'JavaScript'
-					},
-					{
-						link: 'php',
-						text: 'PHP'
-					},
-					{
-						link: 'symfony',
-						text: 'Symfony'
+						link: 'php-symfony',
+						text: 'PHP/Symfony'
 					},
 					{
 						link: 'mysql',
 						text: 'MySQL'
+					},
+					{
+						link: 'git',
+						text: 'Git'
 					}
 				]
 			}
@@ -195,20 +183,16 @@ export const allCareerExperiences = [
 						text: 'SASS/Tailwind'
 					},
 					{
-						link: 'javascript',
-						text: 'JavaScript'
-					},
-					{
-						link: 'php',
-						text: 'PHP'
-					},
-					{
-						link: 'symfony',
-						text: 'Symfony'
+						link: 'php-symfony',
+						text: 'PHP/Symfony'
 					},
 					{
 						link: 'mysql',
 						text: 'MySQL'
+					},
+					{
+						link: 'git',
+						text: 'Git'
 					}
 				]
 			}

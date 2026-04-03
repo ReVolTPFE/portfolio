@@ -36,5 +36,18 @@ export default defineContentConfig({
 				})).default([]),
 			}),
 		}),
+		skills: defineCollection({
+			type: 'page',
+			source: 'skills/*.md',
+			schema: z.object({
+				slug: z.string(),
+				name: z.string(),
+				image: z.string(),
+				isIcon: z.boolean().default(false),
+				category: z.string(),
+				order: z.number().default(0),
+				relatedProjects: z.array(z.string()).default([]),
+			}),
+		}),
 	},
 });
