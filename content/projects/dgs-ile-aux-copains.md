@@ -42,80 +42,98 @@ skillLinks:
 demoLink: ""
 ---
 
-## Contexte du projet
+## Présentation du projet
 
-Ile aux Copains est une structure associative dédiée à l'organisation d'activités périscolaires, d'animations pour enfants et de voyages scolaires durant les vacances. Avant notre intervention, la gestion de ces activités reposait sur des processus manuels : inscriptions papier, suivi des présences sur tableur Excel, facturation manuelle et communication par email ou téléphone. Ce fonctionnement posait des problèmes de traçabilité, de fiabilité des données et de charge administrative considérable pour l'équipe.
+Ile aux Copains est une structure associative dédiée à l'organisation d'activités périscolaires, d'animations pour enfants et de voyages scolaires durant les vacances. L'association propose un large éventail de prestations : accueil périscolaire, ateliers créatifs et sportifs le mercredi, centres de loisirs pendant les vacances scolaires, et séjours organisés de plusieurs jours.
 
-Le projet consistait à développer un portail web complet permettant de gérer, depuis un **back-office unique**, l'ensemble du cycle de vie des activités : création et paramétrage des événements (sorties, ateliers, voyages), inscription en ligne des enfants par leurs parents, gestion des présences (check-in/check-out), suivi financier (paiements, relances) et génération automatique de plannings et de factures.
+Le projet consistait à développer un portail web complet permettant de centraliser et de dématérialiser l'ensemble des processus de gestion au sein d'une plateforme unique. Concrètement, la plateforme devait offrir un **back-office pour les administrateurs** (tableau de bord, création d'événements avec paramétrage avancé, gestion des sessions et des places), un **parcours d'inscription en ligne pour les parents** (saisie des informations enfants, choix des activités, paiement Stripe, confirmation automatique), et une **interface mobile-first pour les animateurs** (check-in/check-out des enfants avec notification aux parents).
 
-La particularité de ce projet résidait dans la **sensibilité des données manipulées** : données de santé de mineurs (allergies, traitements médicaux, régimes alimentaires), informations familiales complexes (parents divorcés, tuteurs légaux, autorisations de tiers) et données financières. La conformité RGPD n'était pas un simple ajout, mais une contrainte structurante qui devait être intégrée dès la conception du modèle de données.
+La pièce maîtresse technique était un **générateur de formulaires d'inscription entièrement personnalisable**, comparable à un plugin ACF (Advanced Custom Fields) pour WordPress mais intégré nativement dans Symfony 6. L'administrateur pouvait créer visuellement des formulaires avec des champs dynamiques et des conditions d'affichage en cascade, le tout sans rechargement de page.
 
-Ce projet représentait un défi technique majeur, notamment la conception d'un générateur de formulaires dynamiques et la gestion des cas complexes de responsabilité légale.
+L'architecture reposait sur **Symfony 6 en MVC**, organisée en bundles fonctionnels. L'interface était construite avec **Twig, SASS et Bootstrap**. Le paiement en ligne était géré par **Stripe**, et un système d'export PDF/Excel permettait la génération automatique de plannings et de factures.
 
 ## Objectifs
 
-- **Offrir un parcours d'inscription fluide pour les parents** : formulaire d'inscription en ligne, saisie des informations de l'enfant (âge, santé, régime alimentaire, contacts d'urgence), choix des activités, paiement en ligne et confirmation automatique. Le tout devait être accessible sur mobile pour les parents qui n'ont pas accès à un ordinateur.
+- **Dématérialiser intégralement le parcours d'inscription** : remplacer les inscriptions papier par un formulaire en ligne fluide et accessible sur mobile, incluant la saisie des informations de l'enfant, le choix des activités, le paiement via Stripe et la confirmation automatique par email.
 
-- **Permettre aux administrateurs de créer n'importe quel type d'événement** : sorties d'une journée, ateliers hebdomadaires, séjours de vacances de plusieurs jours. Chaque type d'événement a ses propres spécificités (nombre de places, tranche d'âge, équipement requis, hébergement, transport) et le système devait s'adapter dynamiquement.
+- **Offrir un outil de création d'événements flexible** : permettre aux administrateurs de créer n'importe quel type d'événement (sortie d'une journée, atelier hebdomadaire, séjour de vacances). Le système devait s'adapter dynamiquement aux spécificités de chaque format grâce au générateur de formulaires.
 
-- **Assurer la sécurité et la confidentialité des données sensibles** : les données de santé des mineurs sont soumises à des réglementations strictes. Le chiffrement des colonnes sensibles en base de données et la gestion fine des accès étaient des impératifs non négociables.
+- **Garantir la conformité RGPD pour les données de mineurs** : chiffrement des colonnes sensibles en base de données et gestion fine des accès, en respectant les recommandations de la CNIL.
 
-- **Générer automatiquement plannings et factures** : les plannings de présence pour les animateurs et les factures pour les parents devaient être générés automatiquement à partir des inscriptions confirmées, avec export PDF et Excel.
+- **Automatiser la génération de plannings et de factures** : production automatique à partir des inscriptions confirmées, avec export PDF et Excel.
 
-## Fonctionnalités clés
+- **Simplifier la gestion des présences sur le terrain** : outil mobile de check-in/check-out en temps réel pour les animateurs, avec notification instantanée vers les parents.
 
-- **Back-office complet pour administrateurs** : tableau de bord avec vue d'ensemble des activités en cours et à venir, création d'événements avec paramétrage avancé (dates, horaires, capacité, tranche d'âge, tarification, équipements nécessaires), gestion des sessions récurrentes et des places disponibles.
+## Contexte
 
-- **Générateur de formulaires d'inscription 100% personnalisable** : c'est la fonctionnalité la plus complexe du projet. L'administrateur peut créer visuellement des formulaires d'inscription avec des champs dynamiques (textes, zones de texte, fichiers uploadés, cases à cocher, listes déroulantes) et des conditions d'affichage (un champ apparaît uniquement si une certaine condition est remplie). Ce générateur fonctionne sans rechargement de page grâce à JavaScript, et les données saisies sont validées côté serveur par Symfony. La complexité était comparable à la création d'un plugin ACF (Advanced Custom Fields) pour WordPress, mais intégré nativement dans l'application Symfony.
+Avant notre intervention, la gestion des activités d'Ile aux Copains reposait sur des processus entièrement manuels : inscriptions papier, suivi des présences sur tableur Excel, facturation manuelle et communication par email ou téléphone. Les erreurs de saisie étaient fréquentes, les relances de paiement chronophages, et la coordination entre les animateurs et l'administration se faisait de manière informelle.
 
-- **Module de paiement intégré (Stripe)** : les parents peuvent payer en ligne lors de l'inscription, avec suivi des reçus de paiement et système de relance automatique en cas de non-paiement. Le module gère les paiements partiels, les remboursements et les avoirs.
+Le secteur périscolaire en France est soumis à des réglementations strictes en matière de protection des données personnelles des mineurs. Les informations de santé (allergies, traitements, régimes alimentaires), les documents administratifs (autorisations parentales, fiches sanitaires) et les données financières doivent être traitées avec un niveau de sécurité élevé. La CNIL impose des mesures techniques et organisationnelles renforcées pour ces catégories de données, en particulier lorsqu'elles concernent des enfants.
 
-- **Gestion avancée des responsabilités parentales** : le système prend en compte les cas complexes de responsabilité légale : parents divorcés avec garde alternée, tuteurs légaux multiples, autorisations de tiers pour récupérer un enfant. Chaque responsable peut avoir des niveaux d'autorisation différents (autorisation de récupération, autorisation médicale, contact d'urgence uniquement).
+Par ailleurs, les structures familiales contemporaines ajoutent une complexité significative. Parents divorcés avec garde alternée, familles recomposées, tuteurs légaux, tiers autorisés : autant de cas que le système devait prendre en charge nativement. Le projet s'inscrivait dans le cadre d'une mission chez DGS Création, le client souhaitant une solution sur mesure plutôt qu'un logiciel générique.
 
-- **Interface mobile-first pour la gestion des présences** : les animateurs peuvent effectuer le check-in et check-out des enfants directement depuis leur smartphone ou tablette, avec notification instantanée aux parents.
+## Enjeux
 
-## Solutions techniques
+Le premier enjeu majeur était la **conception du générateur de formulaires dynamiques**. La difficulté résidait dans la gestion des conditions imbriquées : par exemple, un champ "Détail allergie" n'apparaît que si "Allergie" est coché, et un champ "Traitement en cours" n'apparaît que si "Allergie alimentaire" est sélectionné dans la liste déroulante. Ce système de conditions en cascade nécessitait un algorithme de résolution de dépendances côté JavaScript, tandis que côté back-end, la structure des formulaires devait être stockée en format JSON tout en restant interrogeable et validable par Symfony. L'enjeu était de livrer un outil utilisable par des non-techniciens sans sacrifier la robustesse technique.
 
-- **Architecture Symfony 6 MVC** avec une organisation en bundles fonctionnels (Événement, Inscription, Paiement, Utilisateur). Le bundle Événement gère la logique de création et paramétrage des activités, tandis que le bundle Inscription encapsule le générateur de formulaires dynamiques et la validation des données.
+Le deuxième enjeu portait sur la **protection des données sensibles**. Un chiffrement AES-256 devait être appliqué sur toutes les colonnes contenant des informations médicales, avec des clés stockées séparément dans les variables d'environnement. Les accès aux données sensibles devaient être tracés et horodatés, et seuls les utilisateurs disposant du rôle approprié pouvaient consulter les informations médicales. Cette contrainte devait structurer la conception du modèle de données dès le départ.
 
-- **Twig + SASS/Bootstrap** pour l'interface utilisateur, fidèle aux maquettes développées en externe par un designer. L'intégration responsive a été particulièrement soignée pour le parcours d'inscription mobile.
+Le troisième enjeu concernait la **modélisation des responsabilités familiales**. Chaque enfant pouvait avoir plusieurs responsables avec des rôles différents (parent principal, parent secondaire, tuteur légal, personne autorisée à récupérer l'enfant), avec des dates de validité et des niveaux d'autorisation spécifiques. Le modèle relationnel devait gérer ces cas grâce à des tables de liaison incluant des métadonnées.
 
-- **MySQL avec chiffrement au niveau des colonnes** : les données de santé (allergies, traitements, informations médicales) et les documents sensibles sont chiffrés en AES directement en base de données. Les clés de chiffrement sont stockées séparément dans des variables d'environnement, conformément aux bonnes pratiques de sécurité.
+Enfin, l'**intégration Stripe** imposait de gérer les paiements partiels, remboursements, avoirs et relances automatiques, le tout traçable et conforme aux obligations comptables de l'association.
 
-- **JavaScript vanilla pour le générateur de formulaires** : les interactions dynamiques du générateur (ajout/suppression de champs, drag & drop pour réorganiser, conditions d'affichage) sont gérées côté client en JavaScript, avec une synchronisation avec le back-end pour la persistance des configurations.
+## Risques
 
-- **Export PDF/Excel** : génération automatique de plannings de présence et de factures, disponibles à la volée ou planifiés en tâche CRON pour les envois automatiques en fin de mois.
+Le risque principal était le **dépassement du périmètre fonctionnel**. Le générateur de formulaires avait un potentiel d'expansion quasi illimité : chaque nouveau cas d'usage pouvait entraîner des évolutions significatives. Sans cadrage strict, cette fonctionnalité seule pouvait absorber la totalité du budget.
 
-## Défis rencontrés
+Le deuxième risque était lié à la **sensibilité des données**. Une faille exposant des données de santé de mineurs aurait eu des conséquences juridiques et réputationnelles graves. Ce risque justifiait l'investissement dans le chiffrement, la gestion fine des accès et la traçabilité.
 
-### Générateur de formulaires dynamiques
+Le troisième risque concernait la **maintenabilité du code JavaScript** du générateur de formulaires. La gestion d'état complexe (drag & drop, conditions en cascade) rendait ce code difficile à maintenir sans tests automatisés. Ce risque s'est matérialisé en partie, comme je le détaille dans la section Autocritique.
 
-La création du générateur de formulaires a été le défi technique principal et le plus formateur de ce projet. L'administrateur devait pouvoir créer visuellement un formulaire avec des champs de types variés, définir des conditions d'affichage entre les champs, et le tout devait fonctionner de manière fluide sans rechargement de page. Côté front-end, cela impliquait un système JavaScript complexe de gestion d'état, de rendu dynamique et de drag & drop. Côté back-end, la structure des formulaires devait être stockée en base de données de manière flexible (format JSON) tout en restant interrogeable et validable par Symfony. La difficulté principale était la gestion des conditions imbriquées : par exemple, un champ "Détail allergie" n'apparaît que si "Allergie" est coché, et un champ "Traitement en cours" n'apparaît que si "Allergie alimentaire" est sélectionné dans la liste déroulante des types d'allergies. Ce système de conditions en cascade a nécessité un algorithme de résolution de dépendances que j'ai implémenté en JavaScript. C'est ce défi qui m'a fait prendre conscience de la complexité réelle de ce type de fonctionnalité.
+Un quatrième risque, déterminant, était le **non-achèvement**. Le périmètre était ambitieux pour les ressources disponibles, et mon départ de l'entreprise avant la finalisation n'avait pas été suffisamment anticipé. La documentation et la qualité du code devaient permettre une reprise sereine par un autre développeur.
 
-### Confidentialité RGPD et protection des données de mineurs
+## Les étapes du projet
 
-Les données de mineurs sont soumises à un cadre réglementaire renforcé. J'ai dû mettre en place un chiffrement AES-256 sur toutes les colonnes contenant des données de santé, avec une gestion des clés conforme aux recommandations de la CNIL. Les accès aux données sensibles sont tracés et horodatés, et seuls les utilisateurs disposant du rôle approprié peuvent consulter les informations médicales. La conception du modèle de données a intégré ces contraintes dès le départ, ce qui a évité des refactoring coûteux en cours de projet.
+Le projet a débuté par une **phase d'analyse fonctionnelle** avec le chef de projet pour comprendre les processus métier d'Ile aux Copains. Cette phase a produit un cahier des charges détaillé, des user stories priorisées selon la valeur métier et la complexité technique. Les maquettes ont été réalisées par un designer externe, et j'ai participé aux allers-retours pour valider la faisabilité technique.
 
-### Modélisation des responsabilités familiales complexes
+La deuxième phase a porté sur la **conception du modèle de données et de l'architecture**. J'ai intégré les contraintes RGPD directement dans le schéma MySQL en identifiant les colonnes nécessitant un chiffrement AES-256 et en mettant en place la séparation des clés dans les variables d'environnement. J'ai conçu le modèle relationnel des responsabilités familiales avec ses tables de liaison, ainsi que la structure JSON pour le stockage des configurations de formulaires. L'architecture Symfony 6 a été organisée en bundles fonctionnels.
 
-La gestion des cas de parents divorcés avec garde alternée, de tuteurs légaux multiples et d'autorisations de tiers a nécessité un modèle relationnel soigneusement pensé. Chaque enfant peut avoir plusieurs responsables avec des rôles différents (parent principal, parent secondaire, tuteur légal, personne autorisée à récupérer l'enfant), et ces liens ont des dates de validité et des niveaux d'autorisation spécifiques. J'ai conçu un schéma avec des tables de liaison incluant des métadonnées (type de responsabilité, niveau d'autorisation, dates de début et fin de validité), permettant de gérer ces cas sans limitation du modèle de données.
+La troisième phase correspondait au **développement itératif**. J'ai commencé par le socle applicatif (authentification, gestion des rôles), puis le module événements, le générateur de formulaires, le parcours d'inscription et le module Stripe. L'intégration des maquettes s'est faite en parallèle, avec une attention particulière au responsive mobile. Le générateur a mobilisé une part significative du temps, notamment le drag & drop en JavaScript vanilla et l'algorithme de résolution de dépendances.
 
-## Résultats obtenus
+La quatrième phase portait sur les **tests et la validation en staging**. Les fonctionnalités ont été testées fonctionnellement avec le chef de projet et présentées au client. L'export PDF/Excel des plannings et factures a été mis en place, avec configuration des tâches CRON pour les envois automatiques.
 
-Lors de mon départ de l'entreprise DGS Création, le projet n'était pas terminé. Il a été repris par un autre développeur pour la finalisation. À ce jour, le site n'est pas disponible publiquement, ou a potentiellement été annulé. Malgré cette situation, le travail réalisé sur ma partie du projet était fonctionnel et documenté, facilitant la reprise par un autre développeur.
+Le projet a été **interrompu lors de mon départ** de DGS Création. Les fonctionnalités principales étaient opérationnelles en staging, mais certaines finitions et la mise en production restaient à réaliser. J'ai documenté le code et les choix d'architecture pour faciliter la reprise.
 
-Les fonctionnalités que j'ai développées (générateur de formulaires, système d'inscription, gestion des responsabilités, chiffrement des données) étaient opérationnelles et testées sur l'environnement de staging avant mon départ.
+## Résultats pour moi
+
+Ce projet a constitué une étape déterminante dans ma progression technique. Le générateur de formulaires m'a confronté à un niveau de complexité inédit : gérer un état applicatif côté client en JavaScript vanilla, implémenter un algorithme de résolution de dépendances pour des conditions en cascade, synchroniser cette logique avec un back-end Symfony qui valide et persiste des structures JSON flexibles. Ces défis m'ont fait monter en compétence significativement sur l'articulation front-end/back-end dans des contextes applicatifs avancés.
+
+J'ai acquis une expertise concrète en sécurité des données et conformité RGPD. Les contraintes renforcées pour les données de mineurs m'ont poussé à étudier les recommandations de la CNIL, les mécanismes de chiffrement AES-256 au niveau des colonnes MySQL, et les bonnes pratiques de gestion des clés. Ces connaissances sont directement transférables et constituent un atout que je valorise dans mes missions actuelles.
+
+La modélisation des responsabilités familiales m'a appris à concevoir des modèles relationnels souples, capables de s'adapter à des cas métier complexes. Cette capacité à anticiper les cas limites en phase de conception est une compétence que je mobilise désormais systématiquement.
+
+Enfin, ce projet m'a fait prendre conscience de l'importance capitale des tests automatisés, une leçon dont l'impact sur ma pratique professionnelle est durable et mesurable.
+
+## Résultats pour l'entreprise
+
+Lors de mon départ, le projet n'était pas terminé. Les fonctionnalités que j'avais développées (générateur de formulaires, système d'inscription, gestion des responsabilités parentales, chiffrement des données, intégration Stripe, exports PDF/Excel) étaient opérationnelles et testées en staging. Le code était documenté et l'architecture structurée en bundles fonctionnels, facilitant la reprise.
+
+Le projet a été confié à un autre développeur pour la finalisation. L'investissement technique sur le générateur de formulaires représentait un actif réutilisable pour d'autres projets de l'agence. De même, les mécanismes de chiffrement et de gestion des accès constituaient une base solide pour tout projet futur impliquant des données sensibles.
+
+Pour le client, le travail réalisé posait les fondations d'un outil qui, une fois finalisé, devait transformer ses processus de gestion : suppression des inscriptions papier, automatisation de la facturation, traçabilité des présences et conformité RGPD native.
 
 ## Lendemains du projet
 
-Le projet n'étant pas terminé avant mon départ, je n'ai pas de visibilité sur son état actuel. Il est possible qu'il soit toujours en développement, qu'il ait été lancé sous une forme différente, ou qu'il ait été abandonné. Cette incertitude est l'un des aspects frustrants du travail en agence : lorsqu'on quitte l'entreprise, on perd le suivi des projets auxquels on a contribué.
+Le projet n'étant pas terminé avant mon départ, je n'ai pas de visibilité sur son état actuel. Il est possible qu'il ait été finalisé, lancé sous une forme différente, ou abandonné. À ce jour, le site n'est pas disponible publiquement, ce qui laisse penser qu'il a pu être mis en pause ou annulé.
 
-Ce qui reste, en revanche, c'est l'expérience technique et les apprentissages tirés de ce projet, qui m'accompagnent dans mes projets actuels.
+Cette incertitude est l'un des aspects frustrants du travail en agence : on investit du temps et de la réflexion dans un produit dont on ne connaîtra peut-être jamais le destin. C'est une réalité du métier que j'ai appris à accepter, en me concentrant sur ce qui reste : l'expérience acquise et les leçons tirées.
+
+Ce projet m'a conforté dans l'idée que la documentation et la lisibilité du code ne sont pas des luxes. Savoir qu'un autre développeur allait reprendre mon travail m'a poussé à être plus rigoureux dans mes commentaires et dans la structuration de mon code. Cette discipline m'accompagne depuis dans tous mes projets.
 
 ## Autocritique
 
-La leçon la plus marquante de ce projet tient en une phrase : **"Fais des tests automatisés !"** J'ai perdu des heures à tester manuellement les formulaires dynamiques et interactifs de création de comptes parents/enfants, avec toutes les combinaisons de conditions et de cas familiaux complexes. Les tests manuels sont non seulement chronophages, mais aussi incomplets : il est impossible de couvrir manuellement tous les cas limites d'un système aussi complexe. Aujourd'hui, surtout sur des fonctionnalités critiques et longues à développer, je teste systématiquement le code de manière automatisée. Cette leçon a directement contribué au succès du projet de pointeuse chez HopLunch, où les tests exhaustifs ont garanti zéro bug en production.
+La leçon la plus marquante de ce projet tient en une phrase : **"Fais des tests automatisés !"** J'ai perdu des heures à tester manuellement les formulaires dynamiques avec toutes les combinaisons de conditions et de cas familiaux complexes. Chaque modification du générateur nécessitait de repasser manuellement l'ensemble des scénarios : formulaire simple, conditions imbriquées, cas de parents divorcés, tuteurs multiples. Les tests manuels sont chronophages et incomplets : des régressions passaient entre les mailles du filet et n'étaient détectées que tardivement, entraînant des allers-retours coûteux. Aujourd'hui, je teste systématiquement le code de manière automatisée. Cette leçon a directement contribué au succès du projet de pointeuse chez HopLunch, où les tests exhaustifs ont garanti zéro bug en production.
 
-J'ai beaucoup appris sur la sécurité et le chiffrement des données sensibles, en particulier celles liées à la santé et aux mineurs. Les contraintes RGPD renforcées pour les données de mineurs m'ont poussé à étudier en profondeur les recommandations de la CNIL et les bonnes pratiques de chiffrement en base de données, des connaissances que je réutilise aujourd'hui sur d'autres projets.
+L'autre point d'autocritique concerne la **sous-estimation de la complexité du générateur de formulaires**. Ce qui semble simple en surface ("l'utilisateur crée un formulaire avec des champs") cache une complexité technique considérable en termes de gestion d'état, de résolution de dépendances et de validation. Si c'était à refaire, j'aurais réalisé un prototype technique avant de m'engager dans le développement complet, et j'aurais proposé un découpage plus fin en livrables intermédiaires pour valider chaque niveau de complexité avant de passer au suivant.
 
-Mon expérience la plus mémorable reste la prise de conscience de la complexité réelle d'un générateur de formulaires dynamiques avec conditions. Ce qui semble simple en surface ("l'utilisateur crée un formulaire avec des champs") cache une complexité technique considérable en termes de gestion d'état, de résolution de dépendances et de validation. Cette expérience m'a appris à ne jamais sous-estimer la complexité d'une fonctionnalité, même lorsqu'elle semble intuitive d'un point de vue utilisateur.
+Cette expérience m'a appris à ne jamais sous-estimer la complexité d'une fonctionnalité, même lorsqu'elle semble intuitive du point de vue utilisateur. Elle m'a aussi appris la valeur du prototypage et du découpage en incréments, deux pratiques que j'applique désormais systématiquement.
