@@ -85,10 +85,12 @@ La gérante devait jongler entre plusieurs outils non connectés et perdait un t
 
 Le secteur de l'intérim BTP en Alsace est très concurrentiel, et l'absence de présence en ligne, plaçait Bee'z Pro en désavantage face à des concurrents déjà équipés de plateformes digitales modernes.
 
+### Acteurs et interactions
+
 Ce projet a nécessité l'intervention de plusieurs acteurs :
-- La cliente, gérante de Bee'z Pro
-- Notre cheffe de projet en interne
-- Notre graphiste en interne
+- La cliente, gérante de Bee'z Pro que je voyais toutes les semaines pour parler des avancées du projet
+- Notre cheffe de projet en interne avec qui j'étais en contact tous les jours pour définir des idées ou parler du cahier des charges
+- Notre graphiste en interne qui vérifiait que la maquette était respectée et avec qui je dialoguais en cas d'amélioration de cohérence possible sur le site
 - Moi-même, développeur sur le projet
 
 La cheffe de projet et moi-même avons rencontré la cliente une fois par semaine pour lui faire part des avancées sur le projet, mais aussi de nos questions concernant certaines fonctionnalités par exemple.
@@ -181,9 +183,14 @@ Sur le plan humain, les réunions hebdomadaires chez la cliente ont été une fo
 
 ## Lendemains du projet
 
-Le projet a été en ligne pendant plus d'un an après mon départ de l'entreprise DGS Création. Aujourd'hui, une nouvelle refonte semble avoir été réalisée avec une autre agence web. Je n'ai pas plus d'informations sur l'évolution du projet, n'étant plus en relation avec l'entreprise ni avec la cliente.
+### Dans un futur immédiat
+Après la mise en production, j'ai assuré une période de support pour corriger les derniers ajustements et former la gérante ainsi que ses employés à l'utilisation du back-office. Plusieurs mois plus tard, des évolutions ont été demandées et intégrées, notamment des ajustements d'affichage et de nouvelles fonctionnalités dans le back-office.
 
-Le plus important pour moi est que ce projet a permis un deuxième contrat (Bee'z Web), ce qui a prouvé que le travail fourni et la relation de confiance établie ont été déterminants.
+### À distance
+Le projet est resté en ligne pendant plus d'un an après mon départ de l'entreprise DGS Création. La relation de confiance établie avec la cliente a directement conduit à un second contrat : Bee'z Web, une plateforme de gestion de contrats.
+
+### Aujourd'hui
+Une refonte semble avoir été réalisée avec une autre agence web. N'étant plus en relation avec l'entreprise ni avec la cliente, je n'ai pas plus d'informations sur l'évolution actuelle du projet. Ce qui compte pour moi, c'est que ce premier SaaS a été une expérience qui m'a appris tant techniquement qu'humainement.
 
 ## Autocritique
 
