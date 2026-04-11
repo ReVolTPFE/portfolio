@@ -72,6 +72,16 @@ Le secteur périscolaire en France est soumis à des réglementations strictes e
 
 Par ailleurs, les structures familiales contemporaines ajoutent une complexité significative. Parents divorcés avec garde alternée, familles recomposées, tuteurs légaux, tiers autorisés : autant de cas que le système devait prendre en charge nativement. Le projet s'inscrivait dans le cadre d'une mission chez DGS Création, le client souhaitant une solution sur mesure plutôt qu'un logiciel générique.
 
+### Acteurs et interactions
+
+Ce projet a mobilisé plusieurs acteurs :
+- Le client, représentant de l'association Ile aux Copains, qui exprimait les besoins métier et validait les livrables
+- Notre chef de projet en interne, en charge du cadrage fonctionnel et de la priorisation des user stories
+- Un designer externe qui a réalisé les maquettes, avec qui j'échangeais pour valider la faisabilité technique
+- Moi-même, développeur sur le projet
+
+Les échanges avec le chef de projet étaient quotidiens, et les présentations au client se faisaient à intervalles réguliers pour valider chaque incrément fonctionnel.
+
 ## Enjeux
 
 Le premier enjeu majeur était la **conception du générateur de formulaires dynamiques**. La difficulté résidait dans la gestion des conditions imbriquées : par exemple, un champ "Détail allergie" n'apparaît que si "Allergie" est coché, et un champ "Traitement en cours" n'apparaît que si "Allergie alimentaire" est sélectionné dans la liste déroulante. Ce système de conditions en cascade nécessitait un algorithme de résolution de dépendances côté JavaScript, tandis que côté back-end, la structure des formulaires devait être stockée en format JSON tout en restant interrogeable et validable par Symfony. L'enjeu était de livrer un outil utilisable par des non-techniciens sans sacrifier la robustesse technique.
@@ -84,25 +94,39 @@ Enfin, l'**intégration Stripe** imposait de gérer les paiements partiels, remb
 
 ## Risques
 
-Le risque principal était le **dépassement du périmètre fonctionnel**. Le générateur de formulaires avait un potentiel d'expansion quasi illimité : chaque nouveau cas d'usage pouvait entraîner des évolutions significatives. Sans cadrage strict, cette fonctionnalité seule pouvait absorber la totalité du budget.
+### Risques techniques
 
-Le deuxième risque était lié à la **sensibilité des données**. Une faille exposant des données de santé de mineurs aurait eu des conséquences juridiques et réputationnelles graves. Ce risque justifiait l'investissement dans le chiffrement, la gestion fine des accès et la traçabilité.
+Le risque principal était lié à la **sensibilité des données**. Une faille exposant des données de santé de mineurs aurait eu des conséquences juridiques et réputationnelles graves. Ce risque justifiait l'investissement dans le chiffrement, la gestion fine des accès et la traçabilité.
 
-Le troisième risque concernait la **maintenabilité du code JavaScript** du générateur de formulaires. La gestion d'état complexe (drag & drop, conditions en cascade) rendait ce code difficile à maintenir sans tests automatisés. Ce risque s'est matérialisé en partie, comme je le détaille dans la section Autocritique.
+Le deuxième risque technique concernait la **maintenabilité du code JavaScript** du générateur de formulaires. La gestion d'état complexe (drag & drop, conditions en cascade) rendait ce code difficile à maintenir sans tests automatisés. Ce risque s'est matérialisé en partie, comme je le détaille dans la section Autocritique.
+
+### Risques projet
+
+Le **dépassement du périmètre fonctionnel** représentait un risque majeur. Le générateur de formulaires avait un potentiel d'expansion quasi illimité : chaque nouveau cas d'usage pouvait entraîner des évolutions significatives. Sans cadrage strict, cette fonctionnalité seule pouvait absorber la totalité du budget.
 
 Un quatrième risque, déterminant, était le **non-achèvement**. Le périmètre était ambitieux pour les ressources disponibles, et mon départ de l'entreprise avant la finalisation n'avait pas été suffisamment anticipé. La documentation et la qualité du code devaient permettre une reprise sereine par un autre développeur.
 
 ## Les étapes du projet
 
-Le projet a débuté par une **phase d'analyse fonctionnelle** avec le chef de projet pour comprendre les processus métier d'Ile aux Copains. Cette phase a produit un cahier des charges détaillé, des user stories priorisées selon la valeur métier et la complexité technique. Les maquettes ont été réalisées par un designer externe, et j'ai participé aux allers-retours pour valider la faisabilité technique.
+### Phase 1 : Analyse fonctionnelle
 
-La deuxième phase a porté sur la **conception du modèle de données et de l'architecture**. J'ai intégré les contraintes RGPD directement dans le schéma MySQL en identifiant les colonnes nécessitant un chiffrement AES-256 et en mettant en place la séparation des clés dans les variables d'environnement. J'ai conçu le modèle relationnel des responsabilités familiales avec ses tables de liaison, ainsi que la structure JSON pour le stockage des configurations de formulaires. L'architecture Symfony 6 a été organisée en bundles fonctionnels.
+Le projet a débuté avec le chef de projet pour comprendre les processus métier d'Ile aux Copains. Cette phase a produit un cahier des charges détaillé, des user stories priorisées selon la valeur métier et la complexité technique. Les maquettes ont été réalisées par un designer externe, et j'ai participé aux allers-retours pour valider la faisabilité technique.
 
-La troisième phase correspondait au **développement itératif**. J'ai commencé par le socle applicatif (authentification, gestion des rôles), puis le module événements, le générateur de formulaires, le parcours d'inscription et le module Stripe. L'intégration des maquettes s'est faite en parallèle, avec une attention particulière au responsive mobile. Le générateur a mobilisé une part significative du temps, notamment le drag & drop en JavaScript vanilla et l'algorithme de résolution de dépendances.
+### Phase 2 : Conception du modèle de données et de l'architecture
 
-La quatrième phase portait sur les **tests et la validation en staging**. Les fonctionnalités ont été testées fonctionnellement avec le chef de projet et présentées au client. L'export PDF/Excel des plannings et factures a été mis en place, avec configuration des tâches CRON pour les envois automatiques.
+J'ai intégré les contraintes RGPD directement dans le schéma MySQL en identifiant les colonnes nécessitant un chiffrement AES-256 et en mettant en place la séparation des clés dans les variables d'environnement. J'ai conçu le modèle relationnel des responsabilités familiales avec ses tables de liaison, ainsi que la structure JSON pour le stockage des configurations de formulaires. L'architecture Symfony 6 a été organisée en bundles fonctionnels.
 
-Le projet a été **interrompu lors de mon départ** de DGS Création. Les fonctionnalités principales étaient opérationnelles en staging, mais certaines finitions et la mise en production restaient à réaliser. J'ai documenté le code et les choix d'architecture pour faciliter la reprise.
+### Phase 3 : Développement itératif
+
+J'ai commencé par le socle applicatif (authentification, gestion des rôles), puis le module événements, le générateur de formulaires, le parcours d'inscription et le module Stripe. L'intégration des maquettes s'est faite en parallèle, avec une attention particulière au responsive mobile. Le générateur a mobilisé une part significative du temps, notamment le drag & drop en JavaScript vanilla et l'algorithme de résolution de dépendances.
+
+### Phase 4 : Tests et validation en staging
+
+Les fonctionnalités ont été testées fonctionnellement avec le chef de projet et présentées au client. L'export PDF/Excel des plannings et factures a été mis en place, avec configuration des tâches CRON pour les envois automatiques.
+
+### Phase 5 : Interruption et transmission
+
+Le projet a été interrompu lors de mon départ de DGS Création. Les fonctionnalités principales étaient opérationnelles en staging, mais certaines finitions et la mise en production restaient à réaliser. J'ai documenté le code et les choix d'architecture pour faciliter la reprise.
 
 ## Résultats pour moi
 
@@ -124,11 +148,14 @@ Pour le client, le travail réalisé posait les fondations d'un outil qui, une f
 
 ## Lendemains du projet
 
-Le projet n'étant pas terminé avant mon départ, je n'ai pas de visibilité sur son état actuel. Il est possible qu'il ait été finalisé, lancé sous une forme différente, ou abandonné. À ce jour, le site n'est pas disponible publiquement, ce qui laisse penser qu'il a pu être mis en pause ou annulé.
+### Dans un futur immédiat
+Le projet n'étant pas terminé avant mon départ, j'ai documenté le code et les choix d'architecture pour faciliter la reprise par un autre développeur. Les fonctionnalités principales étaient opérationnelles en staging.
 
-Cette incertitude est l'un des aspects frustrants du travail en agence : on investit du temps et de la réflexion dans un produit dont on ne connaîtra peut-être jamais le destin. C'est une réalité du métier que j'ai appris à accepter, en me concentrant sur ce qui reste : l'expérience acquise et les leçons tirées.
+### À distance
+Cette incertitude est l'un des aspects frustrants du travail en agence : on investit du temps et de la réflexion dans un produit dont on ne connaîtra peut-être jamais le destin. C'est une réalité du métier que j'ai appris à accepter, en me concentrant sur ce qui reste : l'expérience acquise et les leçons tirées. Ce projet m'a conforté dans l'idée que la documentation et la lisibilité du code ne sont pas des luxes. Savoir qu'un autre développeur allait reprendre mon travail m'a poussé à être plus rigoureux dans mes commentaires et dans la structuration de mon code. Cette discipline m'accompagne depuis dans tous mes projets.
 
-Ce projet m'a conforté dans l'idée que la documentation et la lisibilité du code ne sont pas des luxes. Savoir qu'un autre développeur allait reprendre mon travail m'a poussé à être plus rigoureux dans mes commentaires et dans la structuration de mon code. Cette discipline m'accompagne depuis dans tous mes projets.
+### Aujourd'hui
+Je n'ai pas de visibilité sur l'état actuel du projet. Il est possible qu'il ait été finalisé, lancé sous une forme différente, ou abandonné. À ce jour, le site n'est pas disponible publiquement, ce qui laisse penser qu'il a pu être mis en pause ou annulé.
 
 ## Autocritique
 

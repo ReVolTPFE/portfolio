@@ -91,6 +91,16 @@ Par ailleurs, le secteur de l'intérim est encadré par un cadre juridique stric
 
 C'est dans ce contexte que Bee'z Web a été conçu : un outil prenant en charge l'ensemble du cycle contractuel tout en garantissant, par construction, le respect des contraintes légales et comptables du métier.
 
+### Acteurs et interactions
+
+Ce projet a impliqué les mêmes acteurs que la phase 1 :
+- La cliente, gérante de Bee'z Pro, avec qui les échanges hebdomadaires se sont poursuivis pour valider chaque module fonctionnel
+- Notre cheffe de projet en interne, en charge du cadrage fonctionnel et de la coordination
+- Les conseillers juridiques de la cliente, qui ont validé les templates de contrats et les mentions légales des factures
+- Moi-même, développeur unique sur le projet
+
+Les réunions hebdomadaires avec la cliente ont été complétées par des sessions de validation spécifiques avec ses conseillers juridiques pour chaque type de document généré par la plateforme.
+
 ## Enjeux
 
 Le premier enjeu majeur était la **conformité juridique et comptable**. Chaque contrat d'intérim doit comporter des clauses spécifiques variant selon le type de mission (intérim classique, CDI intérimaire, mise à disposition). Les factures doivent respecter une numérotation séquentielle stricte, inclure toutes les mentions légales obligatoires, et ne peuvent jamais être supprimées une fois émises : seul un avoir peut compenser une facture erronée. J'ai conçu un système garantissant ces contraintes par design : compteur atomique en base de données pour la numérotation, verrouillage en écriture des factures émises, et avoirs référençant obligatoirement leur facture d'origine.
@@ -103,25 +113,39 @@ Enfin, l'enjeu de la **conformité RGPD** était transversal. Les données perso
 
 ## Risques
 
+### Risques techniques
+
 Le risque le plus critique était le **risque juridique lié aux documents générés**. Un contrat comportant une clause manquante ou un montant erroné peut être requalifié ou contesté. Pour l'atténuer, j'ai créé un système de templates Twig modulaires avec des blocs conditionnels composant automatiquement le bon document selon les paramètres du contrat. Chaque template a été validé par la gérante et ses conseillers juridiques, et le processus guidé multi-étapes empêche l'omission d'informations obligatoires.
 
 Le **risque de fuite de données entre entreprises clientes** représentait une menace majeure pour la crédibilité de la plateforme. La combinaison de Doctrine Filters et de Voters Symfony constitue une double barrière rendant l'accès croisé structurellement impossible, même en cas de faille dans l'une des deux couches.
 
-Le **risque de dérive du périmètre** était connu dès le départ, la phase 1 ayant déjà souffert de ce phénomène. La frontière entre le cahier des charges initial et les souhaits additionnels de la cliente était parfois floue, ce qui s'est effectivement matérialisé durant le développement.
+Le **risque technique lié à la génération PDF** ne devait pas être sous-estimé. Les documents devaient être fidèles aux gabarits validés par les juristes tout en étant générés dynamiquement. Les différences de rendu entre HTML et PDF ont nécessité de nombreux ajustements.
 
-Enfin, le **risque technique lié à la génération PDF** ne devait pas être sous-estimé. Les documents devaient être fidèles aux gabarits validés par les juristes tout en étant générés dynamiquement. Les différences de rendu entre HTML et PDF ont nécessité de nombreux ajustements.
+### Risques projet
+
+Le **risque de dérive du périmètre** était connu dès le départ, la phase 1 ayant déjà souffert de ce phénomène. La frontière entre le cahier des charges initial et les souhaits additionnels de la cliente était parfois floue, ce qui s'est effectivement matérialisé durant le développement.
 
 ## Les étapes du projet
 
-Le projet a débuté par une **phase d'analyse et de conception**. J'ai travaillé avec la cliente et le chef de projet pour cartographier le cycle contractuel existant, identifier les points de douleur et définir les flux dématérialisés cibles. Cette phase a produit un cahier des charges détaillé, des maquettes fonctionnelles et un modèle de données couvrant les entités Entreprise, Contrat, Avenant, Facture, Avoir et Utilisateur.
+### Phase 1 : Analyse et conception
 
-La **phase de développement du socle technique** a suivi : architecture Symfony 6, base de données, authentification, système RBAC, et services métier fondamentaux. Le code est structuré en bundles fonctionnels partageant certaines bases avec Bee'z Pro pour la cohérence des données. Le versioning Git avec SemVer et le workflow Git Flow ont été appliqués de manière identique au projet précédent.
+J'ai travaillé avec la cliente et le chef de projet pour cartographier le cycle contractuel existant, identifier les points de douleur et définir les flux dématérialisés cibles. Cette phase a produit un cahier des charges détaillé, des maquettes fonctionnelles et un modèle de données couvrant les entités Entreprise, Contrat, Avenant, Facture, Avoir et Utilisateur.
 
-La troisième étape a porté sur le **développement des modules fonctionnels** : inscription des entreprises avec validation via l'API Sirene (vérification en temps réel du SIRET, pré-remplissage des informations légales), création de contrats via un processus guidé multi-étapes, gestion des avenants comme versions successives, et système de facturation avec double vérification.
+### Phase 2 : Développement du socle technique
 
-La **phase de génération documentaire** a constitué un chantier à part entière. J'ai développé les templates PDF modulaires pour chaque type de document, avec des blocs conditionnels adaptés aux différents types de missions. Chaque template a fait l'objet de validations itératives avec la cliente et ses conseillers juridiques.
+Architecture Symfony 6, base de données, authentification, système RBAC, et services métier fondamentaux. Le code est structuré en bundles fonctionnels partageant certaines bases avec Bee'z Pro pour la cohérence des données. Le versioning Git avec SemVer et le workflow Git Flow ont été appliqués de manière identique au projet précédent.
 
-Enfin, la **phase de test et de recette** a couvert l'ensemble des parcours utilisateur, la vérification de l'isolation des données, la validation des calculs de facturation sur des cas limites, et la conformité des documents PDF. La mise en production a été réalisée après validation complète par la cliente.
+### Phase 3 : Développement des modules fonctionnels
+
+Inscription des entreprises avec validation via l'API Sirene (vérification en temps réel du SIRET, pré-remplissage des informations légales), création de contrats via un processus guidé multi-étapes, gestion des avenants comme versions successives, et système de facturation avec double vérification.
+
+### Phase 4 : Génération documentaire
+
+J'ai développé les templates PDF modulaires pour chaque type de document, avec des blocs conditionnels adaptés aux différents types de missions. Chaque template a fait l'objet de validations itératives avec la cliente et ses conseillers juridiques.
+
+### Phase 5 : Tests et recette
+
+L'ensemble des parcours utilisateur a été couvert : vérification de l'isolation des données, validation des calculs de facturation sur des cas limites, et conformité des documents PDF. La mise en production a été réalisée après validation complète par la cliente.
 
 ## Résultats pour moi
 
@@ -147,9 +171,14 @@ J'ai également enrichi mes connaissances métier : fonctionnement des factures 
 
 ## Lendemains du projet
 
-Comme le site Bee'z Pro, la plateforme a été en ligne pendant plus d'un an après mon départ de DGS Création. Je n'ai pas d'informations précises sur les métriques d'utilisation ou le retour sur investissement à long terme, car j'ai quitté l'entreprise après avoir finalisé ce projet.
+### Dans un futur immédiat
+Après la mise en production, la plateforme a été livrée avec l'ensemble des fonctionnalités prévues et validées par la cliente, avant mon départ de DGS Création.
 
-Cependant, la longévité en production est un indicateur positif de la robustesse du code et de la pertinence des choix architecturaux. Le système de facturation, en particulier, devait fonctionner sans faille sur la durée, car toute erreur aurait eu des conséquences immédiates sur l'activité commerciale de l'agence. Son fonctionnement continu sans intervention de ma part confirme la solidité des fondations techniques.
+### À distance
+Comme le site Bee'z Pro, la plateforme a été en ligne pendant plus d'un an après mon départ. La longévité en production est un indicateur positif de la robustesse du code et de la pertinence des choix architecturaux. Le système de facturation, en particulier, devait fonctionner sans faille sur la durée, car toute erreur aurait eu des conséquences immédiates sur l'activité commerciale de l'agence. Son fonctionnement continu sans intervention de ma part confirme la solidité des fondations techniques.
+
+### Aujourd'hui
+Je n'ai pas d'informations précises sur les métriques d'utilisation ou le retour sur investissement à long terme. Comme pour Bee'z Pro, une refonte semble avoir été réalisée avec une autre agence web.
 
 ## Autocritique
 

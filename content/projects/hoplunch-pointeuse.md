@@ -83,6 +83,17 @@ Le système en place reposait sur un module intégré au Legacy, l'ancienne appl
 
 Le couplage fort avec le Legacy posait un problème technique de fond : toute modification risquait d'impacter d'autres modules de l'application monolithique, rendant les évolutions coûteuses et risquées. La direction souhaitait un système moderne, autonome et fiable, capable de fonctionner indépendamment du Legacy tout en s'intégrant au SI via des API.
 
+### Acteurs et interactions
+
+Ce projet a impliqué plusieurs parties prenantes :
+- Le service RH, qui définissait les besoins en termes de données de pointage et de conformité
+- La direction de HopLunch, qui validait les orientations stratégiques et le planning
+- Les responsables de dépôt, utilisateurs clés qui ont participé aux phases de test et de validation
+- Les livreurs, utilisateurs finaux de l'application au quotidien
+- Moi-même, à la fois chef de projet et développeur unique
+
+En tant que chef de projet, j'animais des réunions hebdomadaires avec le service RH et la direction pour présenter les avancées et recueillir les retours. Les responsables de dépôt étaient impliqués lors des phases de recette pour valider l'ergonomie et la fiabilité.
+
 ## Enjeux
 
 Les enjeux de ce projet dépassaient le cadre technique.
@@ -101,9 +112,13 @@ Les enjeux de ce projet dépassaient le cadre technique.
 
 Avant de lancer le développement, j'ai identifié les principaux risques et leurs stratégies d'atténuation.
 
+### Risques techniques
+
 **Régression lors de la migration.** Si la nouvelle pointeuse produisait des données différentes de l'ancienne, la confiance du service RH serait rompue. Pour mitiger ce risque, j'ai prévu dès le cahier des charges une phase de fonctionnement parallèle avec comparaison systématique des données entre les deux systèmes.
 
 **Conditions d'utilisation réelles.** La pointeuse est utilisée dans des dépôts où la connexion réseau peut être instable, par des livreurs pressés qui tappent rapidement. Les cas limites étaient nombreux : coupure réseau pendant un pointage, double pointage, expiration JWT en cours d'utilisation. Chacun de ces scénarios, non anticipé, pouvait provoquer des pertes de données. J'ai mis en place des mécanismes de retry automatique, des messages d'erreur explicites et une reconnexion transparente pour chaque cas identifié.
+
+### Risques projet
 
 **Dérive des délais.** Premier projet géré de bout en bout, le risque de sous-estimation était réel. J'ai découpé le projet en sprints hebdomadaires courts avec des livrables concrets, permettant de détecter rapidement tout retard et d'ajuster le planning.
 
@@ -113,15 +128,25 @@ Avant de lancer le développement, j'ai identifié les principaux risques et leu
 
 Le projet s'est déroulé en sprints hebdomadaires selon une approche Agile, structuré en cinq phases.
 
-**Phase 1 : Cadrage et cahier des charges.** J'ai recueilli les besoins auprès du service RH et de la direction, puis affiné le document en intégrant les contraintes techniques (compatibilité tablettes, réseau des dépôts, intégration API Symfony) et les retours des livreurs. Le cahier des charges couvrait les spécifications fonctionnelles, les exigences de sécurité, les critères d'acceptation et le planning. Le suivi a été mis en place sur Asana, chaque user story découpée en tâches techniques estimées.
+### Phase 1 : Cadrage et cahier des charges
 
-**Phase 2 : Architecture et socle technique.** J'ai défini l'architecture découplée, configuré NuxtJS 3 avec TypeScript, mis en place le store Pinia, et développé les premiers endpoints Symfony 6 avec authentification JWT. Le pipeline CI/CD GitHub Actions a été configuré dès cette phase : chaque push déclenchait les tests (PHPUnit, Playwright), et chaque merge sur main déclenchait le déploiement via scripts shell.
+J'ai recueilli les besoins auprès du service RH et de la direction, puis affiné le document en intégrant les contraintes techniques (compatibilité tablettes, réseau des dépôts, intégration API Symfony) et les retours des livreurs. Le cahier des charges couvrait les spécifications fonctionnelles, les exigences de sécurité, les critères d'acceptation et le planning. Le suivi a été mis en place sur Asana, chaque user story découpée en tâches techniques estimées.
 
-**Phase 3 : Développement itératif.** Chaque semaine, je livrais un incrément fonctionnel présenté lors d'une réunion de validation avec le service RH et la direction. Les premières itérations ont porté sur le socle fonctionnel (affichage des livreurs, pointage, dépointage), puis les suivantes ont ajouté les contrôles métiers, les confirmations visuelles et la gestion des cas limites. Chaque fonctionnalité était testée sur un environnement de staging avant validation.
+### Phase 2 : Architecture et socle technique
 
-**Phase 4 : Recette et fonctionnement parallèle.** Pendant deux semaines, la nouvelle pointeuse et l'ancienne fonctionnaient simultanément. Les responsables de dépôt vérifiaient l'identité des données entre les deux systèmes. Cette approche a permis d'établir la confiance du service RH. Les ajustements ergonomiques remontés par les utilisateurs ont été intégrés en temps réel.
+J'ai défini l'architecture découplée, configuré NuxtJS 3 avec TypeScript, mis en place le store Pinia, et développé les premiers endpoints Symfony 6 avec authentification JWT. Le pipeline CI/CD GitHub Actions a été configuré dès cette phase : chaque push déclenchait les tests (PHPUnit, Playwright), et chaque merge sur main déclenchait le déploiement via scripts shell.
 
-**Phase 5 : Mise en production et bascule.** Une fois la fiabilité validée, l'ancien module Legacy a été coupé. La mise en production s'est faite à la date exacte annoncée dans le cahier des charges, chaque sprint ayant été livré dans les temps prévus.
+### Phase 3 : Développement itératif
+
+Chaque semaine, je livrais un incrément fonctionnel présenté lors d'une réunion de validation avec le service RH et la direction. Les premières itérations ont porté sur le socle fonctionnel (affichage des livreurs, pointage, dépointage), puis les suivantes ont ajouté les contrôles métiers, les confirmations visuelles et la gestion des cas limites. Chaque fonctionnalité était testée sur un environnement de staging avant validation.
+
+### Phase 4 : Recette et fonctionnement parallèle
+
+Pendant deux semaines, la nouvelle pointeuse et l'ancienne fonctionnaient simultanément. Les responsables de dépôt vérifiaient l'identité des données entre les deux systèmes. Cette approche a permis d'établir la confiance du service RH. Les ajustements ergonomiques remontés par les utilisateurs ont été intégrés en temps réel.
+
+### Phase 5 : Mise en production et bascule
+
+Une fois la fiabilité validée, l'ancien module Legacy a été coupé. La mise en production s'est faite à la date exacte annoncée dans le cahier des charges, chaque sprint ayant été livré dans les temps prévus.
 
 ## Résultats pour moi
 
@@ -149,10 +174,13 @@ Les bénéfices pour HopLunch ont été concrets et mesurables.
 
 ## Lendemains du projet
 
-Après plus de huit mois en production, la pointeuse est solidement ancrée dans le quotidien de HopLunch. L'application est utilisée chaque jour par une centaine de livreurs sur plusieurs dépôts en France, sans interruption de service ni anomalie signalée.
+### Dans un futur immédiat
+Après la mise en production, des évolutions mineures ont été déployées : ajout de nouvelles villes, ajustements ergonomiques, optimisations de performance. Chaque évolution suit le même processus : branche dédiée, tests automatisés, validation sur staging, déploiement via GitHub Actions.
 
-Des évolutions mineures ont été déployées depuis : ajout de nouvelles villes, ajustements ergonomiques, optimisations de performance. Chaque évolution suit le même processus : branche dédiée, tests automatisés, validation sur staging, déploiement via GitHub Actions. L'architecture découplée NuxtJS / Symfony API permet de faire évoluer chaque couche indépendamment, et les tests Playwright garantissent la non-régression des parcours utilisateur.
+### À distance
+Après plus de huit mois en production, la pointeuse est solidement ancrée dans le quotidien de HopLunch. L'application est utilisée chaque jour par une centaine de livreurs sur plusieurs dépôts en France, sans interruption de service ni anomalie signalée. L'architecture découplée NuxtJS / Symfony API permet de faire évoluer chaque couche indépendamment, et les tests Playwright garantissent la non-régression des parcours utilisateur.
 
+### Aujourd'hui
 Le projet a aussi eu un impact organisationnel durable. Le service RH a pris l'habitude de signaler ses besoins d'évolution en amont, facilitant la planification. La méthodologie Agile et la rigueur dans les estimations sont devenues des pratiques que je reproduis systématiquement sur mes projets suivants.
 
 ## Autocritique

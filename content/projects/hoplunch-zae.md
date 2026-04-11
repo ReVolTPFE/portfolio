@@ -79,6 +79,15 @@ HopLunch propose un service de restauration livrée en entreprise : les salarié
 
 Le back-office existant, construit sur EasyAdmin et Symfony 6, ne proposait aucun outil pour la gestion géographique. Les ZAE étaient de simples entrées textuelles en base de données, sans représentation cartographique ni lien automatisé avec les entreprises du territoire. L'entreprise connaissait par ailleurs une phase de croissance avec l'ouverture de nouvelles villes, rendant l'ancien processus de plus en plus insoutenable : chaque nouvelle ville signifiait des dizaines de ZAE à créer et des centaines d'entreprises à intégrer manuellement.
 
+### Acteurs et interactions
+
+Ce projet a impliqué plusieurs acteurs :
+- Le lead technique interne, qui supervisait les choix d'architecture et validait les orientations techniques
+- Les responsables logistiques et managers de ville, utilisateurs finaux qui exprimaient les besoins métier et testaient les livrables
+- Moi-même, développeur principal sur le projet
+
+Les échanges avec le lead technique étaient réguliers pour arbitrer les choix techniques, et les managers de ville étaient impliqués lors des phases de validation et de déploiement progressif.
+
 ## Enjeux
 
 Le premier enjeu était **opérationnel**. L'ancien processus constituait un goulot d'étranglement majeur pour le déploiement commercial. Chaque ouverture de ville était ralentie par la nécessité de mobiliser des développeurs pour des tâches d'insertion de données. Rendre les managers autonomes devait accélérer considérablement le rythme d'expansion.
@@ -93,29 +102,47 @@ Enfin, un enjeu de **maintenabilité** se posait. Les données d'entreprises év
 
 ## Risques
 
+### Risques techniques
+
 Le risque principal concernait la **dépendance à l'API Sirene**. Cette API gouvernementale connaît des périodes d'indisponibilité et impose des quotas stricts. Pour l'atténuer, j'ai implémenté un service PHP dédié avec retry intelligent, gestion fine des erreurs (timeouts, quotas dépassés, réponses malformées), et un mécanisme de reprise d'import interrompu.
 
 Un deuxième risque portait sur la **corruption silencieuse des données**. Les commandes CRON tournent sans supervision humaine, et un bug pourrait altérer des centaines d'enregistrements avant d'être détecté. J'ai mis en place des logs structurés et des notifications par email en cas d'échec ou d'anomalie.
 
 Le troisième risque était la **validation géographique**. Un algorithme trop strict exclurait des entreprises légitimes (faux négatifs), tandis qu'un algorithme trop permissif intégrerait des entreprises hors zone (faux positifs). J'ai opté pour une validation croisée avec Google Maps : les entreprises non confirmées sont marquées pour revue manuelle plutôt que supprimées.
 
-Un quatrième risque, qui s'est matérialisé, concernait l'**estimation du périmètre de la refonte**. La complexité des interactions entre modules était difficile à évaluer en amont, conduisant à une première itération incomplète avant de comprendre qu'une refonte intégrale s'imposait.
+### Risques projet
+
+Un risque majeur, qui s'est matérialisé, concernait l'**estimation du périmètre de la refonte**. La complexité des interactions entre modules était difficile à évaluer en amont, conduisant à une première itération incomplète avant de comprendre qu'une refonte intégrale s'imposait.
 
 ## Les étapes du projet
 
-**Phase 1 : Analyse et conception.** J'ai audité l'ancien système pour comprendre les flux de données et les cas d'usage des managers, en échangeant avec les responsables logistiques pour documenter leurs besoins. J'ai ensuite conçu l'architecture technique : modèle de données géospatiales, schéma d'intégration avec l'API Sirene, stratégie de traitement asynchrone.
+### Phase 1 : Analyse et conception
 
-**Phase 2 : Infrastructure et fondations techniques.** Mise en place de l'environnement Docker avec snapshots de base de données, configuration des types MySQL spatiaux, et implémentation de l'algorithme de conversion Lambert93/WGS84 en PHP. J'ai développé le service PHP dédié à l'API Sirene v3.11 (authentification, pagination, rate limiting) et versionné les migrations Doctrine, testées sur une copie de la base de production avant chaque déploiement.
+J'ai audité l'ancien système pour comprendre les flux de données et les cas d'usage des managers, en échangeant avec les responsables logistiques pour documenter leurs besoins. J'ai ensuite conçu l'architecture technique : modèle de données géospatiales, schéma d'intégration avec l'API Sirene, stratégie de traitement asynchrone.
 
-**Phase 3 : Module de gestion des ZAE.** Extension d'EasyAdmin avec des champs personnalisés pour la saisie de polygones WKT/GeoJSON et l'affichage de cartes Google Maps interactives. Le manager peut dessiner un polygone sur la carte ou coller des coordonnées, puis visualiser le périmètre. Le système identifie automatiquement les villes concernées via des filtres géographiques et une recherche par code postal, avec possibilité d'ajustement manuel.
+### Phase 2 : Infrastructure et fondations techniques
 
-**Phase 4 : Module d'import des entreprises.** Implémentation du flux d'import complet : interrogation de l'API Sirene avec filtres avancés (codes APE, coordonnées GPS dans le polygone, entreprise active), affichage dans un tableau interactif, stockage temporaire. Optimisation par insertions batch et parallélisation des requêtes API dans la limite du rate limiting.
+Mise en place de l'environnement Docker avec snapshots de base de données, configuration des types MySQL spatiaux, et implémentation de l'algorithme de conversion Lambert93/WGS84 en PHP. J'ai développé le service PHP dédié à l'API Sirene v3.11 (authentification, pagination, rate limiting) et versionné les migrations Doctrine, testées sur une copie de la base de production avant chaque déploiement.
 
-**Phase 5 : Traitement asynchrone.** Les entreprises importées sont d'abord stockées dans une table temporaire, puis converties en entités de la base principale via Symfony Messenger. Configuration des workers avec gestion des échecs (retry, dead-letter queue) et barre de progression visible dans le back-office.
+### Phase 3 : Module de gestion des ZAE
 
-**Phase 6 : Automatisation CRON.** Développement des commandes Symfony de synchronisation quotidienne : vérification d'activité, mise à jour des adresses, purge des établissements fermés, nettoyage des données temporaires. Chaque commande génère des logs détaillés et déclenche des notifications en cas d'anomalie.
+Extension d'EasyAdmin avec des champs personnalisés pour la saisie de polygones WKT/GeoJSON et l'affichage de cartes Google Maps interactives. Le manager peut dessiner un polygone sur la carte ou coller des coordonnées, puis visualiser le périmètre. Le système identifie automatiquement les villes concernées via des filtres géographiques et une recherche par code postal, avec possibilité d'ajustement manuel.
 
-**Phase 7 : Déploiement et stabilisation.** Déploiement progressif, ZAE par ZAE, pour valider le système en conditions réelles. Accompagnement des premiers managers dans la prise en main et ajustements de l'interface selon leurs retours.
+### Phase 4 : Module d'import des entreprises
+
+Implémentation du flux d'import complet : interrogation de l'API Sirene avec filtres avancés (codes APE, coordonnées GPS dans le polygone, entreprise active), affichage dans un tableau interactif, stockage temporaire. Optimisation par insertions batch et parallélisation des requêtes API dans la limite du rate limiting.
+
+### Phase 5 : Traitement asynchrone
+
+Les entreprises importées sont d'abord stockées dans une table temporaire, puis converties en entités de la base principale via Symfony Messenger. Configuration des workers avec gestion des échecs (retry, dead-letter queue) et barre de progression visible dans le back-office.
+
+### Phase 6 : Automatisation CRON
+
+Développement des commandes Symfony de synchronisation quotidienne : vérification d'activité, mise à jour des adresses, purge des établissements fermés, nettoyage des données temporaires. Chaque commande génère des logs détaillés et déclenche des notifications en cas d'anomalie.
+
+### Phase 7 : Déploiement et stabilisation
+
+Déploiement progressif, ZAE par ZAE, pour valider le système en conditions réelles. Accompagnement des premiers managers dans la prise en main et ajustements de l'interface selon leurs retours.
 
 ## Résultats pour moi
 
@@ -141,10 +168,13 @@ Sur le plan méthodologique, l'erreur de la refonte partielle a été une leçon
 
 ## Lendemains du projet
 
+### Dans un futur immédiat
 Ayant par le passé collaboré directement avec les responsables logistiques pour la gestion des ZAE, j'ai pu constater concrètement le temps gagné après le déploiement. Les managers sont totalement autonomes sur des tâches qui mobilisaient auparavant plusieurs personnes pendant plusieurs jours. Remplir un court formulaire, dessiner un polygone et cliquer sur deux boutons plutôt que constituer des fichiers Excel et attendre les insertions manuelles représente un gain de productivité considérable.
 
+### À distance
 Le système est stable en production et les commandes CRON fonctionnent sans incident, maintenant la base d'entreprises à jour automatiquement. Des évolutions sont régulièrement ajoutées : nouveaux filtres de recherche, amélioration de l'interface cartographique, ajout de statistiques par ZAE.
 
+### Aujourd'hui
 L'outil est devenu central dans le workflow opérationnel de HopLunch, intégré dans le processus standard d'ouverture de nouvelles villes. Sa fiabilité a permis d'envisager de nouveaux usages, comme l'analyse géographique des zones à fort potentiel commercial.
 
 ## Autocritique
