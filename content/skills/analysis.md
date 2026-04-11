@@ -5,6 +5,7 @@ image: "bx:bxs-analyse"
 isIcon: true
 category: "soft"
 order: 2
+level: 4
 relatedProjects:
   - dgs-beez-pro
   - dgs-beez-web

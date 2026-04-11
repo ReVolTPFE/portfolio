@@ -5,6 +5,7 @@ image: "/img/logos/MySQL.webp"
 isIcon: false
 category: "technical"
 order: 5
+level: 3
 relatedProjects:
   - dgs-beez-pro
   - dgs-beez-web

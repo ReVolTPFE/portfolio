@@ -46,6 +46,7 @@ export default defineContentConfig({
 				isIcon: z.boolean().default(false),
 				category: z.string(),
 				order: z.number().default(0),
+				level: z.number().default(3),
 				relatedProjects: z.array(z.string()).default([]),
 			}),
 		}),

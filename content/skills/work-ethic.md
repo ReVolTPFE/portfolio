@@ -5,6 +5,7 @@ image: "streamline:module-puzzle-3-solid"
 isIcon: true
 category: "soft"
 order: 3
+level: 5
 relatedProjects:
   - hoplunch-zae
   - hoplunch-pointeuse

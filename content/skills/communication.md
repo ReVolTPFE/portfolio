@@ -5,6 +5,7 @@ image: "maki:communications-tower"
 isIcon: true
 category: "soft"
 order: 1
+level: 4
 relatedProjects:
   - dgs-beez-pro
   - dgs-beez-web

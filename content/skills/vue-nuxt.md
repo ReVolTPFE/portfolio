@@ -5,6 +5,7 @@ image: "/img/logos/NuxtJS.webp"
 isIcon: false
 category: "technical"
 order: 3
+level: 3
 relatedProjects:
   - hoplunch-pointeuse
   - hoplunch-zae

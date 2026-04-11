@@ -5,6 +5,7 @@ image: "/img/logos/HTML.webp"
 isIcon: false
 category: "technical"
 order: 1
+level: 5
 relatedProjects:
   - dgs-beez-web
   - dgs-beez-pro

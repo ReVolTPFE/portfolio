@@ -5,6 +5,7 @@ image: "hugeicons:elearning-exchange"
 isIcon: true
 category: "soft"
 order: 4
+level: 4
 relatedProjects:
   - hoplunch-zae
   - hoplunch-pointeuse

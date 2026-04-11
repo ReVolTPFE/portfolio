@@ -48,7 +48,17 @@ const relatedProjects = computed(() => {
 					>
 				</div>
 
-				<h1 class="text-4xl font-bold text-center mb-8 text-primary">{{ skill.name }}</h1>
+				<h1 class="text-4xl font-bold text-center mb-3 text-primary">{{ skill.name }}</h1>
+
+				<div class="flex justify-center gap-1 mb-8">
+					<Icon
+						v-for="star in 5"
+						:key="star"
+						name="mdi:star"
+						class="w-7 h-7"
+						:class="star <= skill.level ? 'text-yellow-400' : 'text-gray-light'"
+					/>
+				</div>
 
 				<!-- Contenu Markdown rendu via Nuxt Content -->
 				<div class="prose prose-lg max-w-none prose-headings:text-primary prose-a:text-tertiary prose-a:font-bold prose-strong:text-white">

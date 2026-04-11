@@ -5,6 +5,7 @@ image: "/img/logos/TailwindCSS.webp"
 isIcon: false
 category: "technical"
 order: 2
+level: 4
 relatedProjects:
   - dgs-beez-pro
   - dgs-beez-web

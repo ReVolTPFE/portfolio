@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import SectionTitle from '~/components/SectionTitle.vue';
 import SkillsCategory from '~/components/SkillsCategory.vue';
-import LinkButton from '~/components/LinkButton.vue';
-
 // Récupérer les compétences via Nuxt Content
 const { data: allSkills } = await useAsyncData('all-skills', () =>
-	queryCollection('skills').select('slug', 'name', 'image', 'isIcon', 'category', 'order').all()
+	queryCollection('skills').select('slug', 'name', 'image', 'isIcon', 'category', 'order', 'level').all()
 );
 
 const technicalSkills = computed(() =>
@@ -22,14 +20,11 @@ const softSkills = computed(() =>
 </script>
 
 <template>
-	<section id="skills" class="section-spacing bg-gray-blue text-white">
+	<section id="skills" class="section-spacing">
 		<SectionTitle title="Compétences" subtitle="Savoir-faire" />
 
 		<SkillsCategory title="Compétences Techniques" :skills="technicalSkills" />
 		<SkillsCategory title="Compétences Humaines" :skills="softSkills" :icons="true" />
 
-		<div class="flex justify-center">
-			<LinkButton link="/projects" bg-color="bg-primary" text="Voir mon travail" />
-		</div>
 	</section>
 </template>

@@ -5,6 +5,7 @@ image: "/img/logos/Git.webp"
 isIcon: false
 category: "technical"
 order: 6
+level: 4
 relatedProjects:
   - dgs-beez-pro
   - dgs-beez-web

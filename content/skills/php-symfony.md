@@ -5,6 +5,7 @@ image: "/img/logos/Symfony.webp"
 isIcon: false
 category: "technical"
 order: 4
+level: 5
 relatedProjects:
   - dgs-beez-pro
   - dgs-beez-web
