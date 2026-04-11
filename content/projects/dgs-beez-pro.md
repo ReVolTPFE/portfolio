@@ -69,7 +69,7 @@ Les objectifs de ce projet ont été multiples :
 
 - **Centraliser la gestion des candidatures** dans un back-office unique, permettant de créer des fiches candidat complètes, de gérer les CV et documents, de suivre l'avancement des candidatures et de communiquer avec les candidats directement depuis la plateforme.
 
-- **Automatiser le matching entre profils et missions** grâce à un algorithme de scoring paramétrable prenant en compte l'expérience, la disponibilité, la localisation géographique, les compétences et les habilitations. Le matching doit être bidirectionnel : suggestion d'offres pour un candidat donné, et suggestion de candidats pour une offre donnée.
+- **Automatiser le matching entre profils et missions** grâce à un algorithme de scoring paramétrable prenant en compte l'expérience, la disponibilité, la localisation géographique, les compétences et les habilitations.
 
 - **Assurer la conformité RGPD** dans la gestion des données personnelles des candidats (CV, coordonnées, parcours professionnel), avec chiffrement des données sensibles, gestion du consentement et traçabilité des accès.
 
@@ -136,10 +136,22 @@ Le projet a débuté par une série de réunions de cadrage avec la gérante de 
 
 La première phase de développement s'est concentrée sur le site vitrine. J'ai intégré les maquettes Photoshop fournies par la graphiste de l'agence, en structurant le front-end avec Twig et SASS selon le pattern 7-1, et en appliquant le responsive design.
 
+Quelques exemples de pages codées sont les suivants : landing page, présentation de l'entreprise, design des pages actualités, page de témoignages, et le plus important, la page affichant les offres d'emploi avec tout le système de filtrage dynamique.
+
 ### Phase 3 : Développement du back-office et du matching (4 semaines)
 
-La phase la plus conséquente a couvert le développement du back-office : gestion des candidats, pipeline de candidatures, gestion des offres d'emploi, et ajout de l'algorithme de matching. 
-<br>Le système de scoring a nécessité plusieurs itérations pour atteindre un niveau de pertinence satisfaisant. L'intégration de l'API Recruitee, les emails automatiques et l'éditeur WYSIWYG ont été implémentés en parallèle durant cette phase.
+La phase la plus conséquente concernait le développement du back-office administrateur : 
+- Gestion des témoignages d'intérimaires
+- Création et gestion des actualités via un moteur de template permettant une autonomie totale sans savoir coder
+- Gestion des candidats inscrits sur le site, suivi de leurs profils et gestion de leurs candidatures
+- Gestion des offres d'emploi arrivant de l'API Recruitee (nombre de candidatures via le site, activation ou non d'une offre)
+
+Il y avait aussi un back-office candidat comprenant :
+- Inscription et création d'un profil détaillé avec les critères de recherche
+- Suivi des candidatures en cours
+- Notifications et mails en cas de changement de statut d'une candidature
+- Système de matching pour les candidats avec un score de compatibilité en fonction de la localisation, des expériences, certificats type CACES, disponibilité, métier.
+<br>Le système de scoring a nécessité plusieurs itérations pour atteindre un niveau de pertinence satisfaisant.
 
 ### Phase 4 : Tests, corrections et mise en production (2 semaines)
 
@@ -180,7 +192,4 @@ Ce projet a été mon premier SaaS développé de A à Z, et il reste mémorable
 La principale leçon tirée concerne la gestion du périmètre du projet. Nous avons accepté trop de changements après la validation du cahier des charges, ce qui a rallongé le planning.
 <br>Aujourd'hui, je veille à expliquer aux clients ce qu'engendrent des changements importants en cours de route (impact sur les délais, les coûts, et les risques de régression).
 
-Sur le plan technique, l'architecture Symfony était pertinente mais j'aurais pu pousser davantage la séparation des responsabilités. Certains services métier mélangeaient encore logique de présentation et logique métier, ce qui a rendu certaines évolutions plus complexes qu'elles n'auraient dû l'être. Cela m'a poussé à approfondir les principes SOLID dans les projets suivants.
-
 Les réunions hebdomadaires chez la cliente ont été l'un des aspects les plus enrichissants du projet. Ces échanges réguliers m'ont permis de comprendre en profondeur le métier de l'intérim, ce qui a directement amélioré la pertinence des fonctionnalités développées.
-<br>J'ai compris que connaître le domaine d'un client aide énormément dans le développement d'une application à sa destination.
