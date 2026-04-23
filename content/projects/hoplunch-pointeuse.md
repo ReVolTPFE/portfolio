@@ -1,7 +1,7 @@
 ---
 slug: hoplunch-pointeuse
 title: "Création de A à Z d'un système de pointeuse + gestion de projet"
-description: "Application interne de pointage pour les livreurs de HopLunch, permettant d'enregistrer les heures d'arrivée et de départ, tout en centralisant et sécurisant les données pour le service RH. Ce projet a nécessité une gestion complète en mode Agile, de la rédaction du cahier des charges à la mise en production, incluant des phases de tests, CI/CD et déploiement automatisé via scripts shell. Projet strictement privé (aucun accès public, pas de code ou démo disponible)."
+description: "Application interne de pointage pour les livreurs de HopLunch, permettant d'enregistrer les heures d'arrivée et de départ, tout en centralisant et sécurisant les données pour le service RH."
 companyProject: "Pointeuse des livreurs de HopLunch"
 company: "HopLunch"
 date: "2025"
@@ -53,141 +53,194 @@ demoLink: ""
 
 ## Présentation du projet
 
-La pointeuse HopLunch est une application web interne que j'ai conçue et développée de zéro pour remplacer un module obsolète du Legacy de l'entreprise. Son rôle est critique : permettre aux livreurs de pointer leur arrivée et leur départ dans les dépôts logistiques chaque jour, et transmettre ces données au service RH pour le calcul des heures travaillées et l'établissement des bulletins de paie.
+Ce projet est la refonte de la pointeuse HopLunch. C'est une application web interne que j'ai pu concevoir en partant de zéro, afin de remplacer l'ancienne pointeuse obsolète du Legacy de l'entreprise.
 
-L'architecture est moderne et découplée. Le frontend, construit avec NuxtJS 3 et TypeScript en mode SPA, exploite la Composition API de Vue 3 et centralise la gestion d'état dans un store Pinia qui orchestre la communication avec l'API et la mise à jour réactive de l'interface. Le backend est une API REST Symfony 6, sécurisée par tokens JWT et voters Symfony. L'interface est habillée avec TailwindCSS, dont la configuration personnalisée intègre la charte graphique HopLunch et des utilitaires pour les boutons tactiles.
+Le rôle de cette application est très important, car il consiste à permettre aux livreurs de pointer leurs arrivées et leurs départs dans les dépôts logistiques chaque jour. Ces données sont transmises en temps réel au service RH pour permettre un calcul précis des heures travaillées et ainsi rédiger des bulletins de paie fiables.
 
-L'interface se structure autour de deux onglets : Pointage et Dépointage. Lorsqu'un livreur pointe, il disparait instantanément du premier onglet pour apparaitre dans le second, grâce à la synchronisation en temps réel via Pinia. Chaque action est accompagnée d'un retour visuel immédiat et de contrôles métiers robustes : impossibilité de double pointage, vérification de la cohérence des horaires, logs pour l'audit RH. L'authentification fonctionne par compte de dépôt avec JWT et refresh token transparent.
+L'architecture est moderne et découplée. Le front-end a été construit avec NuxtJS 3 et TypeScript en mode SPA (Single Page Application). Le back-end est une extension de l'API globale de HopLunch basée sur Symfony 6 et sécurisée par tokens JWT et voters Symfony.
 
-Ce projet représente un tournant dans mon parcours : c'est le premier que j'ai géré de bout en bout, en cumulant les casquettes de chef de projet et de développeur unique.
+L'interface intègre la charte graphique de HopLunch et se structure autour de deux onglets : Pointage et Dépointage. Lorsqu'un livreur pointe, il devient grisé dans le premier onglet et peut alors pointer son départ dans le second, grâce à la synchronisation en temps réel via Pinia.
+
+Ce projet est différent des autres dans mon portfolio : c'est le premier que j'ai géré de bout en bout, en prenant les rôles de chef de projet, de développeur et de devops.
 
 ## Objectifs
 
-Le projet poursuivait plusieurs objectifs définis dès la phase de cadrage :
+La raison d'être de cette refonte de zéro, vient de plusieurs objectifs :
 
-- **Supprimer la dépendance au Legacy** en isolant la pointeuse dans une application front-end dédiée communiquant avec le back-end Symfony via une API REST, permettant de faire évoluer la pointeuse indépendamment du reste du SI.
+- **Supprimer la dépendance au Legacy** en isolant la pointeuse dans une application front-end dédiée, communiquant avec le back-end Symfony via une API REST. Cela nous permet de faire évoluer la pointeuse indépendamment du reste du SI interne.
 
-- **Concevoir une interface intuitive et rapide**, optimisée pour les tablettes des dépôts : boutons suffisamment grands, confirmations visuelles claires, temps de chargement minimal. N'importe quel livreur devait pouvoir utiliser l'application sans formation.
+- **Concevoir une interface intuitive et rapide**, optimisée pour les tablettes des dépôts : boutons suffisamment grands, confirmations visuelles claires, temps de chargement minimal. N'importe quel livreur doit pouvoir utiliser l'application sans formation.
 
-- **Sécuriser l'architecture et garantir la conformité RGPD**, les données de pointage contenant des informations personnelles sensibles. L'authentification JWT devait limiter l'accès aux seuls dépôts autorisés, et chaque action devait être tracée.
+- **Sécuriser l'architecture**, pour éviter les pointages en dehors des dépôts. L'authentification JWT doit limiter l'accès aux dépôts autorisés, et chaque action doit être tracée.
 
-- **Automatiser le déploiement et l'intégration continue** via GitHub Actions et des scripts shell, pour livrer des mises à jour rapidement et sans risque de régression.
+- **Automatiser le déploiement et l'intégration continue** via la CI/CD de GitLab et des scripts shell, pour livrer des mises à jour rapidement et sans risque de régression via l'ajout de tests automatisés.
 
 - **Fiabiliser les données RH** en éliminant les erreurs de saisie et les incohérences qui obligeaient le service RH à vérifier et corriger manuellement les données chaque semaine.
 
 ## Contexte
 
-HopLunch est une entreprise de restauration livrée en entreprise, présente dans plusieurs villes de France. Chaque jour, des dizaines de livreurs se présentent dans les dépôts logistiques pour commencer leur tournée. Le pointage (heure d'arrivée et de départ) est une donnée critique pour le service RH, qui l'utilise pour calculer les heures travaillées, gérer les absences et établir les bulletins de paie.
+HopLunch est une entreprise qui permet aux salariés d'entreprises de commander et de se faire livrer les plats de restaurants locaux tous les midis via son site internet. 
+<br>HopLunch est actuellement présente dans 8 villes françaises et leurs périphéries (Strasbourg, Metz, Lille, Nantes, Montpellier, Grenoble, Rennes, Aix-en-Provence). 
 
-Le système en place reposait sur un module intégré au Legacy, l'ancienne application monolithique de HopLunch. Ce module, développé plusieurs années auparavant, n'avait jamais été réellement maintenu. Son interface, conçue pour un usage desktop, avait été sommairement adaptée aux tablettes sans véritable réflexion ergonomique : boutons trop petits, navigation confuse, aucune confirmation visuelle. Les livreurs se trompaient régulièrement, et les données n'étaient pas toujours synchronisées avec le système central.
+Chaque jour, une centaine de livreurs se présentent dans les dépôts logistiques pour livrer leurs tournées. Le pointage (heure d'arrivée et de départ) est une donnée critique pour le service RH, qui l'utilise pour calculer les heures travaillées, gérer les absences et rédiger les bulletins de paie.
 
-Le couplage fort avec le Legacy posait un problème technique de fond : toute modification risquait d'impacter d'autres modules de l'application monolithique, rendant les évolutions coûteuses et risquées. La direction souhaitait un système moderne, autonome et fiable, capable de fonctionner indépendamment du Legacy tout en s'intégrant au SI via des API.
+Le système en place reposait sur un module intégré au Legacy, l'ancienne application monolithique de HopLunch. Ce module, développé plusieurs années auparavant, n'a jamais été maintenu. Son interface est vieillissante et pas ergonomique : boutons trop petits, aucune confirmation visuelle... Les livreurs se trompaient régulièrement, car il n'y avait aucun mécanisme bloquant le double pointage, et en cas de réseau faible, ils cliquent parfois plusieurs fois sur le bouton permettant de pointer, ce qui les dépointe directement.
+
+Étant donné, que l'on souhaite progressivement supprimer le legacy et ses dépendances, c'est le moment de recréer un système fiable capable de fonctionner indépendamment du Legacy tout en s'intégrant au SI via une API.
+
+Pour valider mon alternance de BAC+5, j'avais notamment une grille de compétences à valider en entreprise. Tout ce qui concernait le développment est traité tous les jours dans mon métier, mais ce projet était l'occasion parfaite pour moi, de travailler sur d'autres aspects :
+- les estimations financières et de temps
+- la relation client et le cadrage de réunions
+- la gestion globale d'un projet
+- le devops autour du projet
+
+Ce projet, ni trop petit, ni trop grand, était parfait pour valider ces compétences. Mon tuteur d'apprentissage m'a donc laissé carte blanche.
 
 ### Acteurs et interactions
 
 Ce projet a impliqué plusieurs parties prenantes :
-- Le service RH, qui définissait les besoins en termes de données de pointage et de conformité
-- La direction de HopLunch, qui validait les orientations stratégiques et le planning
+- Le service RH, qui définissait les besoins en termes de données de pointage et de fiabilité
+- Mon tuteur d'apprentissage chez HopLunch (le lead dev), qui validait les orientations stratégiques et le planning proposé
 - Les responsables de dépôt, utilisateurs clés qui ont participé aux phases de test et de validation
 - Les livreurs, utilisateurs finaux de l'application au quotidien
-- Moi-même, à la fois chef de projet et développeur unique
+- Moi-même, à la fois chef de projet, développeur et devops
 
-En tant que chef de projet, j'animais des réunions hebdomadaires avec le service RH et la direction pour présenter les avancées et recueillir les retours. Les responsables de dépôt étaient impliqués lors des phases de recette pour valider l'ergonomie et la fiabilité.
+En tant que chef de projet, j'ai pu animer les réunions de cadrage avec les différents acteurs, mais aussi hebdomadaires avec mon tuteur qui jouait le rôle de client final. J'ai donc présenté les avancées et recueilli les retours. Les responsables de dépôt étaient impliqués pendant la phase de tests pour valider l'ergonomie et la fiabilité de la nouvelle application.
 
 ## Enjeux
 
-Les enjeux de ce projet dépassaient le cadre technique.
+**Fiabilité métier :** Aucune défaillance n'était permise, car cela impacte directement le calcul des heures travaillées et la paie des livreurs. Le système devait être garanti fiable dès la mise en production.
 
-**Fiabilité métier.** Toute défaillance, même ponctuelle, impacte directement le calcul des heures travaillées et la paie des livreurs. La marge d'erreur acceptable était nulle : il fallait un système fiable dès la mise en production.
+**Résistance au changement :** Remplacer un outil existant, même s'il génère des frictions, génère de la résistance à cause des habitudes prises. Je devais donc produire un outil suffisamment intuitif pour que son adoption soit naturelle.
 
-**Sécurité et conformité RGPD.** Les données manipulées sont des données personnelles : identité des livreurs, horaires de travail, historique de présence. Il était impératif de mettre en place un chiffrement HTTPS, une authentification JWT avec expiration et refresh token, un rate limiting sur les endpoints sensibles, et des logs complets pour la traçabilité. Chaque choix de sécurité a été documenté et validé avec le service RH.
+**Gestion de projet :** C'était mon premier projet géré de bout en bout. Je devais mettre en pratique ce que j'ai appris dans mes cours pour planifier, estimer, communiquer avec les parties prenantes et définir les priorités.
 
-**Conduite du changement.** Remplacer un outil existant, même imparfait, génère de la résistance. Les responsables de dépôt et les livreurs avaient leurs habitudes. Il fallait produire un outil suffisamment intuitif pour que l'adoption soit naturelle.
-
-**Gestion de projet.** C'était la première fois que je gérais un projet de bout en bout. Cette double casquette chef de projet / développeur impliquait de planifier, estimer, communiquer avec les parties prenantes et arbitrer les priorités, tout en assurant la production technique. La responsabilité était totale.
-
-**Intégration au SI existant.** La nouvelle pointeuse devait coexister temporairement avec le Legacy pendant la phase de transition, en garantissant que les deux systèmes produisent des données identiques.
+**Intégration au SI existant :** La nouvelle pointeuse devait coexister temporairement avec le Legacy pendant la phase de transition. Cela permettait de revenir sur l'ancienne application si la nouvelle rencontrait un problème au déploiement.
 
 ## Risques
 
-Avant de lancer le développement, j'ai identifié les principaux risques et leurs stratégies d'atténuation.
-
 ### Risques techniques
 
-**Régression lors de la migration.** Si la nouvelle pointeuse produisait des données différentes de l'ancienne, la confiance du service RH serait rompue. Pour mitiger ce risque, j'ai prévu dès le cahier des charges une phase de fonctionnement parallèle avec comparaison systématique des données entre les deux systèmes.
+**Régression lors de la migration :** Si la nouvelle pointeuse rencontrait un problème au déploiement, les livreurs et le service RH ne feraient pas confiance à la nouvelle application. Pour mitiger ce risque, j'ai prévu dès le cahier des charges, de tester automatiquement et de bout en bout, 100% des actions possibles sur la pointeuse.
 
-**Conditions d'utilisation réelles.** La pointeuse est utilisée dans des dépôts où la connexion réseau peut être instable, par des livreurs pressés qui tappent rapidement. Les cas limites étaient nombreux : coupure réseau pendant un pointage, double pointage, expiration JWT en cours d'utilisation. Chacun de ces scénarios, non anticipé, pouvait provoquer des pertes de données. J'ai mis en place des mécanismes de retry automatique, des messages d'erreur explicites et une reconnexion transparente pour chaque cas identifié.
+**Conditions d'utilisation réelles :** La pointeuse est utilisée dans des dépôts où de nombreux cas limites étaient possibles : coupure réseau pendant un pointage, double pointage, expiration JWT en cours d'utilisation. Chacun de ces scénarios pouvait provoquer des pertes de données. J'ai donc mis en place des mécanismes de retry automatique et des messages d'erreur explicites.
 
 ### Risques projet
 
-**Dérive des délais.** Premier projet géré de bout en bout, le risque de sous-estimation était réel. J'ai découpé le projet en sprints hebdomadaires courts avec des livrables concrets, permettant de détecter rapidement tout retard et d'ajuster le planning.
+**Délais non tenus :** Pour mon premier projet géré de bout en bout, le risque de sous-estimation était élevé. Pour faire face à ce risquen j'ai découpé le projet en sprints hebdomadaires avec des livrables concrets. Chaque livrable était lui-même découpé en sous-tâches permettant d'estimer plus facilement le travail à effectuer.
 
-**Rejet par les utilisateurs.** Ce risque a été atténué par l'implication des utilisateurs finaux dès la phase de conception, via des réunions de validation régulières et des retours intégrés au fil des sprints.
+**Rejet par les utilisateurs :** Les responsables de dépôts étaient heureux d'apprendre la refonte de la pointeuse, mais ce risque de rejet était présent en cas d'application non ergonomique ou non fiable. J'ai donc créé l'application la plus simple et intuitive possible.
 
 ## Les étapes du projet
 
-Le projet s'est déroulé en sprints hebdomadaires selon une approche Agile, structuré en cinq phases.
+Le projet s'est déroulé en sprints hebdomadaires selon une approche Agile, structuré en quatre phases.
 
-### Phase 1 : Cadrage et cahier des charges
+### Phase 1 : Cadrage, planning et cahier des charges (1e semaine)
 
-J'ai recueilli les besoins auprès du service RH et de la direction, puis affiné le document en intégrant les contraintes techniques (compatibilité tablettes, réseau des dépôts, intégration API Symfony) et les retours des livreurs. Le cahier des charges couvrait les spécifications fonctionnelles, les exigences de sécurité, les critères d'acceptation et le planning. Le suivi a été mis en place sur Asana, chaque user story découpée en tâches techniques estimées.
+La toute première étape a été de recueillir les besoins auprès du service RH et de la direction. L'objectif était d'avoir l'application la plus simple et intuitive possible, en étant fiable et en production le plus tôt possible.
+<br>Une option était même d'utiliser un système de pointeuse en ligne externe avec abonnement mensuel. J'ai donc d'abord fait une analyse comparative détaillée sur une dizaine d'outils, mais soit ils étaient trop complexes, soit trop chers (ex: 5€ / utilisateur / mois). Avec plus de 100 livreurs et dans une entreprise à cette échelle, ce n'est clairement pas envisageable.
 
-### Phase 2 : Architecture et socle technique
+Je me suis donc lancé dans la liste des livrables à fournir, le projet étant axé sur la validation de mes compétences pour l'école, j'ai fourni les mêmes livrables que pour tout gros projet :
+- Planning détaillé du projet
+- Cahier des charges général
+- SFD (spécifications fonctionnelles détaillées) => cahier des charges techniques
+- Code de l'application
+- Documentation technique de l'application et de sa mise en production
+- Cahier de recettes
+- Manuel utilisateur
+- Présentation client finale
 
-J'ai défini l'architecture découplée, configuré NuxtJS 3 avec TypeScript, mis en place le store Pinia, et développé les premiers endpoints Symfony 6 avec authentification JWT. Le pipeline CI/CD GitHub Actions a été configuré dès cette phase : chaque push déclenchait les tests (PHPUnit, Playwright), et chaque merge sur main déclenchait le déploiement via scripts shell.
+Pour la partie planning, j'ai découpé le projet en sprints et tâches sur Asana (application de gestion de projet). J'ai estimé toutes les tâches et suis arrivé à une estimation globale de 120 heures, soit environ 4 semaines, en ajoutant 3 jours de marge en cas de léger retard.
 
-### Phase 3 : Développement itératif
+J'ai rédigé les premiers livrables après les réunions de cadrage avec les différents acteurs.
+La première semaine est passée très vite avec au bout, un planning détaillé sur Asana, et un cahier des charges général et technique validé.
 
-Chaque semaine, je livrais un incrément fonctionnel présenté lors d'une réunion de validation avec le service RH et la direction. Les premières itérations ont porté sur le socle fonctionnel (affichage des livreurs, pointage, dépointage), puis les suivantes ont ajouté les contrôles métiers, les confirmations visuelles et la gestion des cas limites. Chaque fonctionnalité était testée sur un environnement de staging avant validation.
+### Phase 2 : Architecture et développement back-end (2e semaine)
 
-### Phase 4 : Recette et fonctionnement parallèle
+Pendant la deuxième semaine, je me suis concentré sur le début du développement de l'application. Il a d'abord fallu mettre en place le socle du projet. Ce socle consiste en deux applications :
+- Préparation de l'interface front-end :
+  - basée sur NuxtJS 3 en TypeScript
+  - mise en place de Pinia permettant de gérer l'interactivité des données avec l'API
+  - Docker utilisé pour assurer la même architecture en développement que sur le serveur de production.
 
-Pendant deux semaines, la nouvelle pointeuse et l'ancienne fonctionnaient simultanément. Les responsables de dépôt vérifiaient l'identité des données entre les deux systèmes. Cette approche a permis d'établir la confiance du service RH. Les ajustements ergonomiques remontés par les utilisateurs ont été intégrés en temps réel.
+- API back-end :
+  - basée sur notre API Symfony globale via API Platform en PHP
+  - ajout des endpoints (routes API) permettant d'identifier les dépôts, leurs livreurs et leurs états (pointé ou non dans la journée), et permettant de pointer
+  - mise en place de l'authentification JWT (JSON Web Token) pour ne permettre qu'au front-end configuré d'accéder à l'API
+  - création d'un rapport pour le service RH comprenant les pointages de chaque livreur de chaque dépôt dans un fichier Excel par période
 
-### Phase 5 : Mise en production et bascule
+### Phase 3 : Développement front-end, tests et devops (3e semaine)
 
-Une fois la fiabilité validée, l'ancien module Legacy a été coupé. La mise en production s'est faite à la date exacte annoncée dans le cahier des charges, chaque sprint ayant été livré dans les temps prévus.
+L'API ayant été finalisée durant la deuxième semaine, j'ai pu développer l'interface front-end en TypeScript. Pour cela, je me suis appuyé sur le design system de HopLunch, et j'ai réutilisé les mêmes couleurs et typographies que sur le site public.
+
+J'ai ensuite branché le visuel à l'API via les stores Pinia gérant le cache et la validation des données. J'ai aussi mis en place une gestion des erreurs en fonction de leurs codes pour que les livreurs sachent pourquoi leur pointage n'est pas passé (erreur réseau, site en maintenance etc).
+
+Le back-end étant justement indisponible lors de nos mises à jour globales deux fois par mois, la pointeuse détecte automatiquement une maintenance de l'API et affiche une page de maintenance.
+<br>Nous faisons nos maintenances en fin de journée quand les livreurs ne sont généralement plus aux dépôts pour que cela ne les affecte pas.
+<br>Mais par sécurité, dans un cas où un livreur ne peut pas dépointer, ou oublie de le faire avant de quitter son dépôt, j'ai mis en place un cron qui toutes les nuits dépointe les livreurs qui ont oublié de le faire, avec pour valeur leurs horaires contractuels de fin de journée.
+
+Le site étant théoriquement fonctionnel, je me suis ensuite concentré sur la partie pipeline CI/CD. J'ai créé les règles permettant que chaque push déclenche les tests (PHPUnit, Playwright), et chaque merge sur la branche git "main" déclenche le déploiement de l'application en production via scripts shell.
+
+Pour finir cette semaine, j'ai écrit les tests permettant de valider que l'application fonctionne de bout en bout. Pour cela j'ai utilisé Playwright, qui s'occupe automatiquement de tester le site dans un vrai navigateur et d'apporter des captures d'écran en cas d'erreurs. 
+<br>J'ai testé les cas limites comme l'impossibilité de double pointage, la vérification de la cohérence des horaires, et ajouté les logs pour l'audit RH.
+
+Dorénavant, je pouvais être certain grâce à ces tests, qu'en cas de mise à jour, le fonctionnement actuel est 100% fonctionnel en arrivant en production.
+
+Comme en fin de chaque semaine précédente, j'ai animé une réunion d'avancement avec mon tuteur, où je présentais les nouveautés et où il me faisait un retour sur celles-ci.
+
+### Phase 4 : Derniers livrables et mise en production (4e semaine)
+
+Durant la dernière semaine du projet, j'ai rédigé le cahier de recettes et le manuel utilisateur.
+
+Certains responsables de dépôt ont pu tester en avance la nouvelle pointeuse sur l'environnement de pré-production que j'ai configuré. Ils étaient satisfaits, ce qui m'a ensuite permis de préparer la mise en production réelle et de remplacer l'ancienne pointeuse par la nouvelle.
+
+J'ai effectué une présentation aux différentes parties prenantes durant cette semaine (service RH, responsables de dépôts, lead dev). J'y ai présenté l'application en détails ainsi que le manuel utilisateur, permettant aux responsables de chaque dépôt de présenter la nouvelle application à leurs livreurs dès le lendemain.
+
+Pendant plusieurs semaines, les deux applications étaient utilisables en cas de problème avec la refonte. Cette nouvelle pointeuse ayant 100% des actions possibles testées de bout en bout, aucun bug n'a été remonté durant cette phase de transition.
+
+Une fois la fiabilité validée, l'ancien module Legacy a été coupé. J'ai pu effectuer la mise en production à la date exacte annoncée dans le cahier des charges, et chaque sprint a été livré dans les temps prévus.
 
 ## Résultats pour moi
 
-Ce projet a eu un impact déterminant sur mon développement professionnel.
+Ce projet m'a permis d'évoluer énormément dans plusieurs domaines.
 
-Sur le plan technique, c'était mon premier projet professionnel avec NuxtJS 3 et TypeScript. J'ai acquis une maîtrise solide de la Composition API de Vue 3, de la gestion d'état avec Pinia, et de l'intégration d'une SPA avec une API REST Symfony sécurisée par JWT. J'ai approfondi mes compétences en TailwindCSS pour les interfaces tactiles et en Playwright pour les tests end-to-end. La mise en place du pipeline CI/CD GitHub Actions m'a donné une expérience concrète de l'automatisation du déploiement, que je réutilise sur tous mes projets.
+Sur le plan technique, c'était mon premier projet professionnel avec NuxtJS 3 et TypeScript. J'ai appris à maîtriser la Composition API de Vue 3 et la gestion d'état avec Pinia. J'ai aussi appris à utiliser Playwright pour les tests end-to-end.
+<br>La mise en place du pipeline CI/CD était ma première en environnement professionnel. Aujoud'hui, je teste automatiquement le code et applique un pipeline CI/CD sur tous mes projets qui le nécessitent.
 
-Sur le plan de la gestion de projet, cette première expérience complète m'a appris à rédiger un cahier des charges itératif, animer des réunions de validation, découper un projet en user stories estimables, et gérer la pression des délais sans sacrifier la qualité. Le respect de chaque échéance m'a donné confiance dans ma capacité à piloter des projets de bout en bout.
+Sur le plan de la gestion de projet, j'ai pu rédiger un premier cahier des charges complet pour un projet en entreprise. J'ai aussi pu animer des réunions de validation, découper un projet pour mieux l'estimer, et gérer les délais sans sacrifier la qualité.
+<br>Le fait d'avoir réussi à tenir les délais de chaque échéance m'a donné confiance dans ma capacité à piloter des projets de bout en bout.
 
-Sur le plan de la rigueur, ce projet a confirmé l'importance des tests exhaustifs. J'ai testé 100% des scénarios possibles avant la mise en production, y compris les cas limites. Cette discipline, apprise après mes erreurs sur le projet Ile aux Copains, a directement porté ses fruits avec zéro bug en production sur plus de huit mois.
+Sur le plan de la rigueur, ce projet a montré l'importance des tests automatiques. J'ai testé 100% des scénarios possibles avant la mise en production, y compris les cas limites.
+<br>Cette rigueur, je me la suis imposée après mes erreurs sur d'anciens projets, où je testais uniquement manuellement les choses et laissait parfois passer des bugs, ou à minima perdait beaucoup de temps. D'ailleurs, cela a porté ses fruits, car aucun bug n'a été signalé en production en un an.
 
 ## Résultats pour l'entreprise
 
 Les bénéfices pour HopLunch ont été concrets et mesurables.
 
-**Fiabilisation complète des données de pointage.** Le service RH n'a plus besoin de vérifier et corriger manuellement les données chaque semaine. Les informations sont désormais directement exploitables pour le calcul des heures et l'établissement des bulletins de paie.
+**Fiabilisation des données de pointage :** Le service RH n'a plus besoin de corriger manuellement les données chaque semaine car le système ne permet plus de double pointage par manque d'attention ou de fiabilité de l'application. Les informations sont d'ailleurs directement exploitables via un export Excel trié par dépôt et par livreur.
 
-**Réduction drastique des erreurs de pointage.** L'interface à deux onglets, les confirmations visuelles et les contrôles métiers ont éliminé les erreurs de manipulation fréquentes avec l'ancien système. Les cas de double pointage sont rendus impossibles par l'application.
+**Suppression totale des erreurs de pointage :** En choisissant une interface à deux onglets, des confirmations visuelles et des contrôles métiers stricts, plus aucune erreur de manipulation n'est possible.
 
-**Zéro bug en production** après plus de huit mois d'utilisation quotidienne par une centaine de livreurs sur plusieurs dépôts, témoignant de la robustesse de l'architecture et des tests effectués.
+**Zéro bug en production :** Après un an d'utilisation quotidienne par une centaine de livreurs sur plusieurs dépôts, aucun bug n'a été signalé.
 
-**Respect intégral des délais.** Le projet a été livré à la date prévue, sans dépassement des estimations initiales, renforçant la crédibilité de l'équipe technique auprès de la direction.
-
-**Effet catalyseur sur la modernisation du SI.** Le succès de la pointeuse a démontré qu'il était possible de remplacer des modules Legacy par des applications modernes sans perturbation. Ce constat a ouvert la voie à d'autres projets de modernisation. La pointeuse est régulièrement citée en interne comme un exemple de projet bien mené.
+**Respect des délais :** Le projet a été livré à la date que j'ai estimé au départ.
 
 ## Lendemains du projet
 
 ### Dans un futur immédiat
-Après la mise en production, des évolutions mineures ont été déployées : ajout de nouvelles villes, ajustements ergonomiques, optimisations de performance. Chaque évolution suit le même processus : branche dédiée, tests automatisés, validation sur staging, déploiement via GitHub Actions.
+Après la mise en production, plus aucune mise à jour de fonctionnalité ou de correction n'a été nécessaire, car j'ai fait valider chaque avancement et étape par les parties prenantes pendant le projet.
 
 ### À distance
-Après plus de huit mois en production, la pointeuse est solidement ancrée dans le quotidien de HopLunch. L'application est utilisée chaque jour par une centaine de livreurs sur plusieurs dépôts en France, sans interruption de service ni anomalie signalée. L'architecture découplée NuxtJS / Symfony API permet de faire évoluer chaque couche indépendamment, et les tests Playwright garantissent la non-régression des parcours utilisateur.
+Après un an en production, la pointeuse est totalement ancrée dans le quotidien de HopLunch. L'application est utilisée chaque jour par une centaine de livreurs sur plusieurs dépôts en France, sans interruption de service ni anomalie signalée. L'architecture découplée NuxtJS / Symfony API permet de faire évoluer chaque couche indépendamment si nécessaire, et les tests Playwright garantissent la non-régression du parcours utilisateur.
 
 ### Aujourd'hui
-Le projet a aussi eu un impact organisationnel durable. Le service RH a pris l'habitude de signaler ses besoins d'évolution en amont, facilitant la planification. La méthodologie Agile et la rigueur dans les estimations sont devenues des pratiques que je reproduis systématiquement sur mes projets suivants.
+Le projet a eu un impact organisationnel durable, car le service RH gagne du temps toutes les semaines avec le nouveau système.
 
 ## Autocritique
 
 Ce projet est celui dont je suis le plus fier, à la fois pour la qualité technique et pour la réussite de la gestion de projet. Premier projet NuxtJS professionnel et premier projet géré de bout en bout, deux premières qui auraient pu être source de difficultés. Le résultat est pourtant à la hauteur : zéro bug en production, respect des délais, satisfaction du client.
 
-Si je devais refaire ce projet, je mettrais en place les tests end-to-end Playwright dès le premier sprint plutôt qu'en fin de développement. Les tests unitaires PHPUnit étaient présents dès le début côté backend, mais les tests Playwright côté frontend sont arrivés tardivement. Les intégrer plus tôt m'aurait fait gagner du temps sur la recette et aurait détecté plus rapidement certains comportements inattendus de l'interface sur les tablettes.
+Si je devais refaire ce projet, je mettrais en place les tests end-to-end Playwright dès le premier sprint plutôt qu'en fin de développement. Les tests unitaires PHPUnit étaient présents dès le début côté back-end, mais les tests Playwright côté front-end sont arrivés tardivement. Les intégrer plus tôt m'aurait fait gagner du temps sur la recette et aurait détecté plus rapidement certains comportements inattendus de l'interface sur les tablettes.
 
 La documentation technique, bien que suffisante, aurait pu être plus étoffée. La documentation des composants Vue et des endpoints API aurait mérité plus de détail pour faciliter une éventuelle reprise. C'est un point corrigé sur mes projets suivants.
 

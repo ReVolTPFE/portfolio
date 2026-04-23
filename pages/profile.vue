@@ -19,7 +19,7 @@ const currentAge = currentYear - 2002;
 			<p>Ces valeurs guident mon travail chaque jour. Elles me poussent à écouter, à clarifier, à comprendre et à fournir des projets toujours de qualité.</p>
 
 			<h2 class="text-3xl text-secondary font-bold my-8">Mon projet professionnel et personnel</h2>
-			<p class="mb-4">En parallèle de mon alternance et de ma formation en ingénierie logicielle, je poursuis un objectif clair : continuer à évoluer en tant que développeur backend spécialisé PHP/Symfony. J'y ai acquis une expertise déjà solidement ancrée par plusieurs années de pratique et par la création en entreprise, d'applications SaaS construites de A à Z.</p>
+			<p class="mb-4">En parallèle de mon alternance et de ma formation en ingénierie logicielle, je poursuis un objectif clair : continuer à évoluer en tant que développeur back-end spécialisé PHP/Symfony. J'y ai acquis une expertise déjà solidement ancrée par plusieurs années de pratique et par la création en entreprise, d'applications SaaS construites de A à Z.</p>
 			<p class="mb-2">À long terme, mon ambition est de m'orienter vers des responsabilités où la vision technique et la compréhension du métier se rejoignent :</p>
 			<ul class="list-decimal ml-8">
 				<li class="mb-2">J'ai envie de développer l'architecture de projets complets, pour construire des bases solides, fiables et évolutives.</li>
