@@ -234,14 +234,18 @@ Après la mise en production, plus aucune mise à jour de fonctionnalité ou de 
 Après un an en production, la pointeuse est totalement ancrée dans le quotidien de HopLunch. L'application est utilisée chaque jour par une centaine de livreurs sur plusieurs dépôts en France, sans interruption de service ni anomalie signalée. L'architecture découplée NuxtJS / Symfony API permet de faire évoluer chaque couche indépendamment si nécessaire, et les tests Playwright garantissent la non-régression du parcours utilisateur.
 
 ### Aujourd'hui
-Le projet a eu un impact organisationnel durable, car le service RH gagne du temps toutes les semaines avec le nouveau système.
+Le projet a eu un impact organisationnel durable, car le service RH gagne plusieurs heures toutes les semaines avec le nouveau système qui ne permet plus d'erreurs de pointage, et qui exporte les données via Excel.
 
 ## Autocritique
 
-Ce projet est celui dont je suis le plus fier, à la fois pour la qualité technique et pour la réussite de la gestion de projet. Premier projet NuxtJS professionnel et premier projet géré de bout en bout, deux premières qui auraient pu être source de difficultés. Le résultat est pourtant à la hauteur : zéro bug en production, respect des délais, satisfaction du client.
+Ce projet est celui dont je suis le plus fier. Il y a plusieurs raisons à cela :
+- La qualité technique du projet, testé de bout en bout (end-to-end) sur toutes les actions possibles, et le déploiement automatisé mis en place.
+- La réussite de la gestion de projet, via les estimations du planning et des tâches, les réunions menées et les livrables livrés.
+- Zéro bug en production, respect des délais, satisfaction du client (HopLunch).
 
-Si je devais refaire ce projet, je mettrais en place les tests end-to-end Playwright dès le premier sprint plutôt qu'en fin de développement. Les tests unitaires PHPUnit étaient présents dès le début côté back-end, mais les tests Playwright côté front-end sont arrivés tardivement. Les intégrer plus tôt m'aurait fait gagner du temps sur la recette et aurait détecté plus rapidement certains comportements inattendus de l'interface sur les tablettes.
+Si je devais refaire ce projet, je mettrais en place du TDD (Test Driven Design) qui me permettrait d'écrire les tests automatisés selon les scénarios voulus en premier. De cette manière il aurait été possible de juste coder ce qu'il faut pour valider les tests. C'est une approche que je n'ai jamais testée, et que j'utiliserai un jour dans un prochain projet.
 
-La documentation technique, bien que suffisante, aurait pu être plus étoffée. La documentation des composants Vue et des endpoints API aurait mérité plus de détail pour faciliter une éventuelle reprise. C'est un point corrigé sur mes projets suivants.
+Concernant certains livrables (cahier des charges, spécifications fonctionnelles détaillées), je les ai volontairement très détaillés en estimant gagner du temps par la suite en ayant simplement à suivre la ligne tracée.
+<br>C'est effectivement une tactique qui m'a aidé. En revanche pour mes futurs projets, lorsque je détaillerai les fonctionnalités à l'avance par exemple, je prendrai soin à ne pas m'éterniser sur certains détails trop précis, afin de pouvoir être encore plus productif. 
 
-Enfin, la conduite du changement aurait pu être plus structurée. J'ai impliqué les utilisateurs via les réunions hebdomadaires, mais une formation formelle pour les responsables de dépôt, même courte, aurait accéléré l'adoption. Cette leçon m'a appris qu'un produit techniquement excellent ne suffit pas : l'accompagnement humain fait partie intégrante de la réussite d'un projet.
+Enfin, j'ai pu recueillir beaucoup d'avis pendant les réunions avec les parties prenantes et certains conseils (tels que la synthétisation en réunion) qui m'aideront pour les cadrages futurs.
