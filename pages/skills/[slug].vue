@@ -13,6 +13,20 @@ if (!skill.value) {
 	throw createError({ statusCode: 404, statusMessage: 'Compétence non trouvée' });
 }
 
+// Récupérer toutes les compétences pour la navigation rapide
+const { data: allSkills } = await useAsyncData('all-skills-nav', () =>
+	queryCollection('skills').select('slug', 'name', 'image', 'isIcon', 'category', 'order').all()
+);
+
+const skillsNav = computed(() =>
+	(allSkills.value ?? [])
+		.slice()
+		.sort((a, b) => {
+			if (a.category !== b.category) return a.category === 'technical' ? -1 : 1;
+			return a.order - b.order;
+		})
+);
+
 // Récupérer les projets liés via Nuxt Content
 const { data: allProjects } = await useAsyncData('all-projects-for-skills', () =>
 	queryCollection('projects').select('slug', 'title').all()
@@ -50,7 +64,7 @@ const relatedProjects = computed(() => {
 
 				<h1 class="text-4xl font-bold text-center mb-3 text-primary">{{ skill.name }}</h1>
 
-				<div class="flex justify-center gap-1 mb-8">
+				<div class="flex justify-center gap-1 mb-6">
 					<Icon
 						v-for="star in 5"
 						:key="star"
@@ -59,6 +73,37 @@ const relatedProjects = computed(() => {
 						:class="star <= skill.level ? 'text-yellow-400' : 'text-gray-light'"
 					/>
 				</div>
+
+				<!-- Navigation rapide entre compétences -->
+				<nav class="flex flex-wrap justify-center gap-2 mb-10">
+					<NuxtLink
+						v-for="navSkill in skillsNav"
+						:key="navSkill.slug"
+						:to="`/skills/${navSkill.slug}`"
+						class="p-[2px] rounded-full transition hover:scale-105"
+						:class="navSkill.slug === skill.slug
+							? 'bg-gradient-to-br from-purple-600 to-pink-600'
+							: 'bg-gradient-to-br from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600'"
+					>
+						<span
+							class="flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-white"
+							:class="navSkill.slug === skill.slug ? 'text-secondary' : 'text-primary'"
+						>
+							<Icon
+								v-if="navSkill.isIcon"
+								:name="navSkill.image"
+								class="w-4 h-4 text-tertiary"
+							/>
+							<img
+								v-else
+								:src="navSkill.image"
+								:alt="navSkill.name"
+								class="w-4 h-4 object-contain"
+							>
+							{{ navSkill.name }}
+						</span>
+					</NuxtLink>
+				</nav>
 
 				<!-- Contenu Markdown rendu via Nuxt Content -->
 				<div class="prose prose-lg max-w-none prose-headings:text-primary prose-a:text-tertiary prose-a:font-bold prose-strong:text-white">
