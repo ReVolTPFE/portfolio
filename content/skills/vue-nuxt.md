@@ -13,38 +13,72 @@ relatedProjects:
 
 ## Ma définition
 
-VueJS est un framework JavaScript progressif qui permet de construire des interfaces utilisateur réactives et modulaires grâce à un système de composants. Sa courbe d'apprentissage douce, sa documentation exemplaire et son écosystème riche (Pinia pour le state management, Vue Router pour la navigation, Composition API pour la logique réutilisable) en font l'un des frameworks front-end les plus appréciés par les développeurs. VueJS excelle dans la création d'applications interactives où les données changent en temps réel, grâce à son système de réactivité qui met à jour automatiquement l'interface lorsque les données sous-jacentes évoluent.
+VueJS est un framework JavaScript progressif. Il permet de construire des interfaces utilisateur réactives et modulaires grâce à un système de composants. 
+<br>L'aspect progressif signifie qu'on peut simplement brancher VueJS sur une page de n'importe quel site avec un `<script>`. Il est donc possible d'avoir un site WordPress avec une seule page réactive qui contient un formulaire dynamique par exemple.
 
-NuxtJS est le méta-framework construit au-dessus de VueJS qui ajoute des fonctionnalités essentielles pour la production : le Server-Side Rendering (SSR) pour un meilleur SEO et des temps de chargement plus rapides, la génération de sites statiques, le routage automatique basé sur le système de fichiers, et un système de modules extensible. NuxtJS est particulièrement adapté aux applications web professionnelles qui nécessitent à la fois performance, SEO et une architecture maintenable. Avec Nuxt 3, le framework a adopté TypeScript nativement, le moteur Nitro pour le serveur, et propose des fonctionnalités modernes comme les composables, l'auto-import et Nuxt Content pour la gestion de contenu.
+Son aspect le plus utilisé reste tout de même en tant qu'application VueJS à part entière. Il est très facile à prendre en main grâce à la documentation très complète, et son écosystème de modules (Pinia, Vue Router...). Ses plus grandes forces sont les changements de données en temps réel actualisés sur les interfaces, et son système de composants réutilisables.
 
-Dans le contexte actuel du développement web, VueJS/NuxtJS représente une compétence stratégique pour les développeurs fullstack. La capacité de construire des applications front-end complètes, SEO-friendly et performantes avec un seul framework est un avantage considérable, notamment pour les entreprises SaaS et les plateformes B2B/B2C. Chez HopLunch, cette compétence me permet de développer des applications front-end isolées qui communiquent avec le back-end Symfony via des API REST, offrant ainsi une architecture découplée et scalable.
+NuxtJS est le méta-framework construit au-dessus de VueJS. Il ajoute des fonctionnalités essentielles pour la production :
+- Le Server-Side Rendering (SSR) pour un meilleur SEO et des temps de chargement plus rapides
+- La génération de sites statiques
+- Le routage automatique basé sur le système de fichiers
+- Un système de modules extensible 
+
+Chez HopLunch, c'est avec NuxtJS que je développe des applications front-end isolées qui communiquent avec le back-end Symfony via une API REST.
 
 ## Mes éléments de preuve
 
-### Création de la pointeuse HopLunch : mon premier projet NuxtJS professionnel de A à Z
+### Pointeuse HopLunch : mon premier projet pro NuxtJS de A à Z
 
-La pointeuse des livreurs HopLunch a été mon premier projet NuxtJS complet en environnement professionnel. L'enjeu était de taille : remplacer un système Legacy obsolète par une application moderne, rapide et sécurisée, installée sur les tablettes des dépôts de livraison. J'ai dû monter en compétences rapidement sur NuxtJS tout en gérant le projet de bout en bout (cahier des charges, développement, tests, déploiement). J'ai structuré l'application avec la Composition API de Vue 3, mis en place un store Pinia pour gérer l'état global (livreurs connectés, statut de pointage, ville sélectionnée), et développé un système de communication avec l'API Symfony via des composables réutilisables. La gestion de l'authentification JWT a été un défi particulier : j'ai implémenté un middleware NuxtJS qui vérifie automatiquement la validité du token et redirige vers la page de connexion si nécessaire, avec un système de refresh token transparent pour l'utilisateur. Le résultat : une application déployée avec succès, utilisée quotidiennement par une centaine de livreurs, et qui n'a connu aucun bug depuis sa mise en production. Ce projet m'a fait passer d'un niveau débutant à un niveau confirmé en VueJS/NuxtJS en quelques mois de pratique intensive.
+Le développement de la nouvelle pointeuse pour les livreurs de HopLunch a été mon premier projet NuxtJS en environnement professionnel.
+<br>Cette pointeuse sert à connaître les dates et heures d'arrivées et de départs des livreurs de l'entreprise. Cette application aide le service RH pour gérer les fiches de paies, et permet la validation de certaines primes par exemple.
+
+Sur ce projet j'ai reçu carte blanche sur la technologie à utiliser. L'ancienne pointeuse était sur notre legacy PHP, dont on voulait se séparer. La refonte devait aussi permettre d'avoir une interface plus moderne et de résoudre des bugs comme le double pointage.
+
+Je me suis donc formé en parallèle du développement de l'application, car je connaissais les bases, mais m'intéressait à des fonctionnalités avancées. J'ai structuré l'application avec la Composition API de Vue 3. Elle permet d'avoir pour chaque composant, son HTML, son JS et son CSS customisés et isolés.
+<br>J'ai mis en place un store Pinia pour gérer l'état global d'une tablette dans un dépôt (livreurs connectés, statut de pointage, ville sélectionnée).
+L'interface communique avec l'API Symfony de HopLunch. 
+
+Même si cette application est privée et protégée par un verrouillage IP, il ne faut pas minimiser la sécurité. J'ai donc géré l'authentification JWT entre l'interface NuxtJS et l'API via un middleware NuxtJS qui vérifie automatiquement la validité du token et le renouvelle si nécessaire.
+
+Lorsque notre API est en maintenance, j'ai aussi fait en sorte d'envoyer automatiquement l'information aux tablettes sur l'application lorsqu'un appel API est fait depuis la pointeuse. Elle se met alors sur l'écran de maintenance et toutes les minutes vérifie si l'API est de nouveau disponible.
+
+Résultat : l'application a été déployée avec succès, et elle est utilisée quotidiennement par une centaine de livreurs. Les tests End-to-End que j'avais mis en place sur toute l'application, ont garanti zéro bug depuis sa mise en production.
 
 [→ Voir le projet : Pointeuse HopLunch](/projects/hoplunch-pointeuse)
 
-### Contribution à la refonte du site HopLunch.com en NuxtJS
+### Développement de ce portfolio avec NuxtJS et Nuxt Content
 
-Après le succès de la pointeuse, j'ai été impliqué dans le développement du site principal [hoplunch.com](https://hoplunch.com), une application NuxtJS existante bien plus complexe. Mon rôle a consisté à ajouter des pages de contenu, travailler sur le catalogue de restaurants avec un système de filtres dynamiques, et améliorer la communication avec l'API back-end. Cette expérience m'a confronté à un codebase NuxtJS existant, avec ses conventions, ses composables partagés et son architecture établie. J'ai dû m'adapter rapidement au style de code de l'équipe et comprendre les choix architecturaux déjà en place. J'ai notamment travaillé sur l'optimisation des appels API en implémentant un système de cache intelligent avec `useAsyncData` et `useFetch`, réduisant le nombre de requêtes serveur et améliorant sensiblement les temps de chargement des pages catalogue. Cette expérience sur un projet NuxtJS à plus grande échelle a complété mon apprentissage en me confrontant aux problématiques de performance, de SEO et de travail collaboratif sur un même codebase front-end.
+Ce portfolio est le tout premier projet NuxtJS que j'ai développé. Il m'a permis d'explorer des fonctionnalités du framework.
 
-### Développement de ce portfolio personnel avec NuxtJS et Nuxt Content
+Dans ma définition, j'expliquais que VueJS et NuxtJS ont un grand écosystème de modules. C'est pourquoi j'ai utilisé l'un d'eux s'appelant "Nuxt Content" pour ce portfolio. 
 
-Ce portfolio est lui-même un projet NuxtJS qui m'a permis d'explorer des fonctionnalités avancées du framework. J'utilise Nuxt Content pour gérer les projets et les compétences sous forme de fichiers Markdown, transformés automatiquement en pages web avec un routage dynamique. J'ai configuré TypeScript nativement, mis en place TailwindCSS avec un design system personnalisé, et optimisé les images et le SEO via les méta-tags dynamiques de NuxtJS. La fonctionnalité Swiper pour le carrousel d'images des projets, le formulaire de contact via Formspree, et la navigation responsive sont autant de composants que j'ai développés en Vue 3 avec la Composition API. Ce projet me sert de terrain d'expérimentation continue pour tester les nouvelles fonctionnalités de NuxtJS et VueJS avant de les appliquer en contexte professionnel.
+Il me permet d'écrire mes compétences et mes projets dans des fichiers "Markdown". C'est très pratique, car je peux uniquement me concentrer sur le contenu. Je peux facilement ajouter un titre avec des `# Mon titre`, mettre en gras avec `**mon mot**` etc.
+<br>Tous ces contenus sont transformés automatiquement en pages web avec un routage dynamique. 
+
+J'ai configuré TypeScript nativement, mis en place TailwindCSS avec un design system personnalisé, et organisé le site en composants de sections, incluant des composants de blocs NuxtJS. La page d'accueil a par exemple un composant "section projet" qui contient 5 composants "carte projet".
+
+La fonctionnalité Swiper pour le carrousel d'images des projets, le formulaire de contact via Formspree sont d'autres exemples de composants que j'ai développés avec la Composition API.
+
+Résultat : J'ai rapidement pu développer le site statique avec son design et ses différentes sections. J'ai ensuite pu me concentrer sur l'aspect le plus important, le contenu du portfolio. Le gain de temps énorme provient de la rédaction en Markdown qui me permet de lire mon contenu facilement et d'en rajouter sans devoir mettre manuellement des balises HTML toutes les lignes.
 
 ## Mon autocritique
 
-J'acquiers actuellement une maîtrise solide de VueJS/NuxtJS à travers mes projets professionnels et personnels. Bien que mon expertise soit plus récente que sur PHP/Symfony (environ 1 an et demi de pratique intensive contre 3 ans et demi), ma progression a été rapide grâce à ma solide base en JavaScript et à ma compréhension des architectures web. Je me considère à un niveau confirmé, capable de développer des applications NuxtJS complètes de manière autonome, mais conscient qu'il me reste des domaines à approfondir, notamment le SSR avancé, les stratégies de cache complexes et les tests front-end (Vitest, Playwright).
+### Maîtrise et importance dans mon métier
 
-Cette compétence prend une importance croissante dans mon profil. Le marché du développement web évolue vers des architectures découplées où le front-end est une application à part entière. Maîtriser VueJS/NuxtJS en complément de Symfony me positionne comme un développeur véritablement fullstack, capable de prendre en charge un projet de bout en bout, du modèle de données à l'interface utilisateur.
+Niveau 3/5. En environnement professionnel et personnel, j'ai pu consolider ma maîtrise de VueJS/NuxtJS très rapidement à travers plusieurs projets.
+<br>J'ai moins d'expérience sur ce framework qu'en back-end sur Symfony par exemple, mais travailler avec NuxtJS m'a appris à avoir un profil fullstack quand les projets le nécessitent.
 
-Mon conseil : pour un développeur PHP/Symfony qui souhaite monter en compétences sur le front-end, VueJS est le choix le plus naturel grâce à sa courbe d'apprentissage progressive. Commencer par un petit projet personnel (comme un portfolio) permet d'apprivoiser le framework sans pression avant de l'utiliser en production.
+### Vitesse d'acquisition
+
+J'ai rapidement progressé, car je connaissais déjà bien JavaScript depuis des années. En quelques semaines, j'ai pu développer des applications complètes et fonctionnelles en production. 
+
+### Recul et conseils
+
+Je n'ai pas énormément de recul sur cette technologie car je la maîtrise depuis environ un an au moment où j'écris ces lignes. Mon conseil en tant que développeur spécialisé en back-end est de continuer à me former, parce qu'aujourd'hui le développement fullstack est plus que jamais une compétence requise par énormément d'entreprises.
 
 ## Mon évolution
 
-Mon objectif à moyen terme est de renforcer ma maîtrise des fonctionnalités avancées de NuxtJS : le SSR avec gestion fine du cache, les stratégies de pre-fetching et pre-rendering, l'optimisation des Web Vitals (LCP, FID, CLS), et les tests end-to-end avec Playwright. Je souhaite également approfondir ma connaissance de l'écosystème Vue (VueUse, Pinia avancé, Vue Query) pour proposer des solutions front-end toujours plus robustes.
+Je sais que j'ai encore une grande marge de progression, c'est pourquoi je continue de me former et de lire la documentation de NuxtJS notamment quand je développe avec ce framework.
 
-Je perfectionne actuellement mon utilisation des stores Pinia avec des patterns avancés (store composables, plugins), des composables réutilisables pour la logique métier partagée, et des middlewares NuxtJS pour la gestion des autorisations. À terme, je vise un niveau d'expertise en VueJS/NuxtJS équivalent à celui que j'ai en PHP/Symfony, me permettant de piloter des choix architecturaux front-end sur des projets d'envergure.
+À court/moyen terme, je compte renforcer ma maîtrise des fonctionnalités avancées de NuxtJS. Cela inclut le SSR avec gestion du cache, les stratégies de pre-fetching et pre-rendering, et les tests end-to-end avec Playwright. 
