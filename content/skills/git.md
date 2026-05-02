@@ -16,7 +16,8 @@ relatedProjects:
 
 ## Ma définition
 
-Git est le système de contrôle de version distribué le plus utilisé au monde. Il permet de suivre l'historique de chaque modification apportée au code source, de collaborer à plusieurs développeurs sur un même projet sans conflit, et de revenir à tout moment à une version antérieure du code. Git est devenu un outil absolument indispensable dans le développement logiciel moderne : aucun projet professionnel sérieux ne se fait sans gestion de version.
+Git est le système de contrôle de version le plus utilisé au monde. Il permet de suivre l'historique de chaque modification apportée au code source, de collaborer à plusieurs développeurs sur un même projet sans conflit, et de revenir à tout moment à une version antérieure du code. 
+<br>Git est devenu un outil indispensable dans le développement logiciel moderne : aucun projet professionnel sérieux ne se fait sans gestion de version.
 
 Au-delà du simple suivi de fichiers, Git est un véritable outil de collaboration et de gestion de projet. Les branches permettent de travailler sur des fonctionnalités en isolation, les merge requests (ou pull requests) facilitent la revue de code entre pairs, et les tags permettent de versionner les releases. Combiné à des plateformes comme GitHub ou GitLab, Git devient le pivot central du workflow de développement : écriture du code, revue, intégration continue (CI), déploiement continu (CD) et traçabilité des changements.
 
@@ -35,10 +36,6 @@ Lorsque j'ai rejoint DGS Création, l'utilisation de Git était basique : les d�
 Sur le projet de pointeuse HopLunch, j'ai mis en place un pipeline CI/CD complet avec GitHub Actions. Chaque push sur une branche de feature déclenche automatiquement les tests unitaires (PHPUnit pour le back-end Symfony, tests Playwright pour le front-end NuxtJS) et les vérifications de qualité de code (ESLint, PHPStan). Lorsqu'une merge request est fusionnée dans la branche principale, le pipeline de déploiement se déclenche automatiquement : build de l'application NuxtJS, déploiement sur le serveur de production via des scripts shell personnalisés, et vérification de santé post-déploiement. Ce système m'a permis de déployer en toute confiance des mises à jour en production sans intervention manuelle, tout en garantissant que chaque changement a été testé et validé. En 8 mois de production, aucun déploiement n'a causé de régression, preuve de la fiabilité du pipeline mis en place. Cette expérience m'a convaincu de l'importance d'investir du temps dans l'automatisation dès le début d'un projet.
 
 [→ Voir le projet : Pointeuse HopLunch](/projects/hoplunch-pointeuse)
-
-### Gestion de la migration de 400+ sites clients chez Agence Tiz
-
-Lors de mon alternance chez Agence Tiz, j'ai participé à la migration technique de plus de 400 sites clients (WordPress, Drupal, sites statiques) vers un nouvel hébergement. Git a été l'outil central de cette opération massive. J'ai développé des scripts de migration qui utilisaient Git pour versionner chaque étape de la migration : sauvegarde du site d'origine, migration des fichiers et de la base de données, vérification post-migration. Chaque site migré avait sa propre branche Git, ce qui permettait de revenir en arrière en cas de problème sans affecter les autres migrations. Cette expérience m'a confronté à une utilisation de Git à grande échelle, avec des centaines de repositories à gérer simultanément. J'ai appris à automatiser les opérations Git via des scripts Bash et à gérer efficacement les conflits et les cas particuliers (sites avec des modifications non versionnées, des plugins incompatibles, des versions PHP obsolètes).
 
 ## Mon autocritique
 
