@@ -16,18 +16,30 @@ relatedProjects:
 
 ## Ma définition
 
-Git est le système de contrôle de version le plus utilisé au monde. Il permet de suivre l'historique de chaque modification apportée au code source, de collaborer à plusieurs développeurs sur un même projet sans conflit, et de revenir à tout moment à une version antérieure du code. 
-<br>Git est devenu un outil indispensable dans le développement logiciel moderne : aucun projet professionnel sérieux ne se fait sans gestion de version.
+Git est l'outil de gestion de versions de code que j'utilise au quotidien. Il garde l'historique du code et permet surtout de travailler efficacement à plusieurs sur le même projet.
 
-Au-delà du simple suivi de fichiers, Git est un véritable outil de collaboration et de gestion de projet. Les branches permettent de travailler sur des fonctionnalités en isolation, les merge requests (ou pull requests) facilitent la revue de code entre pairs, et les tags permettent de versionner les releases. Combiné à des plateformes comme GitHub ou GitLab, Git devient le pivot central du workflow de développement : écriture du code, revue, intégration continue (CI), déploiement continu (CD) et traçabilité des changements.
-
-Dans un contexte professionnel, la maîtrise avancée de Git fait une différence significative dans la productivité d'une équipe. Savoir résoudre des conflits de merge complexes, utiliser le rebase interactif pour maintenir un historique propre, exploiter les branches de feature et les workflows Git Flow ou GitHub Flow, sont autant de compétences qui fluidifient le travail collaboratif et réduisent les risques d'erreurs en production.
+Plus qu'un simple suivi des fichiers, Git permet de gérer tout le workflow de développement : 
+- Création de branches pour développer une feature dans un environnement isolé.
+- Merge et rebase du code avec gestion des conflits pour fusionner les changements.
+- Avec des plateformes comme GitHub ou GitLab, Git permet la revue de code via des Pull/Merge Requests, l'hébergement des projets (appelés repositories), et la mise en place de pipelines CI/CD pour construire, tester et déployer une application automatiquement.
 
 ## Mes éléments de preuve
 
 ### Mise en place du workflow Git et SemVer chez DGS Création
 
-Lorsque j'ai rejoint DGS Création, l'utilisation de Git était basique : les développeurs committaient directement sur la branche principale sans convention de nommage ni workflow défini. J'ai proposé et mis en place un workflow Git Flow adapté à la taille de l'équipe : une branche `main` pour la production, une branche `develop` pour l'intégration, et des branches de feature nommées selon la convention `feature/nom-de-la-fonctionnalité`. J'ai également introduit le Semantic Versioning (SemVer) pour les releases, avec des tags Git correspondants (v1.0.0, v1.1.0, v1.2.3...). Ce workflow a permis de réduire considérablement les conflits de merge et d'améliorer la traçabilité des changements. Sur le projet Bee'z Pro, par exemple, nous avons pu maintenir un historique Git propre avec plus de 500 commits répartis sur 6 mois de développement, ce qui a facilité le debugging et le suivi de l'évolution du projet. La cliente pouvait consulter les changelogs générés à partir des messages de commit pour suivre l'avancement du développement.
+Lorsque j'ai rejoint DGS Création, aucun système de gestion de versions n'était utilisé. Tous les projets en développement étaient stockés sur un serveur en interne sur lequel chaque développeur travaillait en FTP/SSH depuis son éditeur de code.
+
+La moindre erreur de manipulation sur le serveur, comme une commande appliquée au mauvais endroit, et tout pouvait être perdu. C'est pourquoi j'ai mis en place Git sur les projets sur lesquels je travaillais, et proposé à l'équipe de faire de même.
+<br>J'ai donc mis en place un compte GitHub entreprise et des comptes individuels pour chaque développeur. Mais cela ne suffit pas, car mal utilisé, Git n'apporte pas grand chose de plus.
+
+Pour améliorer les processus, j'ai mis en place une convention de nommage et un workflow d'utilisation de Git adapté à la taille de l'équipe :
+- Une branche `main` pour la production
+- Une branche `develop` pour l'intégration et la pré-production
+- Des branches de features nommées selon la convention `feature/nom-de-la-fonctionnalité`
+- Introduction du Semantic Versioning (SemVer) pour les releases, avec des tags Git correspondants (v1.0.0, v1.1.0, v1.2.3...).
+
+Résultat : Ce workflow a permis aux développeurs de travailler à plusieurs sur les mêmes projets sans se marcher dessus. Il a aussi permis d'améliorer la traçabilité des changements. 
+<br>Sur le projet Bee'z Pro par exemple, j'ai pu maintenir un historique Git propre avec plus de 200 commits répartis sur plusieurs mois de développement au fil des versions. Git a facilité le debugging et le suivi de l'évolution du projet grâce aux documentations et changelogs que j'ai créé.
 
 [→ Voir le projet : Bee'z Pro](/projects/dgs-beez-pro)
 
@@ -38,6 +50,18 @@ Sur le projet de pointeuse HopLunch, j'ai mis en place un pipeline CI/CD complet
 [→ Voir le projet : Pointeuse HopLunch](/projects/hoplunch-pointeuse)
 
 ## Mon autocritique
+
+### Maîtrise et importance dans mon métier
+
+Niveau 4/5. 
+
+### Vitesse d'acquisition
+
+### Recul et conseils
+
+
+
+Avec le temps, j'ai appris à me sortir des situations un peu tendues : conflits de merge, rebase interactif pour nettoyer l'historique avant une PR, cherry-pick pour récupérer un commit perdu. Ce sont ces petits réflexes qui font gagner du temps à toute l'équipe.
 
 Je maîtrise Git de manière experte après plus de 5 ans d'utilisation quotidienne. Cette compétence est transversale : elle intervient dans chaque projet, chaque jour de travail, chaque collaboration. Ma maîtrise couvre les opérations courantes (commit, push, pull, merge, rebase), les opérations avancées (cherry-pick, bisect, reflog, stash, submodules), et la mise en place de workflows collaboratifs adaptés à la taille de l'équipe.
 
