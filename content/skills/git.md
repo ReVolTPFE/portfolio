@@ -30,7 +30,7 @@ Plus qu'un simple suivi des fichiers, Git permet de gérer tout le workflow de d
 Lorsque j'ai rejoint DGS Création, aucun système de gestion de versions n'était utilisé. Tous les projets en développement étaient stockés sur un serveur en interne sur lequel chaque développeur travaillait en FTP/SSH depuis son éditeur de code.
 
 La moindre erreur de manipulation sur le serveur, comme une commande appliquée au mauvais endroit, et tout pouvait être perdu. C'est pourquoi j'ai mis en place Git sur les projets sur lesquels je travaillais, et proposé à l'équipe de faire de même.
-<br>J'ai donc mis en place un compte GitHub entreprise et des comptes individuels pour chaque développeur. Mais cela ne suffit pas, car mal utilisé, Git n'apporte pas grand chose de plus.
+<br>J'ai donc mis en place un compte GitHub entreprise et des comptes individuels pour chaque développeur. Mais cela ne suffit pas, car Git permet bien plus de choses.
 
 Pour améliorer les processus, j'ai mis en place une convention de nommage et un workflow d'utilisation de Git adapté à la taille de l'équipe :
 - Une branche `main` pour la production
@@ -45,7 +45,19 @@ Résultat : Ce workflow a permis aux développeurs de travailler à plusieurs su
 
 ### Pipeline CI/CD et déploiement automatisé pour la pointeuse HopLunch
 
-Sur le projet de pointeuse HopLunch, j'ai mis en place un pipeline CI/CD complet avec GitHub Actions. Chaque push sur une branche de feature déclenche automatiquement les tests unitaires (PHPUnit pour le back-end Symfony, tests Playwright pour le front-end NuxtJS) et les vérifications de qualité de code (ESLint, PHPStan). Lorsqu'une merge request est fusionnée dans la branche principale, le pipeline de déploiement se déclenche automatiquement : build de l'application NuxtJS, déploiement sur le serveur de production via des scripts shell personnalisés, et vérification de santé post-déploiement. Ce système m'a permis de déployer en toute confiance des mises à jour en production sans intervention manuelle, tout en garantissant que chaque changement a été testé et validé. En 8 mois de production, aucun déploiement n'a causé de régression, preuve de la fiabilité du pipeline mis en place. Cette expérience m'a convaincu de l'importance d'investir du temps dans l'automatisation dès le début d'un projet.
+Chez HopLunch, j'ai développé un outil de pointeuse servant à comptabiliser les heures travaillées par les livreurs de l'entreprise.
+
+Pour garantir un projet propre j'ai écrit des tests End-to-End, qui s'occupent automatiquement sur un vrai navigateur de vérifier que le site fonctionne.
+<br>Je souhaitais être certain de ne rien casser au fil des développements donc j'ai initialisé un pipeline de CI/CD sur le repository GitLab de l'entreprise. Ce pipeline se configure via un fichier de configuration en langage YAML automatiquement interprété par GitLab.
+
+La partie CI consistait à vérifier qu'après chaque changement de code :
+- le projet se construit correctement
+- la qualité de code est conservée (ESLint, PHPStan)
+- que les tests automatisés soient toujours valides (tests PHPUnit pour l'API Symfony, tests Playwright End-to-End pour l'interface NuxtJS)
+
+J'ai aussi configuré une partie CD qui permet qu'à chaque fusion de code sur la branche `develop`, il soit directement envoyé sur le serveur de pré-production. De même à chaque fusion sur `main`, cette fois-ci le code est automatiquement envoyé sur le site web en production.
+
+Résultat : Ce système m'a permis de déployer des mises à jour en production sans intervention manuelle. Les tests ont garanti qu'aucun changement ne casse le site, et en 1 an passé en production, aucun déploiement n'a causé de régression, preuve de la fiabilité du pipeline mis en place.
 
 [→ Voir le projet : Pointeuse HopLunch](/projects/hoplunch-pointeuse)
 
@@ -53,24 +65,24 @@ Sur le projet de pointeuse HopLunch, j'ai mis en place un pipeline CI/CD complet
 
 ### Maîtrise et importance dans mon métier
 
-Niveau 4/5. 
+Niveau 4/5. Git permet aux développeurs de gagner énormément de temps tous les jours notamment via son système de fusion de code et de gestion de conflits.
+<br>Je l'utilise depuis le lycée pour chacun de mes sites. De gros projets professionnels m'ont permis d'utiliser des commandes Git avancées à de nombreuses reprises, et aujourd'hui je suis confiant dans mes capacités avec l'outil.
 
 ### Vitesse d'acquisition
 
+Lorsque j'étais encore au lycée, Git me semblait compliqué, donc pendant longtemps je ne connaissais que la base avec `git pull` et `git push` sur une seule branche.
+<br>C'est lors de ma première alternance que j'ai appris à utiliser les systèmes de branches et de fusion du code via `git merge` notamment. Depuis, j'ai appris énormément et j'utilise aujourd'hui Git tous les jours dans le terminal.
+
 ### Recul et conseils
 
+Avec le temps, j'ai appris à me sortir de situations tendues comme des conflits de merge ou le rebase interactif pour nettoyer l'historique d'une branche.
+Récemment j'ai appris à utiliser le cherry-pick pour récupérer des commits perdus dans l'historique.
 
-
-Avec le temps, j'ai appris à me sortir des situations un peu tendues : conflits de merge, rebase interactif pour nettoyer l'historique avant une PR, cherry-pick pour récupérer un commit perdu. Ce sont ces petits réflexes qui font gagner du temps à toute l'équipe.
-
-Je maîtrise Git de manière experte après plus de 5 ans d'utilisation quotidienne. Cette compétence est transversale : elle intervient dans chaque projet, chaque jour de travail, chaque collaboration. Ma maîtrise couvre les opérations courantes (commit, push, pull, merge, rebase), les opérations avancées (cherry-pick, bisect, reflog, stash, submodules), et la mise en place de workflows collaboratifs adaptés à la taille de l'équipe.
-
-L'importance de Git dans mon métier est fondamentale. Un développeur qui ne maîtrise pas Git perd du temps, crée des conflits et met en danger le travail de ses collègues. À l'inverse, un développeur qui utilise Git efficacement peut travailler en toute confiance, expérimenter sans risque et collaborer fluidement. Ma vitesse d'acquisition a été progressive : des bases en formation, puis une montée en compétences rapide en entreprise face aux problèmes réels (conflits de merge complexes, historiques cassés, déploiements ratés).
-
-Mon conseil : prendre le temps d'apprendre le modèle interne de Git (objets, arbre, commits, références). Comprendre comment Git fonctionne sous le capot permet de résoudre n'importe quel problème, même les plus complexes, et de ne jamais perdre de données.
+Mon conseil est de prendre le temps d'apprendre le modèle de Git (objets, arbre, commits, références). Comprendre comment il fonctionne sous le capot permet de résoudre n'importe quel problème, et de ne jamais perdre de données.
 
 ## Mon évolution
 
-Mon objectif est de continuer à perfectionner mes compétences en CI/CD et en automatisation des pipelines de déploiement. Je souhaite explorer des stratégies de déploiement avancées (blue-green deployment, canary releases) et approfondir ma connaissance des outils de GitOps pour la gestion d'infrastructure as code.
+Mon objectif est de continuer à perfectionner mes compétences en CI/CD et en automatisation des pipelines de déploiement. 
+<br>Je compte m'exercer sur des stratégies de déploiement avancées (blue-green deployment, canary releases) et approfondir ma connaissance des outils de DevOps autour de Git.
 
-Je m'intéresse également aux bonnes pratiques de contribution open-source (gestion de forks, rebasing, squashing), car je souhaite à terme contribuer à des projets open-source de l'écosystème Symfony ou NuxtJS. La maîtrise avancée de Git est un prérequis pour participer efficacement à ces communautés.
+À plus long terme, je compte contribuer à des projets open-source et une bonne maîtrise de Git est tout aussi importante qu'une bonne maîtrise du code pour accomplir cela.
