@@ -40,15 +40,15 @@ const props = defineProps({
 				</div>
 
 				<p class="text-center">{{ skill.name }}</p>
-					<div class="flex gap-0.5 mt-1">
-						<Icon
-							v-for="star in 5"
-							:key="star"
-							name="mdi:star"
-							class="w-4 h-4"
-							:class="star <= skill.level ? 'text-yellow-400' : 'text-gray-light'"
-						/>
-					</div>
+				<div class="flex gap-0.5 mt-1">
+					<Icon
+						v-for="star in 5"
+						:key="star"
+						name="mdi:star"
+						class="w-4 h-4"
+						:class="star <= skill.level ? 'text-yellow-400' : 'text-gray-light'"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
