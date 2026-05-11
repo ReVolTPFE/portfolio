@@ -2,10 +2,10 @@
 import SectionTitle from '~/components/SectionTitle.vue';
 import ProjectCard from '~/components/ProjectCard.vue';
 import LinkButton from '~/components/LinkButton.vue';
-import {trendingProjects} from '~/data/projects';
 
-// on cherche les 3 trending projets uniquement
-const projects = trendingProjects;
+const { data: projects } = await useAsyncData('trending-projects', () =>
+	queryCollection('projects').where('trending', '=', true).order('date', 'DESC').all()
+);
 </script>
 
 <template>

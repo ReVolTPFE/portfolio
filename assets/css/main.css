@@ -14,7 +14,7 @@ body {
 #hero-section {
     width: 100%;
     @apply h-96 md:h-[550px];
-    background-image: url("public/img/banner.jpg");
+    background-image: url("/img/banner.jpg");
     background-position: center;
     object-fit: contain;
 }

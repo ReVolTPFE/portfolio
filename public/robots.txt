@@ -1,1 +1,6 @@
-
+User-agent: *
+Allow: /$
+Disallow: /projects
+Disallow: /skills
+Disallow: /profile
+Disallow: /career
