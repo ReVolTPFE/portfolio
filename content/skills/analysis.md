@@ -15,42 +15,58 @@ relatedProjects:
 
 ## Ma définition
 
-L'esprit d'analyse est la capacité à décomposer un problème complexe en éléments simples, à identifier les causes profondes, à évaluer les solutions possibles et à prendre des décisions éclairées. Dans le développement logiciel, cette compétence intervient à chaque étape du cycle de vie d'un projet : analyse des besoins du client, conception de l'architecture technique, décomposition des fonctionnalités en tâches de développement, debugging, et optimisation des performances.
+L'esprit d'analyse en développement, c’est l'art de décortiquer un problème complexe. Il faut en comprendre la logique, le contexte ou la finalité voulue avant même de toucher au clavier. Plutôt que de coder la première solution à laquelle on pense, le développeur analytique anticipe les impacts techniques et les dépendances futures à une fonctionnalité.
+<br>C'est une rigueur qui transforme un simple "code qui marche" en une architecture solide, maintenable et capable d'évoluer dans le temps.
 
-Un développeur doté d'un bon esprit d'analyse ne se contente pas de coder la première solution qui lui vient à l'esprit. Il prend le recul nécessaire pour comprendre le problème dans sa globalité, identifier les contraintes et les dépendances, évaluer les impacts de chaque choix technique, et anticiper les problèmes futurs. Cette approche méthodique fait la différence entre un code qui "marche" et un code qui est maintenable, performant et évolutif.
-
-Dans un contexte professionnel, l'esprit d'analyse s'applique également à la compréhension du domaine métier du client. Développer un SaaS pour une agence d'intérim sans comprendre le fonctionnement de l'intérim, ou créer un système de gestion logistique sans comprendre les flux de livraison, mène inévitablement à des erreurs fonctionnelles coûteuses. L'esprit d'analyse permet de poser les bonnes questions, de challenger les spécifications incomplètes et de proposer des solutions qui répondent réellement aux besoins exprimés et implicites.
+Au-delà de la technique, cette compétence est indispensable pour comprendre les enjeux métiers du client. Qu’il s'agisse de logistique ou de RH, comprendre le fonctionnement réel du secteur permet de poser les bonnes questions et de corriger des spécifications floues.
 
 ## Mes éléments de preuve
 
-### Analyse et conception du schéma de données pour le SaaS Bee'z Web
+### Analyse détaillée des besoins pour un système de matching
 
-Le projet Bee'z Web nécessitait une analyse approfondie avant de commencer le développement. Le domaine métier (gestion de contrats d'intérim, facturation, conformité légale) était complexe et nouveau pour moi. J'ai commencé par une phase d'analyse de plusieurs jours : interviews avec la cliente pour comprendre ses processus actuels, étude des contraintes légales liées aux contrats d'intérim, analyse des flux de données entre les différents acteurs (entreprises clientes, intérimaires, agence). Cette analyse m'a permis d'identifier des cas d'usage non prévus dans le cahier des charges initial, notamment la gestion des avenants de contrat (modification de durée, de mission ou de rémunération) qui nécessitait un historique complet des versions du contrat. Sans cette analyse préalable, nous aurions dû refactorer la base de données en cours de projet, ce qui aurait coûté plusieurs semaines de retard. Le schéma de données que j'ai conçu a supporté l'ensemble des fonctionnalités sans modification majeure jusqu'à la livraison finale, preuve de la qualité de l'analyse initiale.
+Le projet Bee'z Pro est un SaaS pour une agence d'intérim permettant de gérer candidatures, offres d'emploi et vitrine de l'agence. L'une des fonctionnalités les plus complexes était l'algorithme de matching entre les profils de candidats et les offres d'emploi. 
 
-[→ Voir le projet : Bee'z Web](/projects/dgs-beez-web)
+Le cahier des charges initial décrivait simplement "un système de matching intelligent". Cela était bien trop léger pour pouvoir coder quelque chose de pertinent. J'ai donc mené une analyse approfondie avec la cliente pour définir précisément les critères de matching (expérience, disponibilité, localisation, compétences, habilitations). Nous avons décidé ensemble d'appliquer une pondération relative, et un seuil de pertinence à chacun de ces critères.
 
-### Décomposition et planification de la refonte ZAE chez HopLunch
+J'ai aussi identifié que le matching devait être bidirectionnel : les candidats devaient voir les offres qui leur correspondent, et l'agence devait voir les candidats qui correspondent à une offre donnée. J'ai également anticipé le besoin de pouvoir ajuster les pondérations sans intervention technique. C'est ce qui m'a conduit à créer un système de scoring paramétrable via le back-office du SaaS.
 
-La refonte du système de gestion des ZAE chez HopLunch était un projet d'envergure qui touchait à de nombreux aspects du système existant. Avant de coder quoi que ce soit, j'ai mené une analyse complète de l'existant : cartographie des tables de base de données impactées, identification des dépendances entre les différents modules du back-office, inventaire des processus manuels utilisés par les managers de ville. Cette analyse a révélé qu'une refonte partielle temporaire (initialement envisagée) serait contre-productive, car les dépendances entre les composants étaient trop fortes. J'ai présenté cette analyse à mon chef de projet avec un comparatif détaillé des deux approches (refonte partielle vs refonte complète) en termes de temps, de risques et de bénéfices. Nous avons finalement opté pour la refonte complète, et c'est cette analyse qui a permis de prendre la bonne décision. Malheureusement, avant d'arriver à cette conclusion, nous avions déjà entamé une refonte partielle qui a servi un mois seulement, ce qui m'a appris l'importance de faire cette analyse AVANT de commencer à coder, et non pas après avoir rencontré les premiers blocages.
-
-[→ Voir le projet : Gestion des ZAE](/projects/hoplunch-zae)
-
-### Analyse détaillée des besoins pour le matching candidats-offres (Bee'z Pro)
-
-Sur le projet Bee'z Pro, l'une des fonctionnalités les plus complexes était l'algorithme de matching entre les profils de candidats et les offres d'emploi. Le cahier des charges initial décrivait simplement "un système de matching intelligent". J'ai mené une analyse approfondie avec la cliente pour définir précisément les critères de matching (expérience, disponibilité, localisation, compétences, habilitations), leur pondération relative, et les seuils de pertinence. J'ai identifié que le matching devait être bidirectionnel : les candidats devaient voir les offres qui leur correspondent, et l'agence devait voir les candidats qui correspondent à une offre donnée. J'ai également anticipé le besoin de pouvoir ajuster les pondérations sans intervention technique, ce qui m'a conduit à concevoir un système de scoring paramétrable via le back-office. Cette analyse préalable a permis de livrer un matching fonctionnel et adapté dès la première version, là où une approche plus précipitée aurait nécessité de multiples itérations coûteuses.
+Résultat : Cette analyse préalable a permis de livrer un matching fonctionnel et pertinent dès la première version, là où une approche plus précipitée aurait nécessité de nombreuses itérations coûteuses.
 
 [→ Voir le projet : Bee'z Pro](/projects/dgs-beez-pro)
 
+### Analyse et conception du schéma de données pour le SaaS Bee'z Web
+
+Le projet Bee'z Web est la continuité du SaaS Bee'z Pro dans l'aspect gestion de contrats intérimaires en ligne. Ce projet nécessitait une analyse solide avant de commencer le développement. Le domaine métier (gestion de contrats d'intérim, facturation, conformité légale) était complexe et tout nouveau pour moi. La cliente m'a donc expliqué lors de plusieurs réunions, tous les aspects de son métier, et du processus complet de gestion, facturation et signature d'un contrat intérimaire. 
+
+Avec ces informations, j'ai pu attaquer la réflexion sur l'architecture de base de données à créer. C'est une phase d'analyse qui a duré plusieurs jours, car après avoir appris les processus actuels de notre cliente, je devais aussi étudier les contraintes légales liées aux contrats d'intérim, et les flux de données entre les différents acteurs (entreprises clientes, intérimaires, agence). 
+
+Cette analyse m'a permis d'identifier des cas d'usage non prévus dans le cahier des charges initial, comme la gestion des avenants de contrat (modification de durée, de mission ou de rémunération) qui nécessitait un historique complet des versions du contrat. Sans cette analyse préalable, j'aurais dû totalement modifier la base de données en cours de projet, ce qui aurait coûté plusieurs jours à semaines de retard. 
+
+Résultat : Le schéma de données que j'ai conçu a supporté l'ensemble des fonctionnalités sans modification majeure jusqu'à la livraison finale, preuve de la qualité mais surtout de l'utilité de l'analyse initiale.
+
+[→ Voir le projet : Bee'z Web](/projects/dgs-beez-web)
+
 ## Mon autocritique
 
-Je considère mon esprit d'analyse comme l'une de mes forces principales. Cette compétence est indissociable du développement fullstack : chaque jour, je suis confronté à des problèmes techniques ou fonctionnels qui nécessitent une décomposition méthodique. Ma capacité à prendre du recul, à questionner les hypothèses et à anticiper les impacts de mes choix techniques s'est renforcée au fil des projets.
+### Maîtrise et importance dans mon métier
 
-L'importance de cette compétence dans mon profil est majeure. C'est l'esprit d'analyse qui me permet de concevoir des architectures durables plutôt que des solutions de contournement, et de comprendre le domaine métier de mes clients pour proposer des fonctionnalités pertinentes. C'est aussi cette compétence qui me permet de débugger efficacement en remontant méthodiquement à la cause racine plutôt qu'en corrigeant les symptômes.
+Niveau 4/5. Avec mon expérience en programmation de projets très variés et complexes, je considère mon esprit d'analyse comme étant l'une de mes forces principales.
+<br>C'est une compétence totalement nécessaire en développement fullstack, car tous les jours je suis face à des problèmes techniques ou fonctionnels qui nécessitent une décomposition méthodique.
 
-Mon point d'amélioration : j'ai parfois tendance à vouloir trop analyser avant de commencer à coder, ce qui peut ralentir le démarrage d'un projet. L'expérience m'apprend à trouver le bon équilibre entre analyse préalable et itérations rapides, en acceptant que certaines questions ne trouveront leur réponse que dans la pratique.
+### Vitesse d'acquisition
+
+Lorsque j'ai commencé ma première alternance il y a 5 ans, j'avais tendance à sauter dans le code sans réfléchir, car j'étais face à des choses assez simples au départ. Mais plus le temps passait et plus le travail demandé devenait complexe, plus j'ai remarqué que réfléchir aux différentes possibilités est nécessaire avant de coder.
+<br>Aujourd'hui avec l'expérience accumulée, j'analyse tout ticket de bug ou fonctionnalité en profondeur avant de coder.
+
+### Recul et conseils
+
+L'esprit d'analyse permet de créer des architectures durables et de comprendre le domaine métier des clients pour proposer des fonctionnalités pertinentes.
+<br>Bien sûr, j'ai avec le recul, parfois tendance à trop analyser pour des choses plutôt faciles et rapides. Mais il s'agit simplement avec l'expérience de trouver un juste milieu.
+
+Mon meilleur conseil : Un stylo et un carnet sont les meilleurs alliés. Faire des schémas et lister des propositions permet de voir réellement ce qui peut se faire. Mais c'est surtout une façon pour moi d'être certain de ce qui est attendu et de la solution la plus pertinente à apporter.
 
 ## Mon évolution
 
-Je souhaite approfondir mes compétences en analyse systémique et en modélisation d'architectures logicielles complexes. Je prévois d'étudier les patterns d'architecture (hexagonale, CQRS, event sourcing) pour enrichir mon arsenal d'outils d'analyse et de conception.
+Cette capacité d'analyse est essentielle pour évoluer vers des rôles de lead technique ou d'architecte logiciel. Je souhaite d'ailleurs approfondir mes compétences en modélisation d'architectures logicielles complexes.
 
-À moyen terme, je vise à pouvoir mener des audits techniques complets sur des applications existantes : analyse de la dette technique, identification des goulots d'étranglement, proposition de plans de refactoring priorisés. Cette capacité d'analyse globale est essentielle pour évoluer vers des rôles de lead technique ou d'architecte logiciel.
+À moyen terme, j'aimerais mener des audits techniques complets sur des applications existantes : analyse de la dette technique, identification des blocages, et proposition de refactoring.
